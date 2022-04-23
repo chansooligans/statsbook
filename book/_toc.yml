@@ -1,0 +1,84 @@
+format: jb-book
+root: contents/home
+parts:
+  - caption: Foundation
+    chapters: 
+    - file: contents/foundation/home
+    - file: contents/foundation/probability/README
+      sections:
+      - file: contents/foundation/probability/intro
+      - file: contents/foundation/probability/discrete_distributions
+      - file: contents/foundation/probability/continuous_distributions
+      - file: contents/foundation/probability/plotting_distributions
+      - file: contents/foundation/probability/multivariate_distributions
+      - file: contents/foundation/probability/clt
+      - file: contents/foundation/probability/hypothesis_testing
+      - file: contents/foundation/probability/bias_variance
+    - file: contents/foundation/linear_algebra/review
+    - file: contents/foundation/regression/README
+      sections:
+      - file: contents/foundation/regression/ols/README
+        sections:
+        - file: contents/foundation/regression/ols/ols
+        - file: contents/foundation/regression/ols/assumptions
+        - file: contents/foundation/regression/ols/diagnostics
+        - file: contents/foundation/regression/ols/estimation
+        - file: contents/foundation/regression/ols/wls
+      - file: contents/foundation/regression/glm/README
+        sections:
+        - file: contents/foundation/regression/glm/logistic/README
+          sections:
+          - file: contents/foundation/regression/glm/logistic/logistic
+          - file: contents/foundation/regression/glm/logistic/interpretation
+        - file: contents/foundation/regression/glm/poisson/README
+          sections:
+          - file: contents/foundation/regression/glm/poisson/poisson
+          - file: contents/foundation/regression/glm/poisson/interpretation
+        - file: contents/foundation/regression/glm/model_comparisons
+      - file: contents/foundation/regression/interactions
+      - file: contents/foundation/regression/estimation
+    - file: contents/foundation/sampling/README
+      sections:
+      - file: contents/foundation/sampling/bootstrap
+      - file: contents/foundation/sampling/crossvalidation
+  - caption: Simulations
+    chapters: 
+    - file: contents/simulations/README
+      sections:
+      - file: contents/simulations/confidence_intervals
+  - caption: Causal Inference
+    chapters:
+    - file: contents/causal_inference/framework/README.md
+      sections:
+      - file: contents/causal_inference/framework/fundamental_problem
+      - file: contents/causal_inference/framework/ignorability
+      - file: contents/causal_inference/framework/matching
+    - file: contents/causal_inference/propensity_scores
+  - caption: Machine Learning
+    chapters: 
+    - file: contents/machine_learning/home
+    - file: contents/machine_learning/supervised/README
+      sections:
+      - file: contents/machine_learning/supervised/discriminant_analysis
+      - file: contents/machine_learning/supervised/decision_trees/README
+        sections:
+        - file: contents/machine_learning/supervised/decision_trees/regression_tree
+        - file: contents/machine_learning/supervised/decision_trees/classification_tree
+        - file: contents/machine_learning/supervised/decision_trees/boosting
+        - file: contents/machine_learning/supervised/decision_trees/random_forest
+      - file: contents/machine_learning/supervised/knn
+    - file: contents/machine_learning/clustering/README
+      sections:
+      - file: contents/machine_learning/clustering/kmeans
+  # - caption: Neural Networks
+  #   chapters: 
+  #   - file: contents/neural_networks/home
+  #   - file: contents/neural_networks/basics/regression_tf
+  #   - file: contents/neural_networks/basics/shallow
+  #   - file: contents/neural_networks/basics/activation
+  # - caption: Bayesian Inference
+  #   chapters: 
+  #   - file: contents/bayesian/home
+  #   - file: contents/bayesian/basic_example
+  #   - file: contents/bayesian/linear_regression
+  
