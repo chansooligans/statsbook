@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hypothesis Testing &#8212; Statsbook</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
@@ -120,6 +119,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="intro.html">
      Probability Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../test.html">
+     Test
     </a>
    </li>
    <li class="toctree-l2">
@@ -504,11 +508,11 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://git.ag.ny.gov/research/statsbook"><button type="button" class="btn btn-secondary topbarbtn"
+            href="github.com/chansooligans/statsbook"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://git.ag.ny.gov/research/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontents/foundation/probability/hypothesis_testing.html&body=Your%20issue%20content%20here."><button
+            href="github.com/chansooligans/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontents/foundation/probability/hypothesis_testing.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -597,7 +601,7 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="hypothesis-testing">
+  <div class="tex2jax_ignore mathjax_ignore section" id="hypothesis-testing">
 <h1>Hypothesis Testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this headline">¶</a></h1>
 <p>Elements of a Statistical Test:</p>
 <ol class="simple">
@@ -607,7 +611,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Rejection Region: values of the test statistic for which the null hypothesis is to be rejected</p></li>
 </ol>
 <hr class="docutils" />
-<section id="large-sample-tests">
+<div class="section" id="large-sample-tests">
 <h2>Large Sample Tests<a class="headerlink" href="#large-sample-tests" title="Permalink to this headline">¶</a></h2>
 <p>Case study:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A company claims that average tips per shift is $15.  
@@ -650,7 +654,7 @@ the sample size is sufficiently large (n=42).</p>
 <p>The Z-score is computed below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -660,10 +664,22 @@ the sample size is sufficiently large (n=42).</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="n">sample_mean</span> <span class="o">=</span> <span class="mi">13</span>
 <span class="n">sample_var</span> <span class="o">=</span> <span class="mi">36</span>
@@ -675,17 +691,31 @@ the sample size is sufficiently large (n=42).</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">sample_mean</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">sample_var</span> <span class="o">=</span> <span class="mi">36</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">z_reject</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">Z</span> <span class="o">=</span> <span class="p">(</span><span class="n">sample_mean</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_var</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;reject if less than: </span><span class="si">{</span><span class="n">z_reject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;st&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <p>Since the Z test statistic lies in the rejection region, we reject the null hypothesis.<br />
 At the 0.05 level of significance, the evidence is sufficient to indicate that the company’s
 claim is incorrect and that the average tips per shift is less than $15</p>
 <hr class="docutils" />
-<section id="large-sample-tests-with-two-tails">
+<div class="section" id="large-sample-tests-with-two-tails">
 <h3>Large Sample Tests with two-tails<a class="headerlink" href="#large-sample-tests-with-two-tails" title="Permalink to this headline">¶</a></h3>
 <p>Let the Alternative Hypothesis be: <span class="math notranslate nohighlight">\(H_1: \mu != 15\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="n">sample_mean</span> <span class="o">=</span> <span class="mi">13</span>
 <span class="n">sample_var</span> <span class="o">=</span> <span class="mi">36</span>
@@ -697,17 +727,31 @@ claim is incorrect and that the average tips per shift is less than $15</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">sample_mean</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">sample_var</span> <span class="o">=</span> <span class="mi">36</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">z_reject</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">Z</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="n">sample_mean</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_var</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;reject if greater than: </span><span class="si">{</span><span class="n">z_reject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;st&#39; is not defined
+</pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
+</div>
+</div>
 <hr class="docutils" />
-<section id="small-sample-tests">
+<div class="section" id="small-sample-tests">
 <h2>Small Sample Tests<a class="headerlink" href="#small-sample-tests" title="Permalink to this headline">¶</a></h2>
 <p>Assume same setting as the large sample test example. But now, n = 8 instead of 42.</p>
 <p>The test statistic is now a t-statistic, which follows a t-distribution with <span class="math notranslate nohighlight">\(n-1\)</span> degrees of freedom.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># one-tail</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># one-tail</span>
 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="n">sample_mean</span> <span class="o">=</span> <span class="mi">13</span>
@@ -720,10 +764,24 @@ claim is incorrect and that the average tips per shift is less than $15</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">sample_mean</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">sample_var</span> <span class="o">=</span> <span class="mi">36</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">t_reject</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">tstat</span> <span class="o">=</span> <span class="p">(</span><span class="n">sample_mean</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_var</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;reject if less than: </span><span class="si">{</span><span class="n">t_reject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;st&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># two-tail</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># two-tail</span>
 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="n">sample_mean</span> <span class="o">=</span> <span class="mi">13</span>
@@ -736,9 +794,23 @@ claim is incorrect and that the average tips per shift is less than $15</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [5],</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">sample_mean</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">sample_var</span> <span class="o">=</span> <span class="mi">36</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">t_reject</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">tstat</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="n">sample_mean</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_var</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;reject if less than: </span><span class="si">{</span><span class="n">t_reject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;st&#39; is not defined
+</pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -786,12 +858,9 @@ claim is incorrect and that the average tips per shift is less than $15</p>
     <footer class="footer">
   <p>
     
-      By RAD (Research and Analytics Department)<br/>
+      By Chansoo Song<br/>
     
-      <div class="extra_footer">
-        <p>DRAFT</br>Attorney Work Product</br>Privileged and Confidential</p>
-
-      </div>
+        &copy; Copyright 2021.<br/>
   </p>
 </footer>
 </main>

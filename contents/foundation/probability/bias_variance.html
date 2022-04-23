@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bias Variance &#8212; Statsbook</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
@@ -120,6 +119,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="intro.html">
      Probability Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../test.html">
+     Test
     </a>
    </li>
    <li class="toctree-l2">
@@ -504,11 +508,11 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://git.ag.ny.gov/research/statsbook"><button type="button" class="btn btn-secondary topbarbtn"
+            href="github.com/chansooligans/statsbook"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://git.ag.ny.gov/research/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontents/foundation/probability/bias_variance.html&body=Your%20issue%20content%20here."><button
+            href="github.com/chansooligans/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontents/foundation/probability/bias_variance.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -583,7 +587,7 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="bias-variance">
+  <div class="tex2jax_ignore mathjax_ignore section" id="bias-variance">
 <h1>Bias Variance<a class="headerlink" href="#bias-variance" title="Permalink to this headline">¶</a></h1>
 <p>When we fit a model to data, the error can be decomposed to a bias component and a variance component.
 Often, there’s atradeoff between these two components.</p>
@@ -593,7 +597,7 @@ got a new sample, we’d expect that our model would estimate similar parameters
 <p>If we fit a complex model with many parameters, we likely have low bias and high variance, a.k.a. “overfitting”.
 We estimate a parameter that may be very accurate, but it’s likely highly sensitive to this particular
 training set.</p>
-<section id="bias-variance-decomposition-of-mse">
+<div class="section" id="bias-variance-decomposition-of-mse">
 <h2>Bias-Variance Decomposition of MSE<a class="headerlink" href="#bias-variance-decomposition-of-mse" title="Permalink to this headline">¶</a></h2>
 <p>First, define bias and variance:</p>
 <div class="math notranslate nohighlight">
@@ -615,14 +619,14 @@ training set.</p>
 \[ = (y - E[\hat{y}])^2 + E[(E[\hat{y}] - \hat{y})^2] + 0\]</div>
 <div class="math notranslate nohighlight">
 \[ = [\text{Bias}]^2 + \text{Variance}\]</div>
-</section>
-<section id="mvue">
+</div>
+<div class="section" id="mvue">
 <h2>MVUE<a class="headerlink" href="#mvue" title="Permalink to this headline">¶</a></h2>
 <p>In general, we prefer an estimator with good MSE properties, e.g. low bias and low variance.
 An unbiased parameter with minimum variance is called the MVUE (minimum variance unbiased estimate).
 This is far too theoretical for discussion here, but search “Cramer-Rao bound”</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -670,12 +674,9 @@ This is far too theoretical for discussion here, but search “Cramer-Rao bound�
     <footer class="footer">
   <p>
     
-      By RAD (Research and Analytics Department)<br/>
+      By Chansoo Song<br/>
     
-      <div class="extra_footer">
-        <p>DRAFT</br>Attorney Work Product</br>Privileged and Confidential</p>
-
-      </div>
+        &copy; Copyright 2021.<br/>
   </p>
 </footer>
 </main>

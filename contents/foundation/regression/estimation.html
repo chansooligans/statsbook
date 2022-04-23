@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Estimation &#8212; Statsbook</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
@@ -120,6 +119,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../probability/intro.html">
      Probability Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../test.html">
+     Test
     </a>
    </li>
    <li class="toctree-l2">
@@ -504,11 +508,11 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://git.ag.ny.gov/research/statsbook"><button type="button" class="btn btn-secondary topbarbtn"
+            href="github.com/chansooligans/statsbook"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://git.ag.ny.gov/research/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontents/foundation/regression/estimation.html&body=Your%20issue%20content%20here."><button
+            href="github.com/chansooligans/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontents/foundation/regression/estimation.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -679,11 +683,11 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="estimation">
+  <div class="tex2jax_ignore mathjax_ignore section" id="estimation">
 <h1>Estimation<a class="headerlink" href="#estimation" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
@@ -693,11 +697,23 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
 </div>
-<section id="ols-wls">
+</div>
+</div>
+<div class="section" id="ols-wls">
 <h2>OLS / WLS<a class="headerlink" href="#ols-wls" title="Permalink to this headline">¶</a></h2>
 <p>OLS and WLS solutions can be directly estimated using linear algebra.</p>
-<section id="ols">
+<div class="section" id="ols">
 <h3>OLS<a class="headerlink" href="#ols" title="Permalink to this headline">¶</a></h3>
 <p>Given an OLS model:</p>
 <div class="math notranslate nohighlight">
@@ -716,8 +732,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="math notranslate nohighlight">
 \[X'X\hat{\beta} = X'y\]</div>
 <p>Then multiply by <span class="math notranslate nohighlight">\((X'X)^{-1}\)</span> on both sides</p>
-</section>
-<section id="wls">
+</div>
+<div class="section" id="wls">
 <h3>WLS<a class="headerlink" href="#wls" title="Permalink to this headline">¶</a></h3>
 <p>WLS relaxes homoscedasticity assumption using weights to estimate a non-constant variance-covariance error matrix.
 Weights are typically assumed or estimated using the data. Observations assigned larger weights are worth more, so
@@ -734,12 +750,12 @@ the regression line would be closer to these points.</p>
 <p>e.g. minimize sum of squared errors, just like OLS:</p>
 <div class="math notranslate nohighlight">
 \[e'e = \sum_i^n{w_i(y_i - x_i'\beta)^2} = (Y-X\beta)'W(Y-X\beta)\]</div>
-</section>
-</section>
+</div>
+</div>
 <hr class="docutils" />
-<section id="glm-generalized-linear-models">
+<div class="section" id="glm-generalized-linear-models">
 <h2>GLM: Generalized Linear Models<a class="headerlink" href="#glm-generalized-linear-models" title="Permalink to this headline">¶</a></h2>
-<section id="applied-example-logistic-regression">
+<div class="section" id="applied-example-logistic-regression">
 <h3>Applied Example: Logistic Regression<a class="headerlink" href="#applied-example-logistic-regression" title="Permalink to this headline">¶</a></h3>
 <p>Likelihood:</p>
 <div class="math notranslate nohighlight">
@@ -754,7 +770,7 @@ the regression line would be closer to these points.</p>
 can approximate using a variety of methods.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inverse_logit</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inverse_logit</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)))</span>
 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">500</span>
@@ -770,13 +786,30 @@ can approximate using a variety of methods.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="k">return</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="s2">&quot;x1&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">),</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="s2">&quot;x2&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">),</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="p">})</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;eta&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;x1&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;x2&quot;</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
+</div>
+</div>
 <hr class="docutils" />
-<section id="optimizers">
+<div class="section" id="optimizers">
 <h2>Optimizers<a class="headerlink" href="#optimizers" title="Permalink to this headline">¶</a></h2>
-<section id="newton-s-method-for-numerical-optimization-newton-raphson">
+<div class="section" id="newton-s-method-for-numerical-optimization-newton-raphson">
 <h3>Newton’s Method for Numerical Optimization (Newton-Raphson):<a class="headerlink" href="#newton-s-method-for-numerical-optimization-newton-raphson" title="Permalink to this headline">¶</a></h3>
 <p>The aim is to find where <span class="math notranslate nohighlight">\(t(x) = 0\)</span>.
 The slope of <span class="math notranslate nohighlight">\(t\)</span> at a value <span class="math notranslate nohighlight">\(x_n\)</span> is given by:</p>
@@ -789,8 +822,8 @@ The slope of <span class="math notranslate nohighlight">\(t\)</span> at a value 
 <div class="math notranslate nohighlight">
 \[\beta_{n+1} = \beta_n - \nabla^2t(x^n)^{-1}\nabla t(x^n)\]</div>
 <p>where <span class="math notranslate nohighlight">\(\nabla^2t(x^n)^{-1}\)</span> is the inverse of the Hessian matrix of t at <span class="math notranslate nohighlight">\(x^n\)</span></p>
-</section>
-<section id="irls">
+</div>
+<div class="section" id="irls">
 <h3>IRLS<a class="headerlink" href="#irls" title="Permalink to this headline">¶</a></h3>
 <p>see: https://ocw.mit.edu/courses/mathematics/18-650-statistics-for-applications-fall-2016/lecture-slides/MIT18_650F16_GLM.pdf<br />
 also: https://ee227c.github.io/code/lecture24.html</p>
@@ -798,7 +831,7 @@ also: https://ee227c.github.io/code/lecture24.html</p>
 \[\beta_n - \nabla^2t(x^n)^{-1}\nabla t(x^n) =&gt; \beta_n - (X^TWX)^{-1}X^T(y-p)\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Newton&#39;s optimization:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Newton&#39;s optimization:</span>
 
 <span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span>
 
@@ -844,10 +877,23 @@ also: https://ee227c.github.io/code/lecture24.html</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Newton&#39;s optimization:</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">constant</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">constant</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;x1&quot;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;x2&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">T</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># check against statsmodels</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check against statsmodels</span>
 <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;y ~ x1 + x2&#39;</span>
 <span class="n">y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
 <span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
@@ -855,13 +901,27 @@ also: https://ee227c.github.io/code/lecture24.html</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># check against statsmodels</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;y ~ x1 + x2&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;patsy&#39; is not defined
+</pre></div>
 </div>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="bfgs">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="bfgs">
 <h1>BFGS<a class="headerlink" href="#bfgs" title="Permalink to this headline">¶</a></h1>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -909,12 +969,9 @@ also: https://ee227c.github.io/code/lecture24.html</p>
     <footer class="footer">
   <p>
     
-      By RAD (Research and Analytics Department)<br/>
+      By Chansoo Song<br/>
     
-      <div class="extra_footer">
-        <p>DRAFT</br>Attorney Work Product</br>Privileged and Confidential</p>
-
-      </div>
+        &copy; Copyright 2021.<br/>
   </p>
 </footer>
 </main>

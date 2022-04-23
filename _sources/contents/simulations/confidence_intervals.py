@@ -101,3 +101,5 @@ ints = plt.xlabel("Intervals")
 # %%
 df["reject"].value_counts() / len(df)
 
+
+# %%
