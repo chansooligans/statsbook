@@ -645,7 +645,7 @@ loss function with tuning parameter \alpha:</p>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">)})</span>
 
-<span class="n">fp</span> <span class="o">=</span> <span class="s2">&quot;/Users/chansoosong/Desktop/statsbook/data&quot;</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;../../../../../data&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -821,26 +821,6 @@ loss function with tuning parameter \alpha:</p>
   warnings.warn(
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [7],</span> in <span class="ni">&lt;cell line: 24&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">cv</span> <span class="o">=</span> <span class="n">GridSearchCrossValidate</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">parameters</span><span class="o">=</span><span class="n">parameters</span><span class="p">,</span> 
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">X</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;x0&quot;</span><span class="p">]],</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">mod</span><span class="o">=</span><span class="s2">&quot;cv&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="p">[</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>         <span class="n">dt</span><span class="o">.</span><span class="n">get_by_depth</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">res</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fp</span><span class="si">}</span><span class="s2">/regression_tree_output.p&quot;</span><span class="p">,</span><span class="s2">&quot;wb&quot;</span><span class="p">))</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/chansoosong/Desktop/statsbook/data/regression_tree_output.p&#39;
-</pre></div>
-</div>
 </div>
 </div>
 <p>Plot demonstrates underfit tree with max_depth = 2, overfit tree with max_depth = 15,
@@ -861,21 +841,18 @@ and cross validation best parameters result.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [8],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">res</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fp</span><span class="si">}</span><span class="s2">/regression_tree_output.p&quot;</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>             <span class="n">res</span><span class="p">[</span><span class="s2">&quot;x0&quot;</span><span class="p">],</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span>             <span class="n">res</span><span class="p">[</span><span class="s2">&quot;preds&quot;</span><span class="p">],</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span>             <span class="n">hue</span><span class="o">=</span><span class="n">res</span><span class="p">[</span><span class="s2">&quot;mod&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>             <span class="n">style</span><span class="o">=</span><span class="n">res</span><span class="p">[</span><span class="s2">&quot;mod&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>         <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;x0&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/chansoosong/Desktop/statsbook/data/regression_tree_output.p&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/chansoosong/Desktop/repos.nosync/statsbook/.venv/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+  warnings.warn(
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/chansoosong/Desktop/repos.nosync/statsbook/.venv/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;x0&#39;, ylabel=&#39;preds&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../../../_images/regression_tree_14_3.png" src="../../../../_images/regression_tree_14_3.png" />
 </div>
 </div>
 </div>

@@ -46,7 +46,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 sns.set(rc={'figure.figsize':(12, 10)})
 
-fp = "/Users/chansoosong/Desktop/statsbook/data"
+fp = f"../../../../../data"
 
 
 # %% [markdown]

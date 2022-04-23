@@ -52,7 +52,7 @@ from sklearn.model_selection import GridSearchCV
 import seaborn as sns
 sns.set(rc={'figure.figsize':(12, 10)})
 
-fp = "/Users/chansoosong/Desktop/statsbook/data"
+fp = f"../../../../../data"
 
 # %% [markdown]
 """
