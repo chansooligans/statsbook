@@ -244,7 +244,7 @@ plt.show()
 """
 ## Visualize Decision Tree (max_depth = 5 version)
 """
-
+# %%
 dt = DecisionTree(
     X=df[["x0","x1"]],
     y=df["y"],

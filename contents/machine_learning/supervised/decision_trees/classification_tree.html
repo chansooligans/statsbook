@@ -528,34 +528,27 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Classification Trees
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decesion-tree-classification-class">
+   Decesion Tree Classification Class
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#decesion-tree-classification-class">
-     Decesion Tree Classification Class
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cross-validation-class">
-     Cross Validation Class
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-parameters-for-grid-search">
-     Set Parameters for Grid Search
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-results-and-plot">
-     Get Results and Plot
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cross-validation-class">
+   Cross Validation Class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-parameters-for-grid-search">
+   Set Parameters for Grid Search
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-results-and-plot">
+   Get Results and Plot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualize-decision-tree-max-depth-5-version">
    Visualize Decision Tree (max_depth = 5 version)
   </a>
@@ -580,34 +573,27 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Classification Trees
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decesion-tree-classification-class">
+   Decesion Tree Classification Class
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#decesion-tree-classification-class">
-     Decesion Tree Classification Class
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cross-validation-class">
-     Cross Validation Class
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-parameters-for-grid-search">
-     Set Parameters for Grid Search
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-results-and-plot">
-     Get Results and Plot
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cross-validation-class">
+   Cross Validation Class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-parameters-for-grid-search">
+   Set Parameters for Grid Search
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-results-and-plot">
+   Get Results and Plot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualize-decision-tree-max-depth-5-version">
    Visualize Decision Tree (max_depth = 5 version)
   </a>
@@ -892,22 +878,25 @@ and cross validation best parameters result.</p>
 <img alt="../../../../_images/classification_tree_14_1.png" src="../../../../_images/classification_tree_14_1.png" />
 </div>
 </div>
-<p>“””</p>
+</div>
+<div class="section" id="visualize-decision-tree-max-depth-5-version">
+<h2>Visualize Decision Tree (max_depth = 5 version)<a class="headerlink" href="#visualize-decision-tree-max-depth-5-version" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">DecisionTree</span><span class="p">(</span>
+    <span class="n">X</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;x0&quot;</span><span class="p">,</span><span class="s2">&quot;x1&quot;</span><span class="p">]],</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span>
+    <span class="n">X_test</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;x0&quot;</span><span class="p">,</span><span class="s2">&quot;x1&quot;</span><span class="p">]],</span> 
+    <span class="n">mod</span><span class="o">=</span><span class="s2">&quot;depth&quot;</span>
+<span class="p">)</span>
+<span class="n">dot_data</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+<span class="n">export_graphviz</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">get_by_depth</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">regressor</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="n">dot_data</span><span class="p">,</span>  
+                <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">special_characters</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;x0&quot;</span><span class="p">,</span><span class="s2">&quot;x1&quot;</span><span class="p">],</span><span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;3&#39;</span><span class="p">])</span>
+</pre></div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="visualize-decision-tree-max-depth-5-version">
-<h1>Visualize Decision Tree (max_depth = 5 version)<a class="headerlink" href="#visualize-decision-tree-max-depth-5-version" title="Permalink to this headline">¶</a></h1>
-<p>“””</p>
-<p>dt = DecisionTree(
-X=df[[“x0”,”x1”]],
-y=df[“y”],
-X_test=df[[“x0”,”x1”]],
-mod=”depth”
-)
-dot_data = StringIO()
-export_graphviz(dt.get_by_depth(depth=5).regressor, out_file=dot_data,<br />
-filled=True, rounded=True,
-special_characters=True,feature_names = [“x0”,”x1”],class_names=[‘0’,’1’,’2’,’3’])</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph</span> <span class="o">=</span> <span class="n">pydotplus</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>  
@@ -917,13 +906,37 @@ special_characters=True,feature_names = [“x0”,”x1”],class_names=[‘0’
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [9],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">graph</span> <span class="o">=</span> <span class="n">pydotplus</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>  
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">())</span>
+<span class="ne">InvocationException</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [10],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">graph</span> <span class="o">=</span> <span class="n">pydotplus</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>  
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">())</span>
 
-<span class="ne">NameError</span>: name &#39;dot_data&#39; is not defined
+<span class="nn">File ~/Desktop/repos.nosync/statsbook/.venv/lib/python3.9/site-packages/pydotplus/graphviz.py:1797,</span> in <span class="ni">Dot.__init__.&lt;locals&gt;.&lt;lambda&gt;</span><span class="nt">(f, prog)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1792</span> <span class="c1"># Automatically creates all the methods enabling the creation</span>
+<span class="g g-Whitespace">   </span><span class="mi">1793</span> <span class="c1"># of output in any of the supported formats.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1794</span> <span class="k">for</span> <span class="n">frmt</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">formats</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1795</span>     <span class="bp">self</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1796</span>         <span class="s1">&#39;create_&#39;</span> <span class="o">+</span> <span class="n">frmt</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">1797</span>         <span class="k">lambda</span> <span class="n">f</span><span class="o">=</span><span class="n">frmt</span><span class="p">,</span> <span class="n">prog</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">prog</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">prog</span><span class="o">=</span><span class="n">prog</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1798</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1799</span>     <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;create_&#39;</span> <span class="o">+</span> <span class="n">frmt</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1800</span>     <span class="n">f</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1801</span>         <span class="sd">&#39;&#39;&#39;Refer to the docstring accompanying the&#39;&#39;&#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1802</span>         <span class="sd">&#39;&#39;&#39;&#39;create&#39; method for more information.&#39;&#39;&#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1803</span>     <span class="p">)</span>
+
+<span class="nn">File ~/Desktop/repos.nosync/statsbook/.venv/lib/python3.9/site-packages/pydotplus/graphviz.py:1959,</span> in <span class="ni">Dot.create</span><span class="nt">(self, prog, format)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1957</span>     <span class="bp">self</span><span class="o">.</span><span class="n">progs</span> <span class="o">=</span> <span class="n">find_graphviz</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1958</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">progs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1959</span>         <span class="k">raise</span> <span class="n">InvocationException</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1960</span>             <span class="s1">&#39;GraphViz</span><span class="se">\&#39;</span><span class="s1">s executables not found&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1962</span> <span class="k">if</span> <span class="n">prog</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">progs</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1963</span>     <span class="k">raise</span> <span class="n">InvocationException</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1964</span>         <span class="s1">&#39;GraphViz</span><span class="se">\&#39;</span><span class="s1">s executable &quot;</span><span class="si">%s</span><span class="s1">&quot; not found&#39;</span> <span class="o">%</span> <span class="n">prog</span><span class="p">)</span>
+
+<span class="ne">InvocationException</span>: GraphViz&#39;s executables not found
 </pre></div>
+</div>
 </div>
 </div>
 </div>
