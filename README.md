@@ -1,3 +1,3 @@
 # statsbook  
 
-A book containing guides, tutorials, workshop content for statistics fundamentals, bayesian methods, and machine learning.
+A book containing notes for statistics fundamentals, bayesian methods, and machine learning. Contains a combination of original content and notes from other sources (cited where applicable).
