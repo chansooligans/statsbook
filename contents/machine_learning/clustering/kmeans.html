@@ -121,11 +121,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../foundation/test.html">
-     Test
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../../foundation/probability/discrete_distributions.html">
      Discrete Distributions
     </a>
@@ -640,20 +635,6 @@ and different distance measures can be used. The following is one example:</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="create-fake-data">
 <h2>Create Fake Data<a class="headerlink" href="#create-fake-data" title="Permalink to this headline">¶</a></h2>
@@ -676,23 +657,10 @@ But for this demo, we generate y for fake data to be able to evaluate results.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">centers</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)]</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">cluster_std</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">n_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">cluster_std</span> <span class="o">=</span> <span class="n">cluster_std</span><span class="p">,</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">centers</span> <span class="o">=</span> <span class="n">centers</span><span class="p">,</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">n_features</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> 
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Set1&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;make_blobs&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x109f1be50&gt;
 </pre></div>
 </div>
+<img alt="../../../_images/kmeans_3_1.png" src="../../../_images/kmeans_3_1.png" />
 </div>
 </div>
 </div>
@@ -706,13 +674,29 @@ But for this demo, we generate y for fake data to be able to evaluate results.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span>
-
-<span class="ne">NameError</span>: name &#39;KMeans&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 0, 1, 1, 2, 1, 1, 2, 2, 2, 1, 0, 2, 1, 1, 0, 0, 2, 2, 0, 0, 0,
+       2, 2, 0, 2, 0, 2, 0, 2, 0, 0, 0, 2, 1, 1, 0, 0, 2, 2, 0, 2, 1, 0,
+       2, 2, 0, 0, 1, 2, 2, 0, 0, 0, 0, 2, 1, 1, 1, 2, 2, 1, 0, 0, 2, 1,
+       1, 2, 2, 2, 2, 2, 2, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 2, 1, 2, 2, 0,
+       0, 2, 2, 1, 0, 2, 1, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 0, 1, 1, 0, 2,
+       2, 2, 0, 2, 2, 2, 2, 0, 1, 1, 0, 2, 2, 2, 1, 2, 2, 1, 2, 0, 0, 0,
+       1, 2, 2, 0, 2, 0, 2, 1, 2, 1, 2, 0, 1, 0, 2, 1, 0, 1, 2, 2, 2, 0,
+       2, 0, 1, 0, 2, 2, 0, 1, 0, 0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 0, 1, 0,
+       2, 2, 0, 2, 1, 0, 1, 2, 0, 1, 2, 0, 0, 2, 2, 2, 2, 2, 0, 2, 2, 0,
+       2, 1, 0, 2, 1, 2, 1, 2, 0, 0, 0, 0, 2, 0, 0, 2, 1, 1, 2, 2, 0, 2,
+       2, 0, 0, 1, 1, 1, 2, 2, 2, 2, 1, 2, 1, 1, 1, 0, 1, 2, 0, 2, 1, 2,
+       0, 2, 2, 1, 2, 2, 1, 2, 0, 0, 1, 0, 1, 0, 2, 0, 2, 1, 1, 1, 1, 0,
+       0, 1, 0, 0, 1, 1, 1, 2, 1, 0, 0, 2, 0, 2, 1, 2, 2, 0, 0, 1, 0, 2,
+       1, 0, 2, 2, 1, 0, 0, 1, 0, 1, 1, 2, 1, 0, 0, 0, 1, 2, 0, 0, 2, 2,
+       1, 2, 0, 1, 1, 0, 2, 1, 0, 1, 2, 1, 2, 0, 2, 0, 2, 1, 1, 1, 0, 0,
+       0, 1, 0, 2, 2, 2, 0, 2, 2, 2, 0, 1, 1, 1, 0, 1, 0, 0, 0, 2, 0, 0,
+       0, 2, 0, 0, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 0, 0, 0, 1, 2, 0, 1,
+       0, 1, 0, 1, 2, 2, 0, 2, 1, 0, 1, 2, 2, 0, 1, 2, 1, 2, 0, 0, 0, 1,
+       2, 0, 0, 1, 2, 2, 0, 2, 1, 0, 2, 2, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0,
+       1, 0, 2, 2, 2, 0, 2, 2, 2, 1, 2, 1, 0, 1, 0, 1, 1, 0, 0, 2, 2, 2,
+       0, 0, 1, 2, 0, 2, 1, 0, 0, 1, 1, 2, 1, 2, 1, 1, 1, 1, 2, 0, 2, 1,
+       0, 1, 2, 2, 1, 1, 0, 2, 0, 0, 2, 1, 1, 0, 2, 0, 1, 1, 1, 0, 0, 1,
+       1, 2, 2, 2, 1, 1, 1, 0, 1, 2, 2, 2, 1, 0, 0, 1], dtype=int32)
 </pre></div>
 </div>
 </div>
@@ -725,15 +709,10 @@ But for this demo, we generate y for fake data to be able to evaluate results.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">hue</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">hue</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;sns&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
+<img alt="../../../_images/kmeans_6_1.png" src="../../../_images/kmeans_6_1.png" />
 </div>
 </div>
 </div>
@@ -790,13 +769,16 @@ Stops when no new points are updated.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [6],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">mod</span> <span class="o">=</span> <span class="n">KmeansDemo</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">mod</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;X&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 0.626
+2 0.108
+3 0.128
+4 0.12
+5 0.058
+6 0.02
+7 0.01
+8 0.006
+9 0.002
+10 0.0
 </pre></div>
 </div>
 </div>
@@ -823,17 +805,17 @@ Stops when no new points are updated.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [7],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">color_dict</span> <span class="o">=</span>  <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s2">&quot;purple&quot;</span><span class="p">}</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">)})</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">plot_iter</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;sns&#39; is not defined
-</pre></div>
-</div>
+<img alt="../../../_images/kmeans_12_0.png" src="../../../_images/kmeans_12_0.png" />
+<img alt="../../../_images/kmeans_12_1.png" src="../../../_images/kmeans_12_1.png" />
+<img alt="../../../_images/kmeans_12_2.png" src="../../../_images/kmeans_12_2.png" />
+<img alt="../../../_images/kmeans_12_3.png" src="../../../_images/kmeans_12_3.png" />
+<img alt="../../../_images/kmeans_12_4.png" src="../../../_images/kmeans_12_4.png" />
+<img alt="../../../_images/kmeans_12_5.png" src="../../../_images/kmeans_12_5.png" />
+<img alt="../../../_images/kmeans_12_6.png" src="../../../_images/kmeans_12_6.png" />
+<img alt="../../../_images/kmeans_12_7.png" src="../../../_images/kmeans_12_7.png" />
+<img alt="../../../_images/kmeans_12_8.png" src="../../../_images/kmeans_12_8.png" />
+<img alt="../../../_images/kmeans_12_9.png" src="../../../_images/kmeans_12_9.png" />
+<img alt="../../../_images/kmeans_12_10.png" src="../../../_images/kmeans_12_10.png" />
 </div>
 </div>
 <div class="cell docutils container">
