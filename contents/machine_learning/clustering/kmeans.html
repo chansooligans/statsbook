@@ -158,11 +158,6 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../foundation/linear_algebra/review.html">
-   Lin Alg Review
-  </a>
- </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../foundation/regression/README.html">
    Regression
@@ -620,7 +615,7 @@ and different distance measures can be used. The following is one example:</p>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -648,7 +643,7 @@ and different distance measures can be used. The following is one example:</p>
 But for this demo, we generate y for fake data to be able to evaluate results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centers</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">centers</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)]</span>
 <span class="n">cluster_std</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span>
     <span class="n">n_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> 
@@ -662,63 +657,24 @@ But for this demo, we generate y for fake data to be able to evaluate results.</
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f5f647d6f70&gt;
-</pre></div>
-</div>
-<img alt="../../../_images/kmeans_3_1.png" src="../../../_images/kmeans_3_1.png" />
-</div>
 </div>
 </section>
 <section id="using-sklearn">
 <h2>Using sklearn<a class="headerlink" href="#using-sklearn" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 0, 1, 1, 2, 1, 1, 2, 2, 2, 1, 0, 2, 1, 1, 0, 0, 2, 2, 0, 0, 0,
-       2, 2, 0, 2, 0, 2, 0, 2, 0, 0, 0, 2, 1, 1, 0, 0, 2, 2, 0, 2, 1, 0,
-       2, 2, 0, 0, 1, 2, 2, 0, 0, 0, 0, 2, 1, 1, 1, 2, 2, 1, 0, 0, 2, 1,
-       1, 2, 2, 2, 2, 2, 2, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 2, 1, 2, 2, 0,
-       0, 2, 2, 1, 0, 2, 1, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 0, 1, 1, 0, 2,
-       2, 2, 0, 2, 2, 2, 2, 0, 1, 1, 0, 2, 2, 2, 1, 2, 2, 1, 2, 0, 0, 0,
-       1, 2, 2, 0, 2, 0, 2, 1, 2, 1, 2, 0, 1, 0, 2, 1, 0, 1, 2, 2, 2, 0,
-       2, 0, 1, 0, 2, 2, 0, 1, 0, 0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 0, 1, 0,
-       2, 2, 0, 2, 1, 0, 1, 2, 0, 1, 2, 0, 0, 2, 2, 2, 2, 2, 0, 2, 2, 0,
-       2, 1, 0, 2, 1, 2, 1, 2, 0, 0, 0, 0, 2, 0, 0, 2, 1, 1, 2, 2, 0, 2,
-       2, 0, 0, 1, 1, 1, 2, 2, 2, 2, 1, 2, 1, 1, 1, 0, 1, 2, 0, 2, 1, 2,
-       0, 2, 2, 1, 2, 2, 1, 2, 0, 0, 1, 0, 1, 0, 2, 0, 2, 1, 1, 1, 1, 0,
-       0, 1, 0, 0, 1, 1, 1, 2, 1, 0, 0, 2, 0, 2, 1, 2, 2, 0, 0, 1, 0, 2,
-       1, 0, 2, 2, 1, 0, 0, 1, 0, 1, 1, 2, 1, 0, 0, 0, 1, 2, 0, 0, 2, 2,
-       1, 2, 0, 1, 1, 0, 2, 1, 0, 1, 2, 1, 2, 0, 2, 0, 2, 1, 1, 1, 0, 0,
-       0, 1, 0, 2, 2, 2, 0, 2, 2, 2, 0, 1, 1, 1, 0, 1, 0, 0, 0, 2, 0, 0,
-       0, 2, 0, 0, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 0, 0, 0, 1, 2, 0, 1,
-       0, 1, 0, 1, 2, 2, 0, 2, 1, 0, 1, 2, 2, 0, 1, 2, 1, 2, 0, 0, 0, 1,
-       2, 0, 0, 1, 2, 2, 0, 2, 1, 0, 2, 2, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0,
-       1, 0, 2, 2, 2, 0, 2, 2, 2, 1, 2, 1, 0, 1, 0, 1, 1, 0, 0, 2, 2, 2,
-       0, 0, 1, 2, 0, 2, 1, 0, 0, 1, 1, 2, 1, 2, 1, 1, 1, 1, 2, 0, 2, 1,
-       0, 1, 2, 2, 1, 1, 0, 2, 0, 0, 2, 1, 1, 0, 2, 0, 1, 1, 1, 0, 0, 1,
-       1, 2, 2, 2, 1, 1, 1, 0, 1, 2, 2, 2, 1, 0, 0, 1], dtype=int32)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">hue</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">hue</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">hue</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="../../../_images/kmeans_6_1.png" src="../../../_images/kmeans_6_1.png" />
 </div>
 </div>
 </section>
@@ -726,7 +682,7 @@ But for this demo, we generate y for fake data to be able to evaluate results.</
 <h2>Run Manually for Demonstration<a class="headerlink" href="#run-manually-for-demonstration" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">KmeansDemo</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">KmeansDemo</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span>
@@ -769,19 +725,8 @@ But for this demo, we generate y for fake data to be able to evaluate results.</
 Stops when no new points are updated.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span> <span class="o">=</span> <span class="n">KmeansDemo</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span> <span class="o">=</span> <span class="n">KmeansDemo</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">mod</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 0.654
-2 0.038
-3 0.012
-4 0.01
-5 0.002
-6 0.002
-7 0.0
 </pre></div>
 </div>
 </div>
@@ -791,7 +736,7 @@ Stops when no new points are updated.</p>
 <h2>Graph Each Iteration<a class="headerlink" href="#graph-each-iteration" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color_dict</span> <span class="o">=</span>  <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s2">&quot;purple&quot;</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">color_dict</span> <span class="o">=</span>  <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s2">&quot;purple&quot;</span><span class="p">}</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">)})</span>
 
@@ -807,20 +752,10 @@ Stops when no new points are updated.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/kmeans_12_0.png" src="../../../_images/kmeans_12_0.png" />
-<img alt="../../../_images/kmeans_12_1.png" src="../../../_images/kmeans_12_1.png" />
-<img alt="../../../_images/kmeans_12_2.png" src="../../../_images/kmeans_12_2.png" />
-<img alt="../../../_images/kmeans_12_3.png" src="../../../_images/kmeans_12_3.png" />
-<img alt="../../../_images/kmeans_12_4.png" src="../../../_images/kmeans_12_4.png" />
-<img alt="../../../_images/kmeans_12_5.png" src="../../../_images/kmeans_12_5.png" />
-<img alt="../../../_images/kmeans_12_6.png" src="../../../_images/kmeans_12_6.png" />
-<img alt="../../../_images/kmeans_12_7.png" src="../../../_images/kmeans_12_7.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># animated</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># animated</span>
 <span class="c1"># Writer = animation.writers[&#39;ffmpeg&#39;]</span>
 <span class="c1"># writer = Writer(fps=1, bitrate=1800)</span>
 <span class="c1"># fig,ax = plt.subplots()</span>
