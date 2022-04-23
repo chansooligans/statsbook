@@ -528,27 +528,34 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#decesion-tree-classification-class">
-   Decesion Tree Classification Class
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Classification Trees
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decesion-tree-classification-class">
+     Decesion Tree Classification Class
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cross-validation-class">
+     Cross Validation Class
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-parameters-for-grid-search">
+     Set Parameters for Grid Search
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-results-and-plot">
+     Get Results and Plot
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cross-validation-class">
-   Cross Validation Class
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-parameters-for-grid-search">
-   Set Parameters for Grid Search
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#get-results-and-plot">
-   Get Results and Plot
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualize-decision-tree-max-depth-5-version">
    Visualize Decision Tree (max_depth = 5 version)
   </a>
@@ -573,27 +580,34 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#decesion-tree-classification-class">
-   Decesion Tree Classification Class
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Classification Trees
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decesion-tree-classification-class">
+     Decesion Tree Classification Class
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cross-validation-class">
+     Cross Validation Class
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-parameters-for-grid-search">
+     Set Parameters for Grid Search
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-results-and-plot">
+     Get Results and Plot
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cross-validation-class">
-   Cross Validation Class
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-parameters-for-grid-search">
-   Set Parameters for Grid Search
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#get-results-and-plot">
-   Get Results and Plot
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualize-decision-tree-max-depth-5-version">
    Visualize Decision Tree (max_depth = 5 version)
   </a>
@@ -637,12 +651,21 @@ be simple classification error rate.</p>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
 <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">export_graphviz</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span> <span class="k">as</span> <span class="n">acc</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">)})</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cached_property</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">six</span> <span class="kn">import</span> <span class="n">StringIO</span>  
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>  
+<span class="kn">import</span> <span class="nn">pydotplus</span>
 
 <span class="n">fp</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;../../../../../data&quot;</span>
 </pre></div>
@@ -684,15 +707,6 @@ be simple classification error rate.</p>
 </pre></div>
 </div>
 <img alt="../../../../_images/classification_tree_3_2.png" src="../../../../_images/classification_tree_3_2.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cached_property</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="decesion-tree-classification-class">
@@ -875,52 +889,25 @@ and cross validation best parameters result.</p>
   warnings.warn(
 </pre></div>
 </div>
-<img alt="../../../../_images/classification_tree_15_1.png" src="../../../../_images/classification_tree_15_1.png" />
+<img alt="../../../../_images/classification_tree_14_1.png" src="../../../../_images/classification_tree_14_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="visualize-decision-tree-max-depth-5-version">
-<h2>Visualize Decision Tree (max_depth = 5 version)<a class="headerlink" href="#visualize-decision-tree-max-depth-5-version" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">export_graphviz</span>
-<span class="kn">from</span> <span class="nn">six</span> <span class="kn">import</span> <span class="n">StringIO</span>  
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>  
-<span class="kn">import</span> <span class="nn">pydotplus</span>
-
-<span class="n">dt</span> <span class="o">=</span> <span class="n">DecisionTree</span><span class="p">(</span>
-    <span class="n">X</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;x0&quot;</span><span class="p">,</span><span class="s2">&quot;x1&quot;</span><span class="p">]],</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span>
-    <span class="n">X_test</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;x0&quot;</span><span class="p">,</span><span class="s2">&quot;x1&quot;</span><span class="p">]],</span> 
-    <span class="n">mod</span><span class="o">=</span><span class="s2">&quot;depth&quot;</span>
-<span class="p">)</span>
-<span class="n">dot_data</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
-<span class="n">export_graphviz</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">get_by_depth</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">regressor</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="n">dot_data</span><span class="p">,</span>  
-                <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">special_characters</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;x0&quot;</span><span class="p">,</span><span class="s2">&quot;x1&quot;</span><span class="p">],</span><span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;3&#39;</span><span class="p">])</span>
-</pre></div>
+<p>“””</p>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [10],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">six</span> <span class="kn">import</span> <span class="n">StringIO</span>  
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>  
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">pydotplus</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">DecisionTree</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">X</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;x0&quot;</span><span class="p">,</span><span class="s2">&quot;x1&quot;</span><span class="p">]],</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">X_test</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;x0&quot;</span><span class="p">,</span><span class="s2">&quot;x1&quot;</span><span class="p">]],</span> 
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">mod</span><span class="o">=</span><span class="s2">&quot;depth&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">dot_data</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pydotplus&#39;
-</pre></div>
-</div>
-</div>
-</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="visualize-decision-tree-max-depth-5-version">
+<h1>Visualize Decision Tree (max_depth = 5 version)<a class="headerlink" href="#visualize-decision-tree-max-depth-5-version" title="Permalink to this headline">¶</a></h1>
+<p>“””</p>
+<p>dt = DecisionTree(
+X=df[[“x0”,”x1”]],
+y=df[“y”],
+X_test=df[[“x0”,”x1”]],
+mod=”depth”
+)
+dot_data = StringIO()
+export_graphviz(dt.get_by_depth(depth=5).regressor, out_file=dot_data,<br />
+filled=True, rounded=True,
+special_characters=True,feature_names = [“x0”,”x1”],class_names=[‘0’,’1’,’2’,’3’])</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph</span> <span class="o">=</span> <span class="n">pydotplus</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>  
@@ -931,13 +918,12 @@ and cross validation best parameters result.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [11],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="nn">Input In [9],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">graph</span> <span class="o">=</span> <span class="n">pydotplus</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>  
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">())</span>
 
-<span class="ne">NameError</span>: name &#39;pydotplus&#39; is not defined
+<span class="ne">NameError</span>: name &#39;dot_data&#39; is not defined
 </pre></div>
-</div>
 </div>
 </div>
 </div>
