@@ -10,4 +10,4 @@ serve:
 	poetry run ghp-import -n -p -f book/_build/html
 
 serve-local:
-	poetry run python -m http.server 8000 book/_build/html
+	poetry run python -m http.server 8000 -d book/_build/html

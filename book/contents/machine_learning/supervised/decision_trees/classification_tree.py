@@ -39,14 +39,23 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import cross_val_score
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import export_graphviz
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score as acc
 from sklearn.model_selection import GridSearchCV
 import seaborn as sns
-import matplotlib.pyplot as plt
 sns.set(rc={'figure.figsize':(12, 10)})
+import matplotlib.pyplot as plt
 
-fp = "/Users/chansoosong/Desktop/statsbook/data"
+from dataclasses import dataclass
+from functools import cached_property
+from typing import Optional
+
+from six import StringIO  
+from IPython.display import Image  
+import pydotplus
+
+fp = f"../../../../../data"
 
 
 # %% [markdown]
@@ -75,11 +84,6 @@ for i,circle in enumerate(circles):
     df.loc[radius.between(circle[0],circle[1]), "y"] = i
 
 sns.scatterplot(df["x0"],df["x1"],hue=df["y"], palette="tab10")
-
-# %%
-from dataclasses import dataclass
-from functools import cached_property
-from typing import Optional
 
 # %% [markdown]
 """
@@ -240,13 +244,7 @@ plt.show()
 """
 ## Visualize Decision Tree (max_depth = 5 version)
 """
-
 # %%
-from sklearn.tree import export_graphviz
-from six import StringIO  
-from IPython.display import Image  
-import pydotplus
-
 dt = DecisionTree(
     X=df[["x0","x1"]],
     y=df["y"],
