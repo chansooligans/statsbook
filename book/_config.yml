@@ -1,14 +1,12 @@
 title: Statsbook
-author: RAD (Research and Analytics Department)
+author: Chansoo Song
 only_build_toc_files: true
 collapse_inactive_chapters: true
 repository:
-  url: https://git.ag.ny.gov/research/statsbook
+  url: github.com/chansooligans/statsbook
 html:
   use_repository_button: true
   use_issues_button: true
-  extra_footer: |
-    <p>DRAFT</br>Attorney Work Product</br>Privileged and Confidential</p>
 execute:
   execute_notebooks: cache
   allow_errors: true
@@ -19,7 +17,6 @@ parse:
       - dollarmath
 sphinx:
   config:
-    html_show_copyright: false
     nb_custom_formats:
         .py:
             - jupytext.reads
