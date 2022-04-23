@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Central Limit Theorem" href="clt.html" />
-    <link rel="prev" title="Plotting Distributions" href="plotting_distributions.html" />
+    <link rel="prev" title="Continuous Distributions" href="continuous_distributions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -129,11 +129,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="continuous_distributions.html">
      Continuous Distributions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="plotting_distributions.html">
-     Plotting Distributions
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -663,7 +658,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8026777848185208
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0330522830267268
 </pre></div>
 </div>
 </div>
@@ -677,8 +672,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.90713173, 0.80267778],
-       [0.80267778, 0.96601856]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.97606517, 1.03305228],
+       [1.03305228, 1.33434173]])
 </pre></div>
 </div>
 </div>
@@ -695,7 +690,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8574589306709769
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9052100371195099
 </pre></div>
 </div>
 </div>
@@ -707,8 +702,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.        , 0.85745893],
-       [0.85745893, 1.        ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.        , 0.90521004],
+       [0.90521004, 1.        ]])
 </pre></div>
 </div>
 </div>
@@ -757,7 +752,6 @@ const thebe_selector_output = ".output, .cell_output"
     <tr style="text-align: right;">
       <th></th>
       <th>colors</th>
-      <th>blue</th>
       <th>green</th>
       <th>orange</th>
       <th>red</th>
@@ -772,54 +766,48 @@ const thebe_selector_output = ".output, .cell_output"
       <th></th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th rowspan="4" valign="top">arizona</th>
       <th>jason</th>
+      <td>2</td>
       <td>0</td>
+      <td>2</td>
       <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>jorge</th>
       <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
       <td>0</td>
-      <td>3</td>
+      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>lisa</th>
       <td>0</td>
+      <td>0</td>
       <td>2</td>
-      <td>0</td>
-      <td>0</td>
       <td>0</td>
       <td>2</td>
     </tr>
     <tr>
       <th>paul</th>
-      <td>0</td>
+      <td>1</td>
+      <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
       <td>3</td>
     </tr>
     <tr>
       <th rowspan="4" valign="top">california</th>
       <th>jason</th>
       <td>0</td>
+      <td>2</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
       <td>0</td>
       <td>2</td>
     </tr>
@@ -829,25 +817,22 @@ const thebe_selector_output = ".output, .cell_output"
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>3</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>lisa</th>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>3</td>
+      <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>paul</th>
-      <td>0</td>
-      <td>0</td>
       <td>2</td>
+      <td>2</td>
+      <td>0</td>
       <td>1</td>
-      <td>2</td>
       <td>5</td>
     </tr>
     <tr>
@@ -855,46 +840,41 @@ const thebe_selector_output = ".output, .cell_output"
       <th>jason</th>
       <td>0</td>
       <td>0</td>
-      <td>2</td>
       <td>0</td>
-      <td>0</td>
-      <td>2</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>jorge</th>
-      <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
-      <td>3</td>
+      <td>2</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>lisa</th>
+      <td>1</td>
+      <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2</td>
       <td>2</td>
     </tr>
     <tr>
       <th>paul</th>
-      <td>0</td>
-      <td>0</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>All</th>
       <th></th>
-      <td>2</td>
-      <td>7</td>
       <td>10</td>
-      <td>4</td>
-      <td>7</td>
+      <td>9</td>
+      <td>5</td>
+      <td>6</td>
       <td>30</td>
     </tr>
   </tbody>
@@ -931,7 +911,6 @@ const thebe_selector_output = ".output, .cell_output"
     <tr style="text-align: right;">
       <th></th>
       <th>colors</th>
-      <th>blue</th>
       <th>green</th>
       <th>orange</th>
       <th>red</th>
@@ -946,54 +925,48 @@ const thebe_selector_output = ".output, .cell_output"
       <th></th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th rowspan="4" valign="top">arizona</th>
       <th>jason</th>
+      <td>0.066667</td>
       <td>0.000000</td>
+      <td>0.066667</td>
       <td>0.000000</td>
-      <td>0.033333</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.033333</td>
+      <td>0.133333</td>
     </tr>
     <tr>
       <th>jorge</th>
       <td>0.000000</td>
       <td>0.033333</td>
-      <td>0.033333</td>
-      <td>0.033333</td>
       <td>0.000000</td>
-      <td>0.100000</td>
+      <td>0.000000</td>
+      <td>0.033333</td>
     </tr>
     <tr>
       <th>lisa</th>
       <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.066667</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.066667</td>
     </tr>
     <tr>
       <th>paul</th>
-      <td>0.000000</td>
+      <td>0.033333</td>
+      <td>0.033333</td>
       <td>0.033333</td>
       <td>0.000000</td>
-      <td>0.033333</td>
-      <td>0.033333</td>
       <td>0.100000</td>
     </tr>
     <tr>
       <th rowspan="4" valign="top">california</th>
       <th>jason</th>
       <td>0.000000</td>
+      <td>0.066667</td>
       <td>0.000000</td>
-      <td>0.033333</td>
-      <td>0.033333</td>
       <td>0.000000</td>
       <td>0.066667</td>
     </tr>
@@ -1003,25 +976,22 @@ const thebe_selector_output = ".output, .cell_output"
       <td>0.033333</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.033333</td>
-      <td>0.100000</td>
+      <td>0.066667</td>
     </tr>
     <tr>
       <th>lisa</th>
       <td>0.033333</td>
-      <td>0.033333</td>
-      <td>0.033333</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.100000</td>
+      <td>0.033333</td>
+      <td>0.066667</td>
     </tr>
     <tr>
       <th>paul</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.066667</td>
+      <td>0.066667</td>
+      <td>0.000000</td>
       <td>0.033333</td>
-      <td>0.066667</td>
       <td>0.166667</td>
     </tr>
     <tr>
@@ -1029,46 +999,41 @@ const thebe_selector_output = ".output, .cell_output"
       <th>jason</th>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.066667</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.066667</td>
+      <td>0.033333</td>
+      <td>0.033333</td>
     </tr>
     <tr>
       <th>jorge</th>
-      <td>0.000000</td>
       <td>0.033333</td>
       <td>0.033333</td>
       <td>0.000000</td>
-      <td>0.033333</td>
-      <td>0.100000</td>
+      <td>0.066667</td>
+      <td>0.133333</td>
     </tr>
     <tr>
       <th>lisa</th>
+      <td>0.033333</td>
+      <td>0.033333</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.066667</td>
       <td>0.066667</td>
     </tr>
     <tr>
       <th>paul</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.033333</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.033333</td>
+      <td>0.066667</td>
     </tr>
     <tr>
       <th>All</th>
       <th></th>
-      <td>0.066667</td>
-      <td>0.233333</td>
       <td>0.333333</td>
-      <td>0.133333</td>
-      <td>0.233333</td>
+      <td>0.300000</td>
+      <td>0.166667</td>
+      <td>0.200000</td>
       <td>1.000000</td>
     </tr>
   </tbody>
@@ -1092,7 +1057,7 @@ const thebe_selector_output = ".output, .cell_output"
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x10c19a220&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x1085c5970&gt;
 </pre></div>
 </div>
 <img alt="../../../_images/multivariate_distributions_16_2.png" src="../../../_images/multivariate_distributions_16_2.png" />
@@ -1194,11 +1159,11 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="plotting_distributions.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="continuous_distributions.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Plotting Distributions</p>
+            <p class="prev-next-title">Continuous Distributions</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="clt.html" title="next page">
