@@ -211,7 +211,7 @@ class nn:
 
         self.initialize_weights()
         self.loss = []
-        for i in tqdm(range(self.n_iter)):
+        for i in range(self.n_iter):
             self.forward()
             self.backward()
             self.update()
