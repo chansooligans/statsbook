@@ -8,7 +8,7 @@ It uses a logit link function  to relate the continuous $(-\inf,\inf)$ linear co
  to the $(0,1)$ dependent variable, $P(y_i=1)$. Then a bernoulli trial to convert these probabilities into 
  binary data, 0 or 1.
 
-$$P(y=1) = logit(\eta) = X\beta$$
+$$logit(P(y=1)) = X\beta$$
 
 $$y_i \sim Binomial(1, P_i)$$
 
@@ -29,7 +29,7 @@ sns.set(rc={'figure.figsize':(11.7,8.27)})
 ## Generate Fake Data
 
 We generate two independent variables x1 and x2. We let $\eta$ be the linear component, $X\beta$, then 
- inverse_logit($\eta$) is the link function that converts $\eta$ to a probability. 
+ inverse_logit($\eta$) is the link function that converts $\eta$ to a probability. (inverse logit = logistic)
 
  $$P(y=1) = inv.logit(X\beta)$$
 
