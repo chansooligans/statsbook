@@ -158,3 +158,5 @@ dfhist = pd.DataFrame(history.history)
 dfhist["epoch"] = history.epoch
 sns.lineplot(dfhist["epoch"],dfhist["loss"])
 sns.lineplot(dfhist["epoch"],dfhist["val_loss"])
+
+# %%

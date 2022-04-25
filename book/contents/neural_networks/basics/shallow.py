@@ -104,7 +104,7 @@ output of this layer are our 1x100 predictions:
 W2 = np.random.rand(1, 10)
 b = np.random.rand(1, 1)
 Z2 = W2 @ A1 + b
-print(z2.shape)
+print(Z2.shape)
 
 # %%
 A2 = np.apply_along_axis(sigmoid, 1, Z2)
@@ -211,7 +211,7 @@ class nn:
 
         self.initialize_weights()
         self.loss = []
-        for i in tqdm(range(self.n_iter)):
+        for i in range(self.n_iter):
             self.forward()
             self.backward()
             self.update()
@@ -234,8 +234,9 @@ sns.scatterplot(y, y_pred[-1,:])
 In this simple model, the hyperparameters include:
 
 - learning rate  
-- # of iterations  
-- # of hidden layers  
-- # of hidden units  
+- \# of iterations  
+- \# of hidden layers  
+- \# of hidden units  
 - choice of activation functions
 """
+# %%

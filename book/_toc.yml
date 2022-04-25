@@ -70,12 +70,13 @@ parts:
   - file: contents/machine_learning/clustering/README
     sections:
     - file: contents/machine_learning/clustering/kmeans
-# - caption: Neural Networks
-#   chapters: 
-#   - file: contents/neural_networks/home
-#   - file: contents/neural_networks/basics/regression_tf
-#   - file: contents/neural_networks/basics/shallow
-#   - file: contents/neural_networks/basics/activation
+- caption: Neural Networks
+  chapters: 
+    - file: contents/neural_networks/home
+      sections:
+      - file: contents/neural_networks/basics/regression_tf
+      - file: contents/neural_networks/basics/shallow
+      - file: contents/neural_networks/basics/activation
 # - caption: Bayesian Inference
 #   chapters: 
 #   - file: contents/bayesian/home
