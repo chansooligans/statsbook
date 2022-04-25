@@ -22,7 +22,6 @@ parts:
       - file: contents/foundation/regression/ols/ols
       - file: contents/foundation/regression/ols/assumptions
       - file: contents/foundation/regression/ols/diagnostics
-      - file: contents/foundation/regression/ols/estimation
       - file: contents/foundation/regression/ols/wls
     - file: contents/foundation/regression/glm/README
       sections:
