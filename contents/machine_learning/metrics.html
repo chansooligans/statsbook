@@ -582,6 +582,11 @@ const thebe_selector_output = ".output, .cell_output"
      AUC
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#log-loss-cross-entropy">
+     Log Loss / Cross Entropy
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -651,6 +656,11 @@ const thebe_selector_output = ".output, .cell_output"
      AUC
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#log-loss-cross-entropy">
+     Log Loss / Cross Entropy
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -704,6 +714,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Confusion Matrix</p></li>
 <li><p>Accuracy / Precision / Recall</p></li>
 <li><p>ROC / AUC</p></li>
+<li><p>Common Loss Functions:</p>
+<ul>
+<li><p>Log loss / cross entropy</p></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>Regression</p>
@@ -843,6 +858,19 @@ thresh: 1.0, tpr: 1.0 fpr: 1.0
 <p>AUC summarizes the performance of the classification model across all the possible thresholds.
 It can be calculated as the integral (hence, area under the curve) of the ROC curve.
 High values close to 1 means that the model performs well under any threshold.</p>
+</div>
+<div class="section" id="log-loss-cross-entropy">
+<h3>Log Loss / Cross Entropy<a class="headerlink" href="#log-loss-cross-entropy" title="Permalink to this headline">¶</a></h3>
+<p>The likelihood function for a sequence of Bernoulli trials is:</p>
+<div class="math notranslate nohighlight">
+\[\prod_i^n{p^{y_i}(1-p_i)^{1-y_i}}\]</div>
+<p>Taking the log gives us the log likelihood:</p>
+<div class="math notranslate nohighlight">
+\[\sum_i^n{y_i log p_i + (1-y_i) log (1-p_i)}\]</div>
+<p>To get a loss function, we often multiply by <span class="math notranslate nohighlight">\(-\frac{1}{N}\)</span>. Reversing the sign let’s us minimize
+and divide by N to normalize.</p>
+<p>Note intuitively how this differs from accuracy: when a classification is correct, we add <span class="math notranslate nohighlight">\(p\)</span> to the likelihood
+(or equivalently, subtract <span class="math notranslate nohighlight">\(p\)</span> from the loss). So the model is rewarded for probabalistic certainty.</p>
 </div>
 </div>
 <div class="section" id="regression">

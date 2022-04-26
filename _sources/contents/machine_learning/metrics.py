@@ -9,6 +9,8 @@ import markdown
     - Confusion Matrix
     - Accuracy / Precision / Recall
     - ROC / AUC
+    - Common Loss Functions:
+        - Log loss / cross entropy
 2. Regression
     - MSE
     - r-squared; adjusted-r-squared
@@ -104,6 +106,25 @@ for threshold in np.linspace(0,1,20):
 AUC summarizes the performance of the classification model across all the possible thresholds. 
 It can be calculated as the integral (hence, area under the curve) of the ROC curve. 
 High values close to 1 means that the model performs well under any threshold. 
+"""
+
+# %% [markdown]
+"""
+#### Log Loss / Cross Entropy
+
+The likelihood function for a sequence of Bernoulli trials is:
+
+$$\prod_i^n{p^{y_i}(1-p_i)^{1-y_i}}$$
+
+Taking the log gives us the log likelihood:
+
+$$\sum_i^n{y_i log p_i + (1-y_i) log (1-p_i)}$$
+
+To get a loss function, we often multiply by $-\frac{1}{N}$. Reversing the sign let's us minimize 
+and divide by N to normalize. 
+
+Note intuitively how this differs from accuracy: when a classification is correct, we add $p$ to the likelihood 
+(or equivalently, subtract $p$ from the loss). So the model is rewarded for probabalistic certainty. 
 """
 
 # %% [markdown]
