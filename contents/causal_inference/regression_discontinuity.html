@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Confidence Intervals &#8212; Statsbook</title>
+    <title>Regression Discontinuity &#8212; Statsbook</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,12 +51,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Potential Outcomes Framework" href="../causal_inference/framework/README.html" />
-    <link rel="prev" title="Simulations" href="README.html" />
+    <link rel="next" title="Home" href="../machine_learning/home.html" />
+    <link rel="prev" title="Propensity Scores" href="propensity_scores.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -301,19 +299,19 @@ const thebe_selector_output = ".output, .cell_output"
   Simulations
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="README.html">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../simulations/README.html">
    Simulations
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../simulations/confidence_intervals.html">
      Confidence Intervals
     </a>
    </li>
@@ -325,9 +323,9 @@ const thebe_selector_output = ".output, .cell_output"
   Causal Inference
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../causal_inference/framework/README.html">
+  <a class="reference internal" href="framework/README.html">
    Potential Outcomes Framework
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
@@ -337,29 +335,29 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../causal_inference/framework/fundamental_problem.html">
+    <a class="reference internal" href="framework/fundamental_problem.html">
      Fundamental Problem of Causal Inference
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../causal_inference/framework/ignorability.html">
+    <a class="reference internal" href="framework/ignorability.html">
      Ignorability
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../causal_inference/framework/matching.html">
+    <a class="reference internal" href="framework/matching.html">
      Matching
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../causal_inference/propensity_scores.html">
+  <a class="reference internal" href="propensity_scores.html">
    Propensity Scores
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../causal_inference/regression_discontinuity.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Regression Discontinuity
   </a>
  </li>
@@ -526,7 +524,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/contents/simulations/confidence_intervals.py"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/contents/causal_inference/regression_discontinuity.py"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.py</button></a>
         <!-- Download PDF via print -->
@@ -546,7 +544,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="github.com/chansooligans/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontents/simulations/confidence_intervals.html&body=Your%20issue%20content%20here."><button
+            href="github.com/chansooligans/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontents/causal_inference/regression_discontinuity.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -567,24 +565,6 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#intro">
-   Intro
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#simulations">
-   Simulations
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -592,169 +572,138 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Confidence Intervals</h1>
+                <h1>Regression Discontinuity</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#intro">
-   Intro
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#simulations">
-   Simulations
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="confidence-intervals">
-<h1>Confidence Intervals<a class="headerlink" href="#confidence-intervals" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="regression-discontinuity">
+<h1>Regression Discontinuity<a class="headerlink" href="#regression-discontinuity" title="Permalink to this headline">¶</a></h1>
+<p>When an observational study has a non-random treatment that is applied using a threshold or cutoff, a
+regression discontinuity design may be useful to estimate the treatment effect.</p>
+<p>To illustrate with an example, suppose that students are selected into a specialized high school
+based ONLY on test scores and further, there is a strict cutoff such that all students who score
+at least 600 are admitted and all students under 600 are rejected. And suppose that our causal question
+of interest is to evaluate the effectiveness of this specialized high school on students’ test scores –
+so the outcome may be SAT scores or any other standardized test… but for simplicity, let’s
+define a metric that measures students’ standardized test scores after two years of high school.</p>
+<p>With the potential outcomes framework in mind, the problems here should be clear. First, the treatment is not
+random. Students who score high are more likely to receive the treatment. Second, we’d expect the entrance exam
+to be an important confounder – in fact it is the ONLY confounder – but there’s 0 overlap between the
+treatment and control students on this covariate.</p>
+<p>Regression discontinuity addresses both of these problems by assuming that students with entrance exam
+scores close to the cutoff have identical potential outcomes. In an extreme example, suppose a very narrow
+cutoff of just 1 point. It’s easy to see that students who score between 599 and 601 are very similar with
+respect to their test-taking abilities and there could be all sorts of random reasons that one student
+scored a little higher than the other. How wide can we make this window while maintaining this
+assumption?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">st</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="intro">
-<h2>Intro<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h2>
-<p>First, we generate a fake population data.<br />
-We’ll use a chi square distribution for no particular reason.<br />
-It doesn’t have to follow a distribution at all. The plot is shown below.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fake Data</span>
-<span class="n">population</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">population</span><span class="p">)</span>
-<span class="n">true_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">population</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">true_mean</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.961307278243971
-</pre></div>
-</div>
-<img alt="../../_images/confidence_intervals_3_1.png" src="../../_images/confidence_intervals_3_1.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;For this distribution the true mean is </span><span class="si">{</span><span class="n">true_mean</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For this distribution the true mean is 4.961307278243971
-</pre></div>
-</div>
-</div>
-</div>
-<p>The plan is to simulate repeated samples from this population.<br />
-For each sample, we compute a lower bound and an upper bound for the confidence interval of
-a sample mean.</p>
-<p>First, let’s declare our inputs. The z-value for a 95% confidence interval is 1.96.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_size</span> <span class="o">=</span> <span class="mi">40</span>
-<span class="n">zvalue</span> <span class="o">=</span> <span class="mf">1.96</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="simulations">
-<h2>Simulations<a class="headerlink" href="#simulations" title="Permalink to this headline">¶</a></h2>
-<p>Next, we run the simulations:</p>
-<p>We initialize a dictionary “intervals” to store the lower and upper bound
-of our confidence intervals.</p>
-<p>We run the simulation for 200 iterations. We can make this value an input too,
-but hardcoded below for simplicity.</p>
-<p>Remember, the bounds of the confidence interval are given by:</p>
-<div class="math notranslate nohighlight">
-\[\pm \ z_{\alpha/2} * \frac{s}{\sqrt{n}}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">intervals</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;low&quot;</span><span class="p">:[],</span>
-    <span class="s2">&quot;high&quot;</span><span class="p">:[],</span>
-<span class="p">}</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mf">11.7</span><span class="p">,</span><span class="mf">8.27</span><span class="p">)})</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">):</span>
-    <span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">)</span>
-    <span class="n">sample_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
-    <span class="n">sample_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
-    <span class="n">intervals</span><span class="p">[</span><span class="s2">&quot;low&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sample_mean</span><span class="o">-</span><span class="n">zvalue</span><span class="o">*</span><span class="p">(</span><span class="n">sample_std</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_size</span><span class="p">)))</span>
-    <span class="n">intervals</span><span class="p">[</span><span class="s2">&quot;high&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sample_mean</span><span class="o">+</span><span class="n">zvalue</span><span class="o">*</span><span class="p">(</span><span class="n">sample_std</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_size</span><span class="p">)))</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;entrance_score&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">570</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">200</span><span class="p">),</span>
+    <span class="s2">&quot;error&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">200</span><span class="p">),</span>
+    <span class="s2">&quot;treat&quot;</span><span class="p">:</span><span class="kc">False</span>
+<span class="p">})</span>
+<span class="n">df1</span><span class="p">[</span><span class="s2">&quot;yr2_score&quot;</span><span class="p">]</span> <span class="o">=</span>  <span class="mi">1</span> <span class="o">*</span> <span class="n">df1</span><span class="p">[</span><span class="s2">&quot;entrance_score&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df1</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span>
+
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;entrance_score&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">630</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">200</span><span class="p">),</span>
+    <span class="s2">&quot;error&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">200</span><span class="p">),</span>
+    <span class="s2">&quot;treat&quot;</span><span class="p">:</span><span class="kc">True</span>
+<span class="p">})</span>
+<span class="n">df2</span><span class="p">[</span><span class="s2">&quot;yr2_score&quot;</span><span class="p">]</span> <span class="o">=</span>  <span class="mi">50</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;entrance_score&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+    <span class="n">df1</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;entrance_score&lt;600&quot;</span><span class="p">),</span>
+    <span class="n">df2</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;entrance_score&gt;=600&quot;</span><span class="p">)</span>
+<span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>We convert the results into a dataframe. And flag the intervals that do not contain
-the true mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">intervals</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;reject&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;low&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">true_mean</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;high&quot;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">true_mean</span><span class="p">),</span>
-    <span class="s2">&quot;r&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;b&quot;</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Let’s plot results:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mf">11.7</span><span class="p">,</span><span class="mf">8.27</span><span class="p">)})</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;low&quot;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">],</span> <span class="n">hue</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;reject&quot;</span><span class="p">])</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;high&quot;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">],</span> <span class="n">hue</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;reject&quot;</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ints</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Intervals&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;entrance_score&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;yr2_score&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;treat&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/chansoosong/Desktop/repos.nosync/statsbook/.venv/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
-  warnings.warn(
-/Users/chansoosong/Desktop/repos.nosync/statsbook/.venv/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
-  warnings.warn(
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x10a4a5b20&gt;
 </pre></div>
 </div>
-<img alt="../../_images/confidence_intervals_12_1.png" src="../../_images/confidence_intervals_12_1.png" />
+<img alt="../../_images/regression_discontinuity_2_1.png" src="../../_images/regression_discontinuity_2_1.png" />
 </div>
 </div>
+<p>In the fake data example, the color indicates the admitted vs the rejected students.
+The x-axis is the entrance score and the cutoff is at 600. The y-axis is the test score
+after two years of high school, “the treatment”. In this fake example, the treatment
+does appear very effective. For students who scored close to 600, the treatment group
+has scores that are higher than the control group by ~50 points on average.</p>
+<p>We might select a window of 50 and compare averages between the treated and control groups to
+estimate a treatment effect:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;reject&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_window</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;entrance_score&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">550</span><span class="p">,</span><span class="mi">650</span><span class="p">)]</span>
+<span class="n">treat_mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df_window</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_window</span><span class="p">[</span><span class="s2">&quot;treat&quot;</span><span class="p">]</span><span class="o">==</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;yr2_score&quot;</span><span class="p">])</span>
+<span class="n">control_mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df_window</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_window</span><span class="p">[</span><span class="s2">&quot;treat&quot;</span><span class="p">]</span><span class="o">==</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;yr2_score&quot;</span><span class="p">])</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;entrance_score&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;yr2_score&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_window</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;treat==True&quot;</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;entrance_score&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;yr2_score&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_window</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;treat==False&quot;</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b    0.92
-r    0.08
-Name: reject, dtype: float64
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;entrance_score&#39;, ylabel=&#39;yr2_score&#39;&gt;
 </pre></div>
 </div>
+<img alt="../../_images/regression_discontinuity_4_1.png" src="../../_images/regression_discontinuity_4_1.png" />
+</div>
+</div>
+<p>To demonstrate the assumptions, I plot the unobservable and theoretical potential outcomes below.
+The plot extrapolates the treatment group to scores below the cutoff and control group to the scores
+abvoe the cutoff. Then, it’s just like any other regression where we’re interested in the
+coefficient of some binary covariate that compares two groups.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;entrance_score&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;yr2_score&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;entrance_score&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">550</span><span class="p">,</span><span class="mi">650</span><span class="p">)],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;entrance_score&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;yr2_score&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s2">&quot;entrance_score&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">550</span><span class="p">,</span><span class="mi">650</span><span class="p">)],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;entrance_score&#39;, ylabel=&#39;yr2_score&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/regression_discontinuity_6_1.png" src="../../_images/regression_discontinuity_6_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">To-do: </span>
+<span class="sd">- What if we don&#39;t have linear slopes?   </span>
+<span class="sd">- What if we have a fuzzy cutoff (as opposed to clean cutoffs shown above)?  </span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;\nTo-do: \n- What if we don&#39;t have linear slopes?   \n- What if we have a fuzzy cutoff (as opposed to clean cutoffs shown above)?  \n&quot;
+</pre></div>
 </div>
 </div>
 </div>
@@ -773,7 +722,7 @@ Name: reject, dtype: float64
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./contents/simulations"
+            path: "./contents/causal_inference"
         },
         predefinedOutput: true
     }
@@ -785,17 +734,17 @@ Name: reject, dtype: float64
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="README.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="propensity_scores.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Simulations</p>
+            <p class="prev-next-title">Propensity Scores</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../causal_inference/framework/README.html" title="next page">
+    <a class='right-next' id="next-link" href="../machine_learning/home.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Potential Outcomes Framework</p>
+        <p class="prev-next-title">Home</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

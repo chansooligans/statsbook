@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sampling &#8212; Statsbook</title>
+    <title>Regularization &#8212; Statsbook</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,10 +51,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Bootstrap" href="bootstrap.html" />
-    <link rel="prev" title="Regularization" href="../regression/ridge_lasso.html" />
+    <link rel="next" title="Sampling" href="../sampling/README.html" />
+    <link rel="prev" title="Estimation" href="estimation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -151,18 +153,18 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../regression/README.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
    Regression
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../regression/ols/README.html">
+    <a class="reference internal" href="ols/README.html">
      OLS
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -172,29 +174,29 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../regression/ols/ols.html">
+      <a class="reference internal" href="ols/ols.html">
        Demo
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../regression/ols/assumptions.html">
+      <a class="reference internal" href="ols/assumptions.html">
        Assumptions
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../regression/ols/diagnostics.html">
+      <a class="reference internal" href="ols/diagnostics.html">
        OLS: Diagnostics
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../regression/ols/wls.html">
+      <a class="reference internal" href="ols/wls.html">
        WLS
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../regression/glm/README.html">
+    <a class="reference internal" href="glm/README.html">
      Generalized Linear Models
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
@@ -204,7 +206,7 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../regression/glm/logistic/README.html">
+      <a class="reference internal" href="glm/logistic/README.html">
        Logistic Regression
       </a>
       <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
@@ -214,19 +216,19 @@ const thebe_selector_output = ".output, .cell_output"
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="../regression/glm/logistic/logistic.html">
+        <a class="reference internal" href="glm/logistic/logistic.html">
          Demo
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../regression/glm/logistic/interpretation.html">
+        <a class="reference internal" href="glm/logistic/interpretation.html">
          Intepretation
         </a>
        </li>
       </ul>
      </li>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../regression/glm/poisson/README.html">
+      <a class="reference internal" href="glm/poisson/README.html">
        Poisson
       </a>
       <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
@@ -236,58 +238,58 @@ const thebe_selector_output = ".output, .cell_output"
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="../regression/glm/poisson/poisson.html">
+        <a class="reference internal" href="glm/poisson/poisson.html">
          Demo
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../regression/glm/poisson/interpretation.html">
+        <a class="reference internal" href="glm/poisson/interpretation.html">
          Interpretation
         </a>
        </li>
       </ul>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../regression/glm/model_comparisons.html">
+      <a class="reference internal" href="glm/model_comparisons.html">
        Model Comparisons
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../regression/interactions.html">
+    <a class="reference internal" href="interactions.html">
      Interactions
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../regression/estimation.html">
+    <a class="reference internal" href="estimation.html">
      Estimation
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../regression/ridge_lasso.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Regularization
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sampling/README.html">
    Sampling
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="bootstrap.html">
+    <a class="reference internal" href="../sampling/bootstrap.html">
      Bootstrap
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="crossvalidation.html">
+    <a class="reference internal" href="../sampling/crossvalidation.html">
      Cross Validation
     </a>
    </li>
@@ -524,9 +526,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/contents/foundation/sampling/README.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/contents/foundation/regression/ridge_lasso.py"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.py</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -544,7 +546,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="github.com/chansooligans/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontents/foundation/sampling/README.html&body=Your%20issue%20content%20here."><button
+            href="github.com/chansooligans/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontents/foundation/regression/ridge_lasso.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -565,6 +567,29 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ridge">
+   Ridge
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lasso">
+   Lasso
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lasso-ridge">
+   Lasso / Ridge
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -572,20 +597,71 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Sampling</h1>
+                <h1>Regularization</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ridge">
+   Ridge
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lasso">
+   Lasso
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lasso-ridge">
+   Lasso / Ridge
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="sampling">
-<h1>Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="regularization">
+<h1>Regularization<a class="headerlink" href="#regularization" title="Permalink to this headline">¶</a></h1>
+<p>Another way to avoid overfitting models is to use “shrinkage methods” that constrain / regularize
+the parameter estimates.</p>
+<div class="section" id="ridge">
+<h2>Ridge<a class="headerlink" href="#ridge" title="Permalink to this headline">¶</a></h2>
+<p>Ridge regression minimizes <span class="math notranslate nohighlight">\(RSS + \lambda \sum_{j=1}^{p}\beta_j^2\)</span> where <span class="math notranslate nohighlight">\(\lambda\)</span> is a “tuning parameter” and
+the term <span class="math notranslate nohighlight">\(\lambda \sum_{j=1}^{p}\beta_j^2\)</span> is the “shrinkage penalty”.</p>
+<p>As <span class="math notranslate nohighlight">\(\lambda\)</span> increases, the penalty gets larger so the estimated coefficients “shrink” towards zero.</p>
+<p>Another formulation would be to minimize RSS subject to a constraint that <span class="math notranslate nohighlight">\(\sum_{j=1}^{p}\beta_j^2 &lt; s\)</span>, equivalent to
+saying that the l2-norm (<span class="math notranslate nohighlight">\(\sqrt{\sum_{j=1}^{p}\beta_j^2}\)</span>) is less than some s.</p>
+</div>
+<div class="section" id="lasso">
+<h2>Lasso<a class="headerlink" href="#lasso" title="Permalink to this headline">¶</a></h2>
+<p>Unlike ridge, lasso can set some coefficients to zero (ridge regression would set coefficient to 0 only if
+<span class="math notranslate nohighlight">\(\lambda\)</span> is infinity). Lasso minimizes <span class="math notranslate nohighlight">\(\lambda \sum_{j=1}^{p}|\beta_j|\)</span></p>
+<p>So another formulation would be to minimize RSS subject to a constraint that <span class="math notranslate nohighlight">\(\sum_{j=1}^{p}|\beta_j| &lt; s\)</span>, equivalent to
+saying that the l2-norm (<span class="math notranslate nohighlight">\(\sum_{j=1}^{p}|\beta_j|\)</span>) is less than some s.</p>
+</div>
+<div class="section" id="lasso-ridge">
+<h2>Lasso / Ridge<a class="headerlink" href="#lasso-ridge" title="Permalink to this headline">¶</a></h2>
+<p>In both models, cross validate to estimate the shrinkage penalty.</p>
+<p>The only difference is that Lasso uses a l1 penalty instead of l2.</p>
+<p>One way to visually understand why l1 can result in estimates of 0 while l2 does not is to note that
+l1 norm can be represented as a diamond shape and l2 norm can be represented as a circle. The diamond
+has corners on the axes making it more likely that the optimal estimates lie where some coefficients
+are exactly zero.</p>
+<p>Also, to write a little about why constraining the magnitude of coefficients helps to prevent overfitting –
+I think another way to describe an overfit model woud be to say that the decision surface is steep and the model
+can switch from predicting high probabilities to low probabilities with small changes in the predictors.
+This would not be possible with small coefficients.</p>
 </div>
 </div>
 
@@ -602,7 +678,7 @@ const thebe_selector_output = ".output, .cell_output"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./contents/foundation/sampling"
+            path: "./contents/foundation/regression"
         },
         predefinedOutput: true
     }
@@ -614,17 +690,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../regression/ridge_lasso.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="estimation.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Regularization</p>
+            <p class="prev-next-title">Estimation</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="bootstrap.html" title="next page">
+    <a class='right-next' id="next-link" href="../sampling/README.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bootstrap</p>
+        <p class="prev-next-title">Sampling</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
