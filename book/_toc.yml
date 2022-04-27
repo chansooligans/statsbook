@@ -36,6 +36,7 @@ parts:
       - file: contents/foundation/regression/glm/model_comparisons
     - file: contents/foundation/regression/interactions
     - file: contents/foundation/regression/estimation
+    - file: contents/foundation/regression/ridge_lasso
   - file: contents/foundation/sampling/README
     sections:
     - file: contents/foundation/sampling/bootstrap
@@ -53,6 +54,7 @@ parts:
     - file: contents/causal_inference/framework/ignorability
     - file: contents/causal_inference/framework/matching
   - file: contents/causal_inference/propensity_scores
+  - file: contents/causal_inference/regression_discontinuity
 - caption: Machine Learning
   chapters: 
   - file: contents/machine_learning/home
@@ -69,6 +71,7 @@ parts:
   - file: contents/machine_learning/clustering/README
     sections:
     - file: contents/machine_learning/clustering/kmeans
+  - file: contents/machine_learning/metrics
 - caption: Neural Networks
   chapters: 
     - file: contents/neural_networks/home
