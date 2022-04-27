@@ -1,13 +1,11 @@
-import markdown
-
-
 # %% [markdown]
 """
 # Metrics
 
 1. Classification
     - Confusion Matrix
-    - Accuracy / Precision / Recall
+    - Accuracy / Precision / Recall 
+    - F1 Score
     - ROC / AUC
     - Common Loss Functions:
         - Log loss / cross entropy
@@ -56,6 +54,12 @@ Metrics using confusion matrix:
 - False Positive Rate: False positives / Actual Positives
 - True Negative Rate: True negatives / Actual negatives
 - False Negative Rate: False negative / Actual positives
+
+F1 Score  
+- the F1 score is a harmonic mean of Precision and Recall: $2*\frac{precision+recall}{precision + recall}$
+- harmonic mean is often preferable to arthimetic mean when dealing with rates (e.g. suppose you're on a out-and-back 
+cycling trail with a tail wind on the way out allowing you to ride at 20mph and headwind slowing you down to 14mph 
+on the way back, what's the average mph of the entire ride?)
 """
 
 # %% [markdown]
