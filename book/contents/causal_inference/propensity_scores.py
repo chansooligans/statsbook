@@ -13,7 +13,7 @@ Gender, Ethnicity, Zip Code, College-Educated, and Occupation = Dentist, then it
 Propensity scores give you a way to reduce the multiple confounders to a single score. Then, the condition of ignorability will 
 still hold, even if conditioned on this single score alone!
 
-Proving this property of propensity score is beyond scope of these notes, but see [here if interested](https://stats.stackexchange.com/questions/246717/proving-the-balancing-score-property-of-propensity-score): 
+For discussions on proving this property of propensity scores, see [here if interested](https://stats.stackexchange.com/questions/246717/proving-the-balancing-score-property-of-propensity-score): 
 It only requires basic probability concepts. The intuition is that if two subjects have the same propensity score, they might not 
 be similar on the confounders, but they are similar _on average_ on the confounders.
 

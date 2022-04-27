@@ -27,6 +27,7 @@
 """
 
 # %%
+from markdown import markdown
 import numpy as np
 np.random.seed(0)
 from sklearn.metrics import confusion_matrix
@@ -136,11 +137,30 @@ Note intuitively how this differs from accuracy: when a classification is correc
 ## Regression
 
 #### MSE
+
+$$\frac{1}{n}\sum_i^n (y_i - \hat{y_i})^2$$
+
+We often use RMSE (root mean squared error), which is simply the square root of the MSE. RMSE 
+may be preferable for interpretability as it will be in the same units as the dependent variable.
 """
 # %%
 y = np.random.normal(10,2,100)
 y_pred = y + np.random.normal(0,1,100)
 mse = np.mean(np.sqrt((y - y_pred)**2))
+
+# %% [markdown]
+"""
+#### MSE / MAD
+
+The Mean/Median Absolute Deviation is another metric that can be used to assess model fit:
+
+$$\frac{1}{n}\sum_i^n (|y_i - \hat{y_i}|)$$
+
+MSE vs MAD: One key difference is that squaring the errors means larger errors are penalized more. 
+If using the **median** absolute deviation, another difference could arise if conditional mean of your dependent variable 
+is skewed. The median would provide a biased estimate. 
+"""
+
 
 # %% [markdown]
 """
