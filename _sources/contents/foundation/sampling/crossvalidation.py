@@ -73,11 +73,12 @@ Algorithm:
 """
 
 # %%
-df["folds"] = np.repeat([x for x in range(5)], len(df) // 5)[:700]
+folds = 5
+df["folds"] = np.repeat([x for x in range(folds)], len(df) // 5)[:700]
 
 # %%
 score = []
-for fold in range(len(folds)):
+for fold in range(folds):
     test = df.loc[df["folds"]==fold]
     train = df.loc[df["folds"]!=fold]
     clf = RandomForestClassifier(max_depth=2, random_state=0)

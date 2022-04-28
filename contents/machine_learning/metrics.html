@@ -610,6 +610,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mse-mad">
+     MSE / MAD
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#r-squared">
      r-squared
     </a>
@@ -684,6 +689,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mse-mad">
+     MSE / MAD
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#r-squared">
      r-squared
     </a>
@@ -709,20 +719,14 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">markdown</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="metrics">
+  <div class="tex2jax_ignore mathjax_ignore section" id="metrics">
 <h1>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h1>
 <ol class="simple">
 <li><p>Classification</p>
 <ul class="simple">
 <li><p>Confusion Matrix</p></li>
 <li><p>Accuracy / Precision / Recall</p></li>
+<li><p>F1 Score</p></li>
 <li><p>ROC / AUC</p></li>
 <li><p>Common Loss Functions:</p>
 <ul>
@@ -748,7 +752,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p><img alt="confuse" src="../../_images/confusion_matrix.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">markdown</span> <span class="kn">import</span> <span class="n">markdown</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
 <span class="n">acc</span> <span class="o">=</span> <span class="mf">0.9</span>
@@ -784,6 +789,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>False Positive Rate: False positives / Actual Positives</p></li>
 <li><p>True Negative Rate: True negatives / Actual negatives</p></li>
 <li><p>False Negative Rate: False negative / Actual positives</p></li>
+</ul>
+<p>F1 Score</p>
+<ul class="simple">
+<li><p>the F1 score is a harmonic mean of Precision and Recall: <span class="math notranslate nohighlight">\(2*\frac{precision+recall}{precision + recall}\)</span></p></li>
+<li><p>harmonic mean is often preferable to arthimetic mean when dealing with rates (e.g. suppose you’re on a out-and-back
+cycling trail with a tail wind on the way out allowing you to ride at 20mph and headwind slowing you down to 14mph
+on the way back, what’s the average mph of the entire ride?)</p></li>
 </ul>
 </div>
 <div class="section" id="roc-receiver-operating-characteristic">
@@ -822,10 +834,10 @@ for all the 1s, so there are many false 0s.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.roc_curve.RocCurveDisplay at 0x10c3dfb80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.roc_curve.RocCurveDisplay at 0x112ad1850&gt;
 </pre></div>
 </div>
-<img alt="../../_images/metrics_7_1.png" src="../../_images/metrics_7_1.png" />
+<img alt="../../_images/metrics_6_1.png" src="../../_images/metrics_6_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -887,6 +899,10 @@ and divide by N to normalize.</p>
 <h2>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mse">
 <h3>MSE<a class="headerlink" href="#mse" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[\frac{1}{n}\sum_i^n (y_i - \hat{y_i})^2\]</div>
+<p>We often use RMSE (root mean squared error), which is simply the square root of the MSE. RMSE
+may be preferable for interpretability as it will be in the same units as the dependent variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
@@ -896,6 +912,15 @@ and divide by N to normalize.</p>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="mse-mad">
+<h3>MSE / MAD<a class="headerlink" href="#mse-mad" title="Permalink to this headline">¶</a></h3>
+<p>The Mean/Median Absolute Deviation is another metric that can be used to assess model fit:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{n}\sum_i^n (|y_i - \hat{y_i}|)\]</div>
+<p>MSE vs MAD: One key difference is that squaring the errors means larger errors are penalized more.
+If using the <strong>median</strong> absolute deviation, another difference could arise if conditional mean of your dependent variable
+is skewed. The median would provide a biased estimate.</p>
 </div>
 <div class="section" id="r-squared">
 <h3>r-squared<a class="headerlink" href="#r-squared" title="Permalink to this headline">¶</a></h3>

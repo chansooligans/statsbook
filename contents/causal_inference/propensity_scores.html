@@ -695,7 +695,7 @@ then for a 43 year old, male treated subject, it should be easy to find a 43 yea
 Gender, Ethnicity, Zip Code, College-Educated, and Occupation = Dentist, then it might be much more difficult to identify a match.</p>
 <p>Propensity scores give you a way to reduce the multiple confounders to a single score. Then, the condition of ignorability will
 still hold, even if conditioned on this single score alone!</p>
-<p>Proving this property of propensity score is beyond scope of these notes, but see <a class="reference external" href="https://stats.stackexchange.com/questions/246717/proving-the-balancing-score-property-of-propensity-score">here if interested</a>:
+<p>For discussions on proving this property of propensity scores, see <a class="reference external" href="https://stats.stackexchange.com/questions/246717/proving-the-balancing-score-property-of-propensity-score">here if interested</a>:
 It only requires basic probability concepts. The intuition is that if two subjects have the same propensity score, they might not
 be similar on the confounders, but they are similar <em>on average</em> on the confounders.</p>
 <p>The basic idea is to define propensity score as the probability of treatment assignment, given confounders: <span class="math notranslate nohighlight">\(\text{score} = P(T=1|X)\)</span>.

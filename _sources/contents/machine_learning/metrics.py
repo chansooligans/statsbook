@@ -1,13 +1,11 @@
-import markdown
-
-
 # %% [markdown]
 """
 # Metrics
 
 1. Classification
     - Confusion Matrix
-    - Accuracy / Precision / Recall
+    - Accuracy / Precision / Recall 
+    - F1 Score
     - ROC / AUC
     - Common Loss Functions:
         - Log loss / cross entropy
@@ -29,6 +27,7 @@ import markdown
 """
 
 # %%
+from markdown import markdown
 import numpy as np
 np.random.seed(0)
 from sklearn.metrics import confusion_matrix
@@ -56,6 +55,12 @@ Metrics using confusion matrix:
 - False Positive Rate: False positives / Actual Positives
 - True Negative Rate: True negatives / Actual negatives
 - False Negative Rate: False negative / Actual positives
+
+F1 Score  
+- the F1 score is a harmonic mean of Precision and Recall: $2*\frac{precision+recall}{precision + recall}$
+- harmonic mean is often preferable to arthimetic mean when dealing with rates (e.g. suppose you're on a out-and-back 
+cycling trail with a tail wind on the way out allowing you to ride at 20mph and headwind slowing you down to 14mph 
+on the way back, what's the average mph of the entire ride?)
 """
 
 # %% [markdown]
@@ -132,11 +137,30 @@ Note intuitively how this differs from accuracy: when a classification is correc
 ## Regression
 
 #### MSE
+
+$$\frac{1}{n}\sum_i^n (y_i - \hat{y_i})^2$$
+
+We often use RMSE (root mean squared error), which is simply the square root of the MSE. RMSE 
+may be preferable for interpretability as it will be in the same units as the dependent variable.
 """
 # %%
 y = np.random.normal(10,2,100)
 y_pred = y + np.random.normal(0,1,100)
 mse = np.mean(np.sqrt((y - y_pred)**2))
+
+# %% [markdown]
+"""
+#### MSE / MAD
+
+The Mean/Median Absolute Deviation is another metric that can be used to assess model fit:
+
+$$\frac{1}{n}\sum_i^n (|y_i - \hat{y_i}|)$$
+
+MSE vs MAD: One key difference is that squaring the errors means larger errors are penalized more. 
+If using the **median** absolute deviation, another difference could arise if conditional mean of your dependent variable 
+is skewed. The median would provide a biased estimate. 
+"""
+
 
 # %% [markdown]
 """
