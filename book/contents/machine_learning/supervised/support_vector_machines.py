@@ -10,6 +10,7 @@ See: https://web.mit.edu/6.034/wwwbob/svm.pdf
 """
 
 # %% tags=['hide-cell']
+from markdown import markdown
 from sklearn.datasets import make_blobs
 import pandas as pd
 import numpy as np
@@ -81,6 +82,7 @@ illustrates the maximal margin, the optimal separating hyperplane, as well as th
 
 ![svm](../constraints.png)
 """
+
 
 # %% [markdown]
 """
