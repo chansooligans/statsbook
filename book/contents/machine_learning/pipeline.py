@@ -5,8 +5,13 @@
 
 # %%
 # fake data
+from markdown import markdown
 from sklearn.datasets import make_classification
-X, y = make_classification(random_state=0) 
+X, y = make_classification(
+    n_samples = 10_000,
+    n_classes=2,
+    random_state=0
+) 
 
 # %%
 import numpy as np
@@ -70,7 +75,7 @@ class Pipe:
             {
                 'clf': [RandomForestClassifier()],
                 'clf__max_depth':[int(x) for x in np.linspace(10, 110, num = 11)],
-                'clf__min_samples_split':[2, 5, 10],
+                'clf__min_samples_split':[2, 5, 10, 20],
                 'clf__bootstrap':[True,False]
             },
             {
@@ -97,10 +102,34 @@ pipe = Pipe()
 pipe.fit(X,y)
 
 # %%
-pipe.search.best_estimator_
-# %%
 pipe.search.best_params_
 # %%
 pipe.search.best_score_
+# %%
+pipe.search.param_grid
 
+# %% [markdown]
+"""
+## See Results:
+"""
+
+# %%
+import pandas as pd
+import seaborn as sns
+sns.set(rc={'figure.figsize':(11.7,8.27)})
+cv_results = pd.DataFrame(pipe.search.cv_results_["params"])
+cv_results["model"] = cv_results["clf"].astype(str).str.split("(").str[0]
+cv_results["score"] = pipe.search.cv_results_["mean_test_score"]
+
+# %%
+sns.lineplot(
+    x="clf__min_samples_split",
+    y="score",
+    hue="clf__max_depth",
+    marker="o",
+    data=cv_results.loc[
+        (cv_results["model"]=="RandomForestClassifier") &
+        (cv_results["clf__bootstrap"]==True) 
+    ]
+)
 # %%
