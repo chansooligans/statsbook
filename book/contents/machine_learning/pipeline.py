@@ -19,7 +19,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import BernoulliNB 
 # from xgboost import XGBClassifier
 
 # pipeline
@@ -60,8 +60,21 @@ class Pipe:
                 'clf__C': np.logspace(0, 4, 10)
             },
             {
-                'clf': [SVC()],  # Actual Estimator
+                'clf': [SVC()],
                 'clf__C': np.logspace(0, 4, 10)
+            },
+            {
+                'clf': [KNeighborsClassifier()],
+                'clf__n_neighbors': [5,10,15],
+            },
+            {
+                'clf': [RandomForestClassifier()],
+                'clf__max_depth':[int(x) for x in np.linspace(10, 110, num = 11)],
+                'clf__min_samples_split':[2, 5, 10],
+                'clf__bootstrap':[True,False]
+            },
+            {
+                'clf': [BernoulliNB()]
             }
         ]
 
@@ -71,6 +84,7 @@ class Pipe:
             estimator=self.pipe, 
             param_grid=self.search_space, 
             cv=5, 
+            n_jobs=10,
             scoring='accuracy',
             refit="roc_auc",
         )
@@ -80,8 +94,13 @@ class Pipe:
 
 # %%
 pipe = Pipe()
-
 pipe.fit(X,y)
+
 # %%
 pipe.search.best_estimator_
+# %%
+pipe.search.best_params_
+# %%
+pipe.search.best_score_
+
 # %%
