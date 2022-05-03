@@ -21,6 +21,7 @@ jupytext = "^1.13.8"
 ipykernel = "^6.13.0"
 ghp-import = "^2.0.2"
 pydotplus = "^2.0.2"
+xgboost = "^1.6.0"
 
 [tool.poetry.dev-dependencies]
 
