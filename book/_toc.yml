@@ -74,7 +74,7 @@ parts:
       - file: contents/machine_learning/supervised/support_vector_machines/applied
   - file: contents/machine_learning/clustering/README
     sections:
-    - file: contents/machine_learning/clustering/README
+    - file: contents/machine_learning/clustering/kmeans/README
       sections:
       - file: contents/machine_learning/clustering/kmeans/theory
       - file: contents/machine_learning/clustering/kmeans/applied
