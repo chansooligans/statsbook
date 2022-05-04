@@ -1,6 +1,6 @@
 # %% [markdown]
 """
-# K-Means
+# Theory
 
 ## Optimization Problem
 

@@ -1,6 +1,6 @@
 # %% [markdown]
 """
-# Support Vector Machines
+# Applied
 """
 
 # %%

@@ -1,6 +1,13 @@
 # %% [markdown]
 """
-# Support Vector Machines
+# Theory
+
+Support Vector Machines are often used for binary classfication problems. The algorithm looks for the optimal boundary 
+to separate the data and determines the boundary based on the "support vectors", the points that lie 
+closest to the decision bounadry (hyperplanes in multiple dimensions). 
+
+See: https://web.mit.edu/6.034/wwwbob/svm.pdf  
+and https://www.cs.cmu.edu/~aarti/Class/10315_Fall20/lecs/svm_dual_kernel.pdf
 """
 
 # %% tags=['hide-cell']

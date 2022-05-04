@@ -1,6 +1,6 @@
 # %% [markdown]
 """
-# K-Means
+# Applied
 """
 
 # %% tags=['hide-cell']
@@ -45,7 +45,7 @@ plt.scatter(X[:,0], X[:,1], c=y, cmap="Set1")
 
 # %% [markdown]
 """
-##### Using sklearn
+## Using sklearn
 """
 # %%
 kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
