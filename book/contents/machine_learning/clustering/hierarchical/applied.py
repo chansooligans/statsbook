@@ -60,4 +60,3 @@ for i,linkage in enumerate(['ward', 'complete', 'average']):
     )
     cluster = cluster.fit(X)
     plot_dendrogram(cluster)
-# %%
