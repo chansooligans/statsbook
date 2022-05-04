@@ -85,7 +85,7 @@ The algorithm estimates the optimal decision boundary by maximizing the gap betw
 support vectors. The image below (https://blog-c7ff.kxcdn.com/blog/wp-content/uploads/2017/02/constraints.png) 
 illustrates the maximal margin, the optimal separating hyperplane, as well as the support vectors.
 
-![svm](../constraints.png)
+![svm](constraints.png)
 """
 
 # %% [markdown]
