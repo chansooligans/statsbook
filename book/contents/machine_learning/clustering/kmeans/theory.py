@@ -45,6 +45,8 @@ import seaborn as sns
 sns.set(rc={'figure.figsize':(11.7,8.27)})
 import matplotlib.pyplot as plt
 
+centers = [(-3, -3), (4, 4), (4, -4)]
+cluster_std = [2, 3, 2]
 X, y = make_blobs(
     n_samples=500, 
     cluster_std = cluster_std, 
@@ -123,3 +125,5 @@ def plot_iter(i):
 
 for _ in range(len(mod.centroids)):
     plot_iter(_)
+
+# %%
