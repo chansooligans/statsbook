@@ -8,7 +8,7 @@
 from markdown import markdown
 from sklearn.datasets import make_classification
 X, y = make_classification(
-    n_samples = 10_000,
+    n_samples = 1_000,
     n_classes=2,
     random_state=0
 ) 

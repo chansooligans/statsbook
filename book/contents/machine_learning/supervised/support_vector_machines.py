@@ -6,7 +6,8 @@ Support Vector Machines are often used for binary classfication problems. The al
 to separate the data and determines the boundary based on the "support vectors", the points that lie 
 closest to the decision bounadry (hyperplanes in multiple dimensions). 
 
-See: https://web.mit.edu/6.034/wwwbob/svm.pdf
+See: https://web.mit.edu/6.034/wwwbob/svm.pdf  
+and https://www.cs.cmu.edu/~aarti/Class/10315_Fall20/lecs/svm_dual_kernel.pdf
 """
 
 # %% tags=['hide-cell']
@@ -83,6 +84,88 @@ illustrates the maximal margin, the optimal separating hyperplane, as well as th
 ![svm](../constraints.png)
 """
 
+# %% [markdown]
+"""
+## Parameter Estimation
+
+The goal is to maximize the width of the margin subject to constraints that the classes are correctly 
+classified.
+
+#### Set Up
+
+In the image above, the boundaries of the margin are the lines $w^Tx + b = 1$ and $w^Tx + b = -1$. 
+The decision boundary is $w^Tx + b = 0$. Then to get the width of the margin, we want to get 
+the distance from any point on the margin to the decision boundary. Remember that the distance from a 
+point $(x_0,y_0)$ to to a line $Ax+By+c=0$ is $\frac{|Ax_0+By_0+c|}{\sqrt(A^2 + B^2)}$. So the distance 
+between is $\frac{|wx+b|}{||w||} = \frac{1}{||w||}$. Since there are two margins, the total width is 
+$\frac{2}{||w||}$.
+
+#### Optimization Problem
+
+To maximize the width, we need to minimize $||w||$ subject to the condition that points are correctly 
+classified: $wx + b >= 1$ when $y = 1$ and $wx + b <= -1$ when $y = -1$, which is equivalent to 
+$y(wx + b) >= 1$.
+
+And for mathematical convenience, we minimize $\frac{1}{2}||w||^2$ (the denominator 2 will help cancel out 
+a 2 when we take the derivative later on and squaring it makes this a quadratic function with a single 
+global minimum). 
+
+So we have:
+
+$$min \frac{1}{2}||w||^2$$
+$$\text{s.t.}\ y(wx + b) - 1 = 0$$
+
+This has the form $min f(x)\ s.t.\ g(x) = 0$, and we can solve these with the Lagrangian multiple method 
+from Calc 2. 
+
+#### Lagrangian
+
+Since we have multiple constraints, we set up the Lagrangians using (a = multiplier):
+
+$$L(x,a) = f(x) + \sum_i a_i g_i(x)$$
+
+Which for us will yield (n = # of observations):
+
+$$min L(x,a) = \frac{1}{2}||w||^2 - \sum_i^n a_i y_i (x_iw+b) + \sum_i^n a_i$$
+
+s.t. $a_i>0$ for all $i$.   
+"""
+
+# %% [markdown]
+"""
+We take the derivative of L(x,a) with respect to w and b and set to 0.
+
+$$\frac{\partial{L}}{\partial{w}} = w - \sum_i^n a_i y_i x_i = 0$$
+
+so $w = \sum_i^n a_i y_i x_i$
+
+and
+
+$$\frac{\partial{L}}{\partial{b}} = \sum_i^n a_i y_i = 0$$
+
+#### Dual Problem
+
+The [dual formulation](http://people.csail.mit.edu/dsontag/courses/ml13/slides/lecture6.pdf.) 
+of the Lagrangian is that instead of minimizing over w and b, we can maximize over a, 
+subject to the relations we just derived above.
+
+So we substitute $w = \sum_i^n a_i y_i x_i$ and $\sum_i^n a_i y_i = 0$:
+
+$$min L(x,a) = \frac{1}{2}\sum_i^n a_i y_i x_i^2 - \sum_i^n a_i y_i (x_i(\sum_i^n a_i y_i x_i)+b) + \sum_i^n a_i$$
+
+$$min L(x,a) = - \frac{1}{2}\sum_i^n \sum_j^n a_i a_j y_i y_j x_i x_j + \sum_i^n a_i$$
+
+s.t. $\sum_i^n a_i y_i = 0$ and  $a_i>0$ for all $i$. 
+
+So take the derivative with respect to a and set to 0. Then just need to solve for $a_i$: 
+
+$\sum_i a_i y_i = 0$ with $0 <= a_i <= C$. The upper bound of C 
+"""
+
+# %% [markdown]
+"""
+
+"""
 
 # %% [markdown]
 """
