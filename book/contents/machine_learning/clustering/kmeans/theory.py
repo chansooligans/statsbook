@@ -40,14 +40,18 @@ import pandas as pd
 import numpy as np
 
 from sklearn.datasets import make_blobs
-from sklearn.cluster import KMeans
 
 import seaborn as sns
 sns.set(rc={'figure.figsize':(11.7,8.27)})
-import matplotlib
 import matplotlib.pyplot as plt
-import matplotlib.animation as animation
 
+X, y = make_blobs(
+    n_samples=500, 
+    cluster_std = cluster_std, 
+    centers = centers, 
+    n_features = 2, 
+    random_state=0
+)
 
 # %% [markdown]
 """
