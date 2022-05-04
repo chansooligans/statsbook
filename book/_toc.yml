@@ -74,6 +74,10 @@ parts:
       - file: contents/machine_learning/supervised/support_vector_machines/applied
   - file: contents/machine_learning/clustering/README
     sections:
+    - file: contents/machine_learning/clustering/hierarchical/README
+      sections:
+      - file: contents/machine_learning/clustering/hierarchical/theory
+      - file: contents/machine_learning/clustering/hierarchical/applied
     - file: contents/machine_learning/clustering/kmeans/README
       sections:
       - file: contents/machine_learning/clustering/kmeans/theory
