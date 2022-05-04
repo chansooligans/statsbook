@@ -68,10 +68,16 @@ parts:
       - file: contents/machine_learning/supervised/decision_trees/boosting
       - file: contents/machine_learning/supervised/decision_trees/random_forest
     - file: contents/machine_learning/supervised/knn
-    - file: contents/machine_learning/supervised/support_vector_machines
+    - file: contents/machine_learning/supervised/support_vector_machines/README
+      sections:
+      - file: contents/machine_learning/supervised/support_vector_machines/theory
+      - file: contents/machine_learning/supervised/support_vector_machines/applied
   - file: contents/machine_learning/clustering/README
     sections:
-    - file: contents/machine_learning/clustering/kmeans
+    - file: contents/machine_learning/clustering/README
+      sections:
+      - file: contents/machine_learning/clustering/kmeans/theory
+      - file: contents/machine_learning/clustering/kmeans/applied
   - file: contents/machine_learning/metrics
   - file: contents/machine_learning/pipeline
 - caption: Neural Networks

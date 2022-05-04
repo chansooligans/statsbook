@@ -2,6 +2,22 @@
 """
 # K-Means
 
+## Optimization Problem
+
+The goal is to maximize within-cluster similarity, or equivalently, minimizing the within-cluster variation:
+
+$$ min_{C_1,...,C_K} \sum_k W(C_k)$$
+
+where W(.) is a measure, most commonly Euclidean distance:
+
+$$ min_{C_1,...,C_K} \sum_k \frac{1}{|C_k|} \sum_{i,i' \in C_k} \sum_1^p (x_{ij}-x_{i'j})^2 $$
+
+where $|C_k|$ denotes the number of observations in the $k$th cluster and 
+$p$ is the number of features.
+
+
+## Algorithm 
+
 K-means just requires $k$, the number of clusters, as an input. There are few variations of the algorithm 
 and different distance measures can be used. The following is one example:
 
@@ -11,9 +27,12 @@ The algorithm uses the following steps:
 2. Compute the centroids of each cluster. 
 3. Assign all points to the cluster whose centroid is closest 
 4. Repeat steps 2 and 3 until convergence, i.e. fewer than X% of points are re-assigned clusters at step 3. 
+
+Note that this algorithm finds a local, rather than global, minimum. So may be sensitive 
+to the random initialization. So make sure to run the algorithm multiple times.
 """
 
-# %%
+# %% tags=['hide-cell']
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -29,43 +48,6 @@ import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
-
-# sudo apt update
-# sudo apt install ffmpeg
-
-# %% [markdown]
-"""
-## Create Fake Data
-
-With clustering problems, you don't have a labelled training set. 
-But for this demo, we generate y for fake data to be able to evaluate results. 
-"""
-
-# %%
-centers = [(-3, -3), (4, 4), (4, -4)]
-cluster_std = [2, 3, 2]
-X, y = make_blobs(
-    n_samples=500, 
-    cluster_std = cluster_std, 
-    centers = centers, 
-    n_features = 2, 
-    random_state=0
-)
-
-plt.scatter(X[:,0], X[:,1], c=y, cmap="Set1")
-
-
-# %% [markdown]
-"""
-## Using sklearn
-"""
-# %%
-kmeans = KMeans(n_clusters=3, random_state=0).fit(X)
-kmeans.labels_
-
-# %%
-sns.scatterplot(X[:,0], X[:,1], hue=y, style=kmeans.predict(X), s=50)
-sns.scatterplot(kmeans.cluster_centers_[:,0], kmeans.cluster_centers_[:,1], hue=[0,2,1], s=200)
 
 # %% [markdown]
 """
@@ -85,7 +67,7 @@ class KmeansDemo:
 
     def get_centroids(self, clusters):
         return np.array([
-            X[clusters==k].mean(axis=0)
+            self.X[clusters==k].mean(axis=0)
             for k in range(self.K)
         ])
 
@@ -110,8 +92,6 @@ class KmeansDemo:
 
 # %% [markdown]
 """
-**Run k-means:**
-
 Prints iteration and percentage of points updated.
 Stops when no new points are updated.
 """
@@ -139,16 +119,3 @@ def plot_iter(i):
 
 for _ in range(len(mod.centroids)):
     plot_iter(_)
-
-
-# %%
-# animated
-# Writer = animation.writers['ffmpeg']
-# writer = Writer(fps=1, bitrate=1800)
-# fig,ax = plt.subplots()
-# scat = ax.scatter(X[:,0], X[:,1], c=mod.clusters[0], cmap="Set1")
-# def animate(i):
-#     scat.set_array(mod.clusters[i])
-# ani = matplotlib.animation.FuncAnimation(fig, animate, frames=4, repeat=True)
-# ani.save('animate.mp4')
-# %%

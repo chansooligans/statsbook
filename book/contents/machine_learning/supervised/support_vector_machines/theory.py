@@ -1,17 +1,9 @@
 # %% [markdown]
 """
 # Support Vector Machines
-
-Support Vector Machines are often used for binary classfication problems. The algorithm looks for the optimal boundary 
-to separate the data and determines the boundary based on the "support vectors", the points that lie 
-closest to the decision bounadry (hyperplanes in multiple dimensions). 
-
-See: https://web.mit.edu/6.034/wwwbob/svm.pdf  
-and https://www.cs.cmu.edu/~aarti/Class/10315_Fall20/lecs/svm_dual_kernel.pdf
 """
 
 # %% tags=['hide-cell']
-from markdown import markdown
 from sklearn.datasets import make_blobs
 import pandas as pd
 import numpy as np
@@ -29,6 +21,11 @@ X, y = make_blobs(
     n_features = 2, 
     random_state=2
 )
+
+# %% [markdown]
+"""
+## Intro
+"""
 
 # %% [markdown]
 """
