@@ -164,11 +164,6 @@ $\sum_i a_i y_i = 0$ with $0 <= a_i <= C$. The upper bound of C
 
 # %% [markdown]
 """
-
-"""
-
-# %% [markdown]
-"""
 ## Beyond Linear Separation
 
 Real-world data is not neat like this and there's no decision boundary that perfectly separates two clusters. 
@@ -179,14 +174,4 @@ Couple solutions:
 decision boundary. 
 2. Kernel trick: map the data to a higher dimensional space, e.g. project 2D data $(x,y)$ to 3d by transforming to 
 $(x^2, y^2, \sqrt(2)xy)$.
-"""
-
-
-# %%
-"""
-## Coding From Scratch
-
-To-Do...
-
-see: https://towardsdatascience.com/svm-implementation-from-scratch-python-2db2fc52e5c2
 """
