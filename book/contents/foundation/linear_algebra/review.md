@@ -64,6 +64,8 @@ Rank and Dimension:
     - a basis for a subspace H is a linearly independent set in H that spans H
 - if the rank of a linear transformation is 1, the output is a line. if the rank is 2, the output vectors land on a 2d plane
 
+***
+
 ## Determinant:  
 
 A determinant may be understood as a scaling factor by which a linear transformation changes any area. If 
@@ -82,6 +84,8 @@ $$x_i = \frac{detA_i(b)}{detA}$$
 
 where $A_i(b)$ is the matrix obtained from A by replacing column i by the vector b.
 
+***
+
 ## Vector Spaces
 
 Vector Space:
@@ -97,6 +101,8 @@ Column Space:
 Linear Transformation:
 - a linear transformation T from a vector space V into a vector space W is a rule that assigns to each vector x in V a unique vector T(x).  
 - a kernel (null space) of such a T is the set of all u in V such that T(u) = 0. 
+
+***
 
 ## Eigenvectors and Eigenvalues
 
@@ -122,18 +128,59 @@ Diagonalization:
 - n x n matrix with fewer than n distinct eigenvalues may be diagonalizable:
     - iff sum of dimensions of the eigenspaces equals n
 
-Eigenvectors and Linear Transformations:
-
+***
 
 ## Ordinary Least Squares
 
+inner product, orthogonality, orthogonal projections, gram-schmidt process, QR factorization
+
+***
+
 ## Symmetric Matrices / Singular Value Decomposition
+
+Symmetric Matrices
+- An n x n matrix A is orthogonally diagonalizable iff A is symmetric
+
+Singular Value Decomposition
+- Any m x n matrix can be factored into $A = QDP^{-1}$
+- Singular Values
+    - Let A be an m x n matrix
+    - Then $A^TA$ is symmetric and diagonlizable
+    - ${v_1, v_2, ..., v_n}$ is the orthonormal basis consisting of the n eigenvectors of $A^TA$
+    - ${\lambda_1, \lambda_2, ..., \lambda_n}$ are the corresponding eigenvalues
+    - Then:
+        - $||Av_i||^2 = v_i^TA^TAv_i$ 
+        - $ = v_i^T\lambda_iv_i$ since $v_i$ is eigenvector of $A^TA$
+        - $ = \lambda_i$ since $v_i$ is a unit vector
+    - Then ordering $\lambda_i$ by magnitude for all i from 1 to n, you have the singular values.
+- SVD
+    - Let A be an m x n matrix with rank r
+    - There exists m x n matrix $\Sigma$  for which diagonals are the first r singular values of A, 
+    $\sigma_1 \geq \sigma_2 \geq ... \geq \sigma_r > 0 $
+    - $$\Sigma = \begin{bmatrix} D & 0 \\ 0 & 0\end{bmatrix}$$
+    - D is a r x r diagonal matrix for some r not exceeding n or m
+    - And there exists m x m U (left singular vectors) and n x n V (right singular vectors), such that:
+    - $$A = U\Sigma V^T$$
+    - The right singular vectors are the unit eigenvectors of $A^TA$: $v_1,v_2,...,v_n$ where square root of their 
+    eigenvalues are the singular values
+    - The left singular vectors are made up of the normalized vectors $\frac{Av_1}{\sigma_1}, \frac{Av_2}{\sigma_2}, ..., \frac{Av_r}{\sigma_r}$ (where r is the rank of A). Then if r < m, the remaining columns are 0.
+
+***
 
 ## Stats Application / PCA
 
+Let $X$ be a mean-centered p x N matrix of observations. 
+And let $S$ be its covariance matrix (e.g. $S = \frac{1}{N-1}XX^T$)
 
+The goal of Principal Components Analysis is to find an orthogonal p x p matrix that determines a change of variable, $X = PY$, with the property that the new variables in Y are uncorrelated and are arranged in order of decreasing variance. 
 
+Substituting in $PY$ for $X$ in $S = \frac{1}{N-1}XX^T$, we can get the covariance matrix of $Y$: $P^TSP$. 
+So we want to find P that makes $P^TSP$ diagonal, since vectors in Y are uncorrelated so off-diagonals of its 
+covariance matrix should be zero. 
 
+Let D be the diagonal matrix with eigenvalues $\lambda_1,\lambda_2, ..., \lambda_p$ of S on the diagonal, arranged 
+in decreasing order. And let P be an orthogonal matrix whose columns are corresponding unit vectors $u$. Then 
+$S = PDP^T$ (diagonalization of a symmetric matrix) and rearranging terms -> $P^TSP = D$
 
 
 
