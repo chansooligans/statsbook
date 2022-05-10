@@ -80,8 +80,6 @@ print(reject)
 """
 So we reject the null if there are less than 4 support-votes in the sample. We do NOT reject if there
  are at least 4 votes.
-
-What would $\beta$ be? ($\alpha$ and $\beta$ are inversely related)
 """
 
 # %% [markdown]
