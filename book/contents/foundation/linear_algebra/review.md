@@ -23,27 +23,26 @@ Trivial Solutions:
 - $Ax = 0$ has a nontrivial solution iff the equation has at least one free variable  
 
 Linear Independence:  
-- the columns of a matrix A are linearly independent iff the equation $Ax=0$ has ONLY the trivial solution.
+- the columns of a matrix A are linearly independent iff the equation $Ax=0$ has ONLY the trivial solution.  
 - a set of vectors is linearly dependent if:
-    - at least one of the vectors is a linear combination of the others
-    - the # of vectors ,p, is greater than the # of entries, n: (p > n)
+    - at least one of the vectors is a linear combination of the others  
+    - the # of vectors ,p, is greater than the # of entries, n: (p > n)  
     - it contains the zero vector  
 
 Invertible Matrices: 
 - An $n$ x $n$ matrix $A$ is invertible (non-singular) if:
     - $A^{-1}A = I$
     - for each $b$ in $\mathbb{R}^n$, $Ax=b$ has the unique solution $x=A^{-1}b$
-    - the equation AX=b has only the trivial solution
+    - the equation AX=0 has only the trivial solution
     - the columns of A are linearly independent
     - the linear transformation $x \rightarrow Ax$ is one-to-one
-    - $A_T$ is an invertible matrix
+    - $A^T$ is an invertible matrix
     - the columns of A form a basis of $\mathbb{R}^n$
     - rank $A = n$
     - Nul $A = {0}$
     - the number 0 is not an eigenvalue of A
     - det(A) is not zero
 - $A$ is a matrix representing some linear transformation. $A^{-1}$, if it exists, is a linear transformation that "undos" $A$.
-
 
 LU Factorization:
 - An $m$ x $n$ matrix A can be expressed in the form $A = LU$, where $L$ is an $m$ x $n$ lower triangular matrix and 
@@ -123,7 +122,8 @@ If symmetric matrix, eigenvectors are always orthogonal.
 
 Diagonalization:
 - An n x n matrix is diagonalizable iff A has n linearly independent eigenvectors
-- $A = PDP^{-1}$ with D a diagonal matrix, iff the columns of P are n linearly independent eigenvectors of A. Then, the diagonal entries of D are eigenvalues of A that correspond, respectively, to the eigenvectors in P
+- $A = PDP^{-1}$ with D a diagonal matrix, iff the columns of P are n linearly independent eigenvectors of A. 
+Then, the diagonal entries of D are eigenvalues of A that correspond, respectively, to the eigenvectors in P
 - so an n x n matrix with n distinct eigenvalues is diagonalizable
 - n x n matrix with fewer than n distinct eigenvalues may be diagonalizable:
     - iff sum of dimensions of the eigenspaces equals n
@@ -140,19 +140,33 @@ inner product, orthogonality, orthogonal projections, gram-schmidt process, QR f
 
 Symmetric Matrices
 - An n x n matrix A is orthogonally diagonalizable iff A is symmetric
+- And P (in $A = PDP^{-1}$) is orthonormal eigenvectors. 
+
+Constrained Optimization
+- Let $m = min({x^TAx: ||x|| = 1})$ and $M = max({x^TAx: ||x|| = 1})$
+- Let A be a symmetric matrix, then $M$ is greatest eigenvalue $\lambda_1$ of A and m is the least eigenvalue of A. 
+The value of $x^TAx$ is M when x is a unit eigenvector $u_1$ corresponding to M. The value of $x^TAx$ is m when 
+x is a unit eigenvector corresponding to m. 
 
 Singular Value Decomposition
 - Any m x n matrix can be factored into $A = QDP^{-1}$
+- SVD is based on the following property of ordinary diagonalization: the absolute values of the eigenvalues of a symmetric matrix A measure the 
+amounts that A stretches or shrinks certain vectors (the eigenvectors). 
 - Singular Values
     - Let A be an m x n matrix
     - Then $A^TA$ is symmetric and diagonlizable
     - ${v_1, v_2, ..., v_n}$ is the orthonormal basis consisting of the n eigenvectors of $A^TA$
     - ${\lambda_1, \lambda_2, ..., \lambda_n}$ are the corresponding eigenvalues
     - Then:
-        - $||Av_i||^2 = v_i^TA^TAv_i$ 
+        - $||Av_i||^2 = (Av_i)^T(Av_i) = v_i^TA^TAv_i$ 
         - $ = v_i^T\lambda_iv_i$ since $v_i$ is eigenvector of $A^TA$
         - $ = \lambda_i$ since $v_i$ is a unit vector
-    - Then ordering $\lambda_i$ by magnitude for all i from 1 to n, you have the singular values.
+    - Then ordering $\lambda_i$ by magnitude for all i from 1 to n, $\lambda_1 = ||Av_1||$ is the maximum.
+    - $\lambda_2$ is the maximum of all unit vectors orthogonal to $\lambda_2$ = $||A_v2||$
+    - Singular values are the square roots of the eigenvalues of $A^TA$
+- Suppose ${v_1, v_2, ..., v_n}$ is an orthonormal basis consisting of eigenvectors of $A^TA$, arranged so that corresponding eigenvalues of $A^TA$ 
+satisfy $\lambda_1 > \lambda_2 > ... > \lambda_n$, and suppose A has r nonzero singular valuse. Then ${Av_1, ..., Av_r}$ is an orthogonal basis for Col A, 
+and rank A = r.
 - SVD
     - Let A be an m x n matrix with rank r
     - There exists m x n matrix $\Sigma$  for which diagonals are the first r singular values of A, 

@@ -11,6 +11,78 @@ Elements of a Statistical Test:
 
 # %% [markdown]
 """
+## Type I/II Errors
+
+- A **type I error** is made if $H_0$ is rejected when $H_0$ is true  
+    - the probability of a type I error is the "significance level" of a test, denoted by $\alpha$
+- A **type II error** is made if $H_0$ is not rejected when $H_1$ is true
+    - the probability of a type II error is denoted by $\beta$
+
+Consider an example with election data where we want to know the percent of voters in support. 
+Let $H_0 : p = 0.4$ be our null hypothesis and $H_a : p < 0.4$ be our alternative hypothesis. 
+Suppose that we collect a sample of 15 voters and our rejection region is $y \leq 2$. That is, 
+if there are fewer than 2 votes in support, we reject the null hypothesis in favor of the 
+alternative.
+
+What is alpha and beta?
+"""
+
+# %% [markdown]
+"""
+#### alpha
+
+Assume the null hypothesis is true. Our rejection region states that we reject the null hypothesis if 
+our test statistic $y$ (the # of voters in support) $\leq 2$. So what is the probability that $y \leq 2$, given 
+$p = 0.5$ (null hypothesis)?
+"""
+
+# %%
+# since the statistic is the sum of repeated binary variable, binomial distribution is appropriate
+from scipy.stats import binom
+
+alpha = sum([
+    binom.pmf(k=y, n=15, p=0.5)
+    for y in [0,1,2]
+])
+print(round(alpha,3))
+
+# %% [markdown]
+"""
+#### beta
+
+Assume the null hypothesis is false and true vote support is p = 0.2. 
+Our rejection region states that we do NOT reject the null hypothesis if our test statistic 
+$y$ > 2$. So what is the probability that we fail to reject the null when it is false? 
+In other words, what is the probability that $y > 2$ given $p = 0.2$?
+"""
+
+# %%
+beta = sum([
+    binom.pmf(k=y, n=15, p=0.2)
+    for y in range(3,16)
+])
+print(round(beta,3))
+
+# %% [markdown]
+"""
+#### when alpha is usually 0.05
+
+Typically, we define our rejection region not based on a value of the test statistic, but 
+based on a value of $\alpha$, specifically $\alpha = 0.05$. If we reject the null if 
+$\alpha < 0.05$, how many votes would we need in the sample of 15 to NOT reject the null?
+"""
+
+# %%
+reject = binom.ppf(0.05, n=15, p=0.5)
+print(reject)
+
+# %% [markdown]
+"""
+So we reject the null if there are less than 4 support-votes in the sample. 
+"""
+
+# %% [markdown]
+"""
 ***
 ## Large Sample Tests
 
@@ -23,10 +95,6 @@ Does the evidence contradict the company's claims?
 ```
 
 Couple More Definitions:
-- A **type I error** is made if $H_0$ is rejected when $H_0$ is true  
-    - the probability of a type I error is the "significance level" of a test, denoted by $\alpha$
-- A **type II error** is made if $H_0$ is not rejected when $H_1$ is true
-    - the probability of a type II error is denoted by $\beta$
 - A one-tailed test is a hypothesis test where the rejection region is only one side of the sampling distribution
 - A two-tailed test is a hypothesis test that tests whether the test statistic is greater than or less 
 than a certain range of values
