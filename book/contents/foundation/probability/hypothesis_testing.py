@@ -52,7 +52,7 @@ print(round(alpha,3))
 
 Assume the null hypothesis is false and true vote support is p = 0.2. 
 Our rejection region states that we do NOT reject the null hypothesis if our test statistic 
-$y$ > 2$. So what is the probability that we fail to reject the null when it is false? 
+$y > 2$. So what is the probability that we fail to reject the null when it is false? 
 In other words, what is the probability that $y > 2$ given $p = 0.2$?
 """
 
@@ -65,7 +65,7 @@ print(round(beta,3))
 
 # %% [markdown]
 """
-#### when alpha is usually 0.05
+#### if alpha = 0.05
 
 Typically, we define our rejection region not based on a value of the test statistic, but 
 based on a value of $\alpha$, specifically $\alpha = 0.05$. If we reject the null if 
@@ -78,7 +78,10 @@ print(reject)
 
 # %% [markdown]
 """
-So we reject the null if there are less than 4 support-votes in the sample. 
+So we reject the null if there are less than 4 support-votes in the sample. We do NOT reject if there
+ are at least 4 votes.
+
+What would $\beta$ be? ($\alpha$ and $\beta$ are inversely related)
 """
 
 # %% [markdown]
