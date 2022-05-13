@@ -46,6 +46,7 @@ parts:
   - file: contents/simulations/README
     sections:
     - file: contents/simulations/confidence_intervals
+    - file: contents/simulations/pvalues
 - caption: Causal Inference
   chapters:
   - file: contents/causal_inference/framework/README.md
