@@ -5,6 +5,7 @@
 
 # %%
 import numpy as np
+np.random.seed(0)
 from statsmodels.stats.weightstats import ztest
 import seaborn as sns
 sns.set(rc={'figure.figsize':(11.7,8.27)})
@@ -103,7 +104,7 @@ pvalues = [sim(pop, sample_size=n) for i in range(100)]
 sns.histplot(pvalues)
 
 # %%
-n = 50_000
+n = 20_000
 pvalues = [sim(pop, sample_size=n) for i in range(100)]
 sns.histplot(pvalues)
 
