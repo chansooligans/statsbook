@@ -51,12 +51,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Home" href="../neural_networks/home.html" />
-    <link rel="prev" title="K-Means" href="clustering/kmeans.html" />
+    <link rel="next" title="Pipeline Code" href="pipeline.html" />
+    <link rel="prev" title="Applied" href="clustering/kmeans/applied.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -152,6 +154,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../foundation/linear_algebra/review.html">
+   Lin Alg Review
+  </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../foundation/regression/README.html">
@@ -317,6 +324,11 @@ const thebe_selector_output = ".output, .cell_output"
      Confidence Intervals
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../simulations/pvalues.html">
+     P-values
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -427,28 +439,94 @@ const thebe_selector_output = ".output, .cell_output"
      K-Nearest Neighbors
     </a>
    </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="supervised/support_vector_machines/README.html">
+     Support Vector Machines
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="supervised/support_vector_machines/theory.html">
+       Theory
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="supervised/support_vector_machines/applied.html">
+       Applied
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="clustering/README.html">
    Clustering
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="clustering/kmeans.html">
-     K-Means
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="clustering/hierarchical/README.html">
+     Hierarchical
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="clustering/hierarchical/theory.html">
+       Theory
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="clustering/hierarchical/applied.html">
+       Applied
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="clustering/kmeans/README.html">
+     K-means
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="clustering/kmeans/theory.html">
+       Theory
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="clustering/kmeans/applied.html">
+       Applied
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pipeline.html">
+   Pipeline Code
   </a>
  </li>
 </ul>
@@ -462,8 +540,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../neural_networks/home.html">
    Home
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -745,6 +823,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ol>
+<p>Also see: https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter</p>
 <div class="section" id="classification">
 <h2>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="confusion-matrix">
@@ -834,7 +913,7 @@ for all the 1s, so there are many false 0s.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.roc_curve.RocCurveDisplay at 0x112ad1850&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.roc_curve.RocCurveDisplay at 0x7fb31ff1fa90&gt;
 </pre></div>
 </div>
 <img alt="../../_images/metrics_6_1.png" src="../../_images/metrics_6_1.png" />
@@ -981,17 +1060,17 @@ include intercept and constant variance parameters). L is the model likelihood.<
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="clustering/kmeans.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="clustering/kmeans/applied.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">K-Means</p>
+            <p class="prev-next-title">Applied</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../neural_networks/home.html" title="next page">
+    <a class='right-next' id="next-link" href="pipeline.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Home</p>
+        <p class="prev-next-title">Pipeline Code</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

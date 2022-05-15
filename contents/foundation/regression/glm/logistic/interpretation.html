@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
@@ -152,6 +154,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../linear_algebra/review.html">
+   Lin Alg Review
+  </a>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../../README.html">
@@ -317,6 +324,11 @@ const thebe_selector_output = ".output, .cell_output"
      Confidence Intervals
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../simulations/pvalues.html">
+     P-values
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -427,28 +439,94 @@ const thebe_selector_output = ".output, .cell_output"
      K-Nearest Neighbors
     </a>
    </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../machine_learning/supervised/support_vector_machines/README.html">
+     Support Vector Machines
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../machine_learning/supervised/support_vector_machines/theory.html">
+       Theory
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../machine_learning/supervised/support_vector_machines/applied.html">
+       Applied
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../../../machine_learning/clustering/README.html">
    Clustering
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../../../machine_learning/clustering/kmeans.html">
-     K-Means
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../machine_learning/clustering/hierarchical/README.html">
+     Hierarchical
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../machine_learning/clustering/hierarchical/theory.html">
+       Theory
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../machine_learning/clustering/hierarchical/applied.html">
+       Applied
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../machine_learning/clustering/kmeans/README.html">
+     K-means
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../machine_learning/clustering/kmeans/theory.html">
+       Theory
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../machine_learning/clustering/kmeans/applied.html">
+       Applied
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../../../machine_learning/metrics.html">
    Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../machine_learning/pipeline.html">
+   Pipeline Code
   </a>
  </li>
 </ul>
@@ -462,8 +540,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../../../neural_networks/home.html">
    Home
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -695,7 +773,7 @@ The dependent variable is a binary variable, indicating presidential support.</p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/chansoosong/Desktop/repos.nosync/statsbook/.venv/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/csong/cs_github/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
 </pre></div>
 </div>
@@ -733,10 +811,10 @@ The dependent variable is a binary variable, indicating presidential support.</p
   <th>Method:</th>                 <td>MLE</td>       <th>  Df Model:          </th>  <td>     1</td>  
 </tr>
 <tr>
-  <th>Date:</th>            <td>Sat, 23 Apr 2022</td> <th>  Pseudo R-squ.:     </th>  <td>0.03896</td> 
+  <th>Date:</th>            <td>Sun, 15 May 2022</td> <th>  Pseudo R-squ.:     </th>  <td>0.03896</td> 
 </tr>
 <tr>
-  <th>Time:</th>                <td>14:39:01</td>     <th>  Log-Likelihood:    </th> <td> -333.03</td> 
+  <th>Time:</th>                <td>14:03:10</td>     <th>  Log-Likelihood:    </th> <td> -333.03</td> 
 </tr>
 <tr>
   <th>converged:</th>             <td>True</td>       <th>  LL-Null:           </th> <td> -346.54</td> 
@@ -765,7 +843,7 @@ The dependent variable is a binary variable, indicating presidential support.</p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/chansoosong/Desktop/repos.nosync/statsbook/.venv/lib/python3.9/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/csong/cs_github/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
 </pre></div>
 </div>
@@ -786,7 +864,7 @@ Here, that would mean income = 0.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P(pres support) = 0.1245754446961988
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P(pres support) = 0.12457544469619874
 </pre></div>
 </div>
 </div>
@@ -819,7 +897,7 @@ increase in income depends on the income.</strong></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A one unit increase from 1 to 2 is associated with an increase in P(pres support) of 0.0850159047111882
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A one unit increase from 1 to 2 is associated with an increase in P(pres support) of 0.08501590471118822
 </pre></div>
 </div>
 </div>
@@ -865,7 +943,7 @@ predictive difference corresponding to a one unit change in income.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1210643543733613
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.12106435437336133
 </pre></div>
 </div>
 </div>
@@ -897,7 +975,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A unit change in income is associated with a multiplicative change of 1.6229693725926748 in the odds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A unit change in income is associated with a multiplicative change of 1.622969372592675 in the odds
 </pre></div>
 </div>
 </div>

@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
     <link rel="next" title="Demo" href="poisson.html" />
@@ -150,6 +152,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../linear_algebra/review.html">
+   Lin Alg Review
+  </a>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../../README.html">
@@ -315,6 +322,11 @@ const thebe_selector_output = ".output, .cell_output"
      Confidence Intervals
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../simulations/pvalues.html">
+     P-values
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -425,28 +437,94 @@ const thebe_selector_output = ".output, .cell_output"
      K-Nearest Neighbors
     </a>
    </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../machine_learning/supervised/support_vector_machines/README.html">
+     Support Vector Machines
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../machine_learning/supervised/support_vector_machines/theory.html">
+       Theory
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../machine_learning/supervised/support_vector_machines/applied.html">
+       Applied
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../../../machine_learning/clustering/README.html">
    Clustering
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../../../machine_learning/clustering/kmeans.html">
-     K-Means
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../machine_learning/clustering/hierarchical/README.html">
+     Hierarchical
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../machine_learning/clustering/hierarchical/theory.html">
+       Theory
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../machine_learning/clustering/hierarchical/applied.html">
+       Applied
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../machine_learning/clustering/kmeans/README.html">
+     K-means
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../machine_learning/clustering/kmeans/theory.html">
+       Theory
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../machine_learning/clustering/kmeans/applied.html">
+       Applied
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../../../machine_learning/metrics.html">
    Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../machine_learning/pipeline.html">
+   Pipeline Code
   </a>
  </li>
 </ul>
@@ -460,8 +538,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../../../neural_networks/home.html">
    Home
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
    <i class="fas fa-chevron-down">
    </i>
   </label>

@@ -15,6 +15,8 @@
     - Log Likelihood
     - AIC
     - BIC
+
+Also see: https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter
 """
 
 # %% [markdown]
