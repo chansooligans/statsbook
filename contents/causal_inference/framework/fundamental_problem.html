@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -750,7 +748,7 @@ In this way, causal inference is a sort of missing data problem!</p>
 <p>Imagine that you can access alternate universes and you can measure both <span class="math notranslate nohighlight">\(Y^1\)</span> and <span class="math notranslate nohighlight">\(Y^0\)</span> for
 each individual. Then we wouldn’t have the fundamental problem of causal inference.
 We call this “God Mode” and your data would look like this:</p>
-<div class="cell tag_hide-cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -779,48 +777,22 @@ We call this “God Mode” and your data would look like this:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">File ~/cs_github/statsbook/.venv/lib/python3.8/site-packages/pandas/compat/_optional.py:138,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">138</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">139</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-
-<span class="nn">File /usr/local/pyenv/versions/3.8.1/lib/python3.8/importlib/__init__.py:127,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="ne">--&gt; </span><span class="mi">127</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1014,</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:991,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:973,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;tabulate&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 12&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span><span class="s2">&quot;x2&quot;</span><span class="p">]])</span> <span class="o">@</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span><span class="s2">&quot;x2&quot;</span><span class="p">]])</span> <span class="o">@</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">())</span>
-
-<span class="nn">File ~/cs_github/statsbook/.venv/lib/python3.8/site-packages/pandas/core/frame.py:2728,</span> in <span class="ni">DataFrame.to_markdown</span><span class="nt">(self, buf, mode, index, storage_options, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2726</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;tablefmt&quot;</span><span class="p">,</span> <span class="s2">&quot;pipe&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2727</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;showindex&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2728</span> <span class="n">tabulate</span> <span class="o">=</span> <span class="n">import_optional_dependency</span><span class="p">(</span><span class="s2">&quot;tabulate&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2729</span> <span class="n">result</span> <span class="o">=</span> <span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2730</span> <span class="k">if</span> <span class="n">buf</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">File ~/cs_github/statsbook/.venv/lib/python3.8/site-packages/pandas/compat/_optional.py:141,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
-<span class="g g-Whitespace">    </span><span class="mi">139</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">140</span>     <span class="k">if</span> <span class="n">errors</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">141</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">142</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">143</span>         <span class="k">return</span> <span class="kc">None</span>
-
-<span class="ne">ImportError</span>: Missing optional dependency &#39;tabulate&#39;.  Use pip or conda to install tabulate.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|    |        x1 |         x2 |   T |        y1 |           y0 |
+|---:|----------:|-----------:|----:|----------:|-------------:|
+|  0 |  1.76405  |  0.443863  |   0 |  7.41583  |  4.41583     |
+|  1 |  0.400157 |  0.333674  |   0 |  4.46766  |  1.46766     |
+|  2 |  0.978738 |  1.49408   |   0 |  7.94563  |  4.94563     |
+|  3 |  2.24089  | -0.205158  |   1 |  7.07147  |  4.07147     |
+|  4 |  1.86756  |  0.313068  |   1 |  7.36125  |  4.36125     |
+|  5 | -0.977278 | -0.854096  |   0 | -0.662747 | -3.66275     |
+|  6 |  0.950088 | -2.55299   |   1 | -0.205803 | -3.2058      |
+|  7 | -0.151357 |  0.653619  |   0 |  4.00452  |  1.00452     |
+|  8 | -0.103219 |  0.864436  |   0 |  4.52243  |  1.52243     |
+|  9 |  0.410599 | -0.742165  |   1 |  2.33687  | -0.663133    |
+| 10 |  0.144044 |  2.26975   |   0 |  7.8276   |  4.8276      |
+| 11 |  1.45427  | -1.45437   |   1 |  2.99982  | -0.000184335 |
+| 12 |  0.761038 |  0.0457585 |   1 |  4.61359  |  1.61359     |
+| 13 |  0.121675 | -0.187184  |   1 |  2.86898  | -0.131018    |
 </pre></div>
 </div>
 </div>
@@ -854,50 +826,23 @@ And we can no longer compute the treatment effect!</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">File ~/cs_github/statsbook/.venv/lib/python3.8/site-packages/pandas/compat/_optional.py:138,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">138</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">139</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-
-<span class="nn">File /usr/local/pyenv/versions/3.8.1/lib/python3.8/importlib/__init__.py:127,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="ne">--&gt; </span><span class="mi">127</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1014,</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:991,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:973,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;tabulate&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;y0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;y1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">())</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">eff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;y1&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y0&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The treatment effect is </span><span class="si">{</span><span class="n">eff</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="nn">File ~/cs_github/statsbook/.venv/lib/python3.8/site-packages/pandas/core/frame.py:2728,</span> in <span class="ni">DataFrame.to_markdown</span><span class="nt">(self, buf, mode, index, storage_options, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2726</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;tablefmt&quot;</span><span class="p">,</span> <span class="s2">&quot;pipe&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2727</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;showindex&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2728</span> <span class="n">tabulate</span> <span class="o">=</span> <span class="n">import_optional_dependency</span><span class="p">(</span><span class="s2">&quot;tabulate&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2729</span> <span class="n">result</span> <span class="o">=</span> <span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2730</span> <span class="k">if</span> <span class="n">buf</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">File ~/cs_github/statsbook/.venv/lib/python3.8/site-packages/pandas/compat/_optional.py:141,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
-<span class="g g-Whitespace">    </span><span class="mi">139</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">140</span>     <span class="k">if</span> <span class="n">errors</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">141</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">142</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">143</span>         <span class="k">return</span> <span class="kc">None</span>
-
-<span class="ne">ImportError</span>: Missing optional dependency &#39;tabulate&#39;.  Use pip or conda to install tabulate.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|    |        x1 |         x2 |   T |         y1 |        y0 |
+|---:|----------:|-----------:|----:|-----------:|----------:|
+|  0 |  1.76405  |  0.443863  |   0 | nan        |   4.41583 |
+|  1 |  0.400157 |  0.333674  |   0 | nan        |   1.46766 |
+|  2 |  0.978738 |  1.49408   |   0 | nan        |   4.94563 |
+|  3 |  2.24089  | -0.205158  |   1 |   7.07147  | nan       |
+|  4 |  1.86756  |  0.313068  |   1 |   7.36125  | nan       |
+|  5 | -0.977278 | -0.854096  |   0 | nan        |  -3.66275 |
+|  6 |  0.950088 | -2.55299   |   1 |  -0.205803 | nan       |
+|  7 | -0.151357 |  0.653619  |   0 | nan        |   1.00452 |
+|  8 | -0.103219 |  0.864436  |   0 | nan        |   1.52243 |
+|  9 |  0.410599 | -0.742165  |   1 |   2.33687  | nan       |
+| 10 |  0.144044 |  2.26975   |   0 | nan        |   4.8276  |
+| 11 |  1.45427  | -1.45437   |   1 |   2.99982  | nan       |
+| 12 |  0.761038 |  0.0457585 |   1 |   4.61359  | nan       |
+| 13 |  0.121675 | -0.187184  |   1 |   2.86898  | nan       |
+The treatment effect is nan
 </pre></div>
 </div>
 </div>
@@ -940,7 +885,7 @@ address the fundamental problem of causal inference?</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f78b2cc9190&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fe042917b20&gt;
 </pre></div>
 </div>
 <img alt="../../../_images/fundamental_problem_9_1.png" src="../../../_images/fundamental_problem_9_1.png" />
@@ -985,7 +930,7 @@ only these 2 variables. Let’s look at their density plots.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f78b2cc2640&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe042917070&gt;
 </pre></div>
 </div>
 <img alt="../../../_images/fundamental_problem_13_1.png" src="../../../_images/fundamental_problem_13_1.png" />
@@ -1000,7 +945,7 @@ only these 2 variables. Let’s look at their density plots.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f78b2c0b910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fe042425760&gt;
 </pre></div>
 </div>
 <img alt="../../../_images/fundamental_problem_15_1.png" src="../../../_images/fundamental_problem_15_1.png" />
