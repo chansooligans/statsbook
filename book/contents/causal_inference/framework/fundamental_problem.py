@@ -36,13 +36,14 @@ each individual. Then we wouldn't have the fundamental problem of causal inferen
 We call this "God Mode" and your data would look like this:
 """
 
-# %%
+# %% tags=["hide-cell"]
 import pandas as pd
 import numpy as np
 import seaborn as sns
 sns.set(rc={'figure.figsize':(11.7,8.27)})
 import matplotlib.pyplot as plt
 
+# %%
 np.random.seed(0)
 
 df = pd.DataFrame({
