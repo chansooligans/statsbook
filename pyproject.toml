@@ -23,6 +23,7 @@ ghp-import = "^2.0.2"
 pydotplus = "^2.0.2"
 xgboost = "^1.6.0"
 plotly = "^5.7.0"
+ipympl = "^0.9.1"
 
 [tool.poetry.dev-dependencies]
 
