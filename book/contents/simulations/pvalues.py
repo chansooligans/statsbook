@@ -75,7 +75,7 @@ First couple plots address questions we had about the distribution of pvalues un
 - The blue distribution is just a standard normal distribution (mean=0, variance=1).   
 - The orange distribution is a distribution of 1000 simulated test statistics from repeated experiments.  
 - The black line represents the researcher's decision to select alpha = 0.05.  
-- We reject the test statistics that are shaded in red.
+- We reject the null for test statistics that are shaded in red.
 """
 
 # %%
@@ -110,7 +110,7 @@ plt.axvline(0.05, 0, 1000, color="red")
 
 # %% [markdown]
 """
-again, ~71% of simulated pvalues are below 0.05 (equivalent to 92% of test statistics > 1.645)
+again, ~86% of simulated pvalues are below 0.05 (equivalent to 86% of test statistics > 1.645)
 """
 
 # %%
@@ -118,7 +118,7 @@ np.mean([results["pvalue"]<0.05])
 
 # %% [markdown]
 """
-we'll see below, but this value 84.3% is closely related to type 2 error
+we'll see below, but this value 86% is closely related to type 2 error and is called **power of a test**
 """
 
 
@@ -131,6 +131,7 @@ we'll see below, but this value 84.3% is closely related to type 2 error
 - here, the researcher selected an alpha of 0.05, so the rejection decision is to reject all test 
 statistics less than -1.645 (black vertical line) equivalently, to reject all pvalues less than 0.05. 
 - the shaded area in red represents 5% of the area under the blue distribution
+- 1 - alpha is our confidence level
 """
 
 # %%
@@ -163,7 +164,8 @@ np.mean([std_normal<-1.645])
 - again, researcher selected the alpha of 0.05... so the rejection decision is to NOT reject test 
 statistics greater than -1.645  
 - the shaded area in red represents a percentage of the red distribution (we computed the area under the 
-red distribution BELOW -1.645 earlier, so this is just 1 minus that value): 1 - .86 = 14%
+red distribution BELOW -1.645 earlier, so this is just 1 minus that value): 1 - .86 = 14%  
+- 1 - beta is the "power of the test", it's the probability that the test correctly rejects the null (the percentage of pvalues less than -1.645)
 """
 
 # %%

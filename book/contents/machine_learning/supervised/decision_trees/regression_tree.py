@@ -220,4 +220,3 @@ sns.lineplot(
 
 sns.scatterplot(df["x0"], df["y"], color="red")
 
-# %%

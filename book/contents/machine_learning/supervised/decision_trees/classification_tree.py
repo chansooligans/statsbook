@@ -37,10 +37,8 @@ $$ E = 1 - max_{k}(\hat{p}_{mk})$$
 import pickle
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import cross_val_score
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import export_graphviz
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score as acc
 from sklearn.model_selection import GridSearchCV
 import seaborn as sns
@@ -258,4 +256,5 @@ export_graphviz(dt.get_by_depth(depth=5).regressor, out_file=dot_data,
 # %%
 graph = pydotplus.graph_from_dot_data(dot_data.getvalue())  
 Image(graph.create_png())
+
 # %%
