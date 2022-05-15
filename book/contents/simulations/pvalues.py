@@ -21,6 +21,7 @@ import matplotlib.animation as animation
 ## 1 test statistic and pvalue
 """
 
+# %%
 # one-sided hypothesis test
 # NULL Hypothesis: mean = 0
 # ALT Hypothesis: mean < 0
@@ -41,7 +42,7 @@ print(test_statistic, pvalue)
 
 # %%
 # equivalently, using statsmodels' ztest:
-test_statistic, pvalue = ztest(sample, value=0, alternative='larger')
+test_statistic, pvalue = ztest(sample, value=0, alternative='smaller')
 print(test_statistic, pvalue)
 
 
