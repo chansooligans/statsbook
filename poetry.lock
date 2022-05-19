@@ -2061,6 +2061,17 @@ develop = ["cython (>=0.29.26)"]
 docs = ["sphinx", "nbconvert", "jupyter-client", "ipykernel", "matplotlib", "nbformat", "numpydoc", "pandas-datareader"]
 
 [[package]]
+name = "tabulate"
+version = "0.8.9"
+description = "Pretty-print tabular data"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+widechars = ["wcwidth"]
+
+[[package]]
 name = "tenacity"
 version = "8.0.1"
 description = "Retry code until it succeeds"
@@ -2385,7 +2396,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<3.11"
-content-hash = "404ab06be32e5ec883e5542cab65a04ca071b2d457eb7d47592da46dbd9de805"
+content-hash = "848f7b052baa05279930ee855662e644a3cbe46625bc307c66aa6c878f2d2574"
 
 [metadata.files]
 absl-py = [
@@ -3653,6 +3664,10 @@ stack-data = [
 ]
 statsmodels = [
     {file = "statsmodels-0.13.2.tar.gz", hash = "sha256:77dc292c9939c036a476f1770f9d08976b05437daa229928da73231147cde7d4"},
+]
+tabulate = [
+    {file = "tabulate-0.8.9-py3-none-any.whl", hash = "sha256:d7c013fe7abbc5e491394e10fa845f8f32fe54f8dc60c6622c6cf482d25d47e4"},
+    {file = "tabulate-0.8.9.tar.gz", hash = "sha256:eb1d13f25760052e8931f2ef80aaf6045a6cceb47514db8beab24cded16f13a7"},
 ]
 tenacity = [
     {file = "tenacity-8.0.1-py3-none-any.whl", hash = "sha256:f78f4ea81b0fabc06728c11dc2a8c01277bfc5181b321a4770471902e3eb844a"},

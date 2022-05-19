@@ -36,7 +36,7 @@ each individual. Then we wouldn't have the fundamental problem of causal inferen
 We call this "God Mode" and your data would look like this:
 """
 
-# %% tags=["hide-cell"]
+# %%
 import pandas as pd
 import numpy as np
 import seaborn as sns
