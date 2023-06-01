@@ -10,3 +10,7 @@ notes for statistics fundamentals and machine learning, from probability distrib
 neural networks. 
 
 The book contains a combination of original content and study notes from classes and around the web.
+
+## To update book:
+
+`make serve`
