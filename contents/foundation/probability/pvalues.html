@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hypothesis Testing &#8212; Statsbook</title>
+    <title>P-values &#8212; Statsbook</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="P-values" href="pvalues.html" />
-    <link rel="prev" title="Central Limit Theorem" href="clt.html" />
+    <link rel="next" title="Bias Variance" href="bias_variance.html" />
+    <link rel="prev" title="Hypothesis Testing" href="hypothesis_testing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -143,13 +143,13 @@ const thebe_selector_output = ".output, .cell_output"
      Central Limit Theorem
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="hypothesis_testing.html">
      Hypothesis Testing
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pvalues.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      P-values
     </a>
    </li>
@@ -609,7 +609,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/contents/foundation/probability/hypothesis_testing.py"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/contents/foundation/probability/pvalues.py"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.py</button></a>
         <!-- Download PDF via print -->
@@ -629,7 +629,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="github.com/chansooligans/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontents/foundation/probability/hypothesis_testing.html&body=Your%20issue%20content%20here."><button
+            href="github.com/chansooligans/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontents/foundation/probability/pvalues.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -656,42 +656,28 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#type-i-ii-errors">
-   Type I/II Errors
+  <a class="reference internal nav-link" href="#test-statistic-and-pvalue">
+   test statistic and pvalue
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#alpha">
-     alpha
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#beta">
-     beta
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#if-alpha-0-05">
-     if alpha = 0.05
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#large-sample-tests">
-   Large Sample Tests
+  <a class="reference internal nav-link" href="#simulations">
+   simulations
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#large-sample-tests-with-two-tails">
-     Large Sample Tests with two-tails
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#small-sample-tests">
-   Small Sample Tests
+  <a class="reference internal nav-link" href="#but-what-if-null-is-true">
+   but what if null is true
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#but-what-if-null-is-slightly-different">
+   but what if null is slightly different
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#but-if-population-variance-is-very-narrow">
+   but if population variance is very narrow
   </a>
  </li>
 </ul>
@@ -704,7 +690,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Hypothesis Testing</h1>
+                <h1>P-values</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -715,42 +701,28 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#type-i-ii-errors">
-   Type I/II Errors
+  <a class="reference internal nav-link" href="#test-statistic-and-pvalue">
+   test statistic and pvalue
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#alpha">
-     alpha
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#beta">
-     beta
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#if-alpha-0-05">
-     if alpha = 0.05
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#large-sample-tests">
-   Large Sample Tests
+  <a class="reference internal nav-link" href="#simulations">
+   simulations
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#large-sample-tests-with-two-tails">
-     Large Sample Tests with two-tails
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#small-sample-tests">
-   Small Sample Tests
+  <a class="reference internal nav-link" href="#but-what-if-null-is-true">
+   but what if null is true
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#but-what-if-null-is-slightly-different">
+   but what if null is slightly different
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#but-if-population-variance-is-very-narrow">
+   but if population variance is very narrow
   </a>
  </li>
 </ul>
@@ -762,252 +734,230 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="hypothesis-testing">
-<h1>Hypothesis Testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this headline">¶</a></h1>
-<p>Elements of a Statistical Test:</p>
-<ol class="simple">
-<li><p>Null Hypothesis: the hypothesis to be tested</p></li>
-<li><p>Alternative Hypothesis: hypothesis to be accepted in case null hypothesis is rejected</p></li>
-<li><p>Test Statistic: a function of the sample measurements (e.g. sample mean)</p></li>
-<li><p>Rejection Region: values of the test statistic for which the null hypothesis is to be rejected</p></li>
-</ol>
-<div class="section" id="type-i-ii-errors">
-<h2>Type I/II Errors<a class="headerlink" href="#type-i-ii-errors" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>A <strong>type I error</strong> is made if <span class="math notranslate nohighlight">\(H_0\)</span> is rejected when <span class="math notranslate nohighlight">\(H_0\)</span> is true</p>
-<ul>
-<li><p>the probability of a type I error is the “significance level” of a test, denoted by <span class="math notranslate nohighlight">\(\alpha\)</span></p></li>
-</ul>
-</li>
-<li><p>A <strong>type II error</strong> is made if <span class="math notranslate nohighlight">\(H_0\)</span> is not rejected when <span class="math notranslate nohighlight">\(H_1\)</span> is true</p>
-<ul>
-<li><p>the probability of a type II error is denoted by <span class="math notranslate nohighlight">\(\beta\)</span></p></li>
-</ul>
-</li>
-</ul>
-<p>Consider an example with election data where we want to know the percent of voters in support.
-Let <span class="math notranslate nohighlight">\(H_0 : p = 0.4\)</span> be our null hypothesis and <span class="math notranslate nohighlight">\(H_a : p &lt; 0.4\)</span> be our alternative hypothesis.
-Suppose that we collect a sample of 15 voters and our rejection region is <span class="math notranslate nohighlight">\(y \leq 2\)</span>. That is,
-if there are fewer than 2 votes in support, we reject the null hypothesis in favor of the
-alternative.</p>
-<p>What is alpha and beta?</p>
-<div class="section" id="alpha">
-<h3>alpha<a class="headerlink" href="#alpha" title="Permalink to this headline">¶</a></h3>
-<p>Assume the null hypothesis is true. Our rejection region states that we reject the null hypothesis if
-our test statistic <span class="math notranslate nohighlight">\(y\)</span> (the # of voters in support) <span class="math notranslate nohighlight">\(\leq 2\)</span>. So what is the probability that <span class="math notranslate nohighlight">\(y \leq 2\)</span>, given
-<span class="math notranslate nohighlight">\(p = 0.5\)</span> (null hypothesis)?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># since the statistic is the sum of repeated binary variable, binomial distribution is appropriate</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
-
-<span class="n">alpha</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span>
-    <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-<span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.004
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="beta">
-<h3>beta<a class="headerlink" href="#beta" title="Permalink to this headline">¶</a></h3>
-<p>Assume the null hypothesis is false and true vote support is p = 0.2.
-Our rejection region states that we do NOT reject the null hypothesis if our test statistic
-<span class="math notranslate nohighlight">\(y &gt; 2\)</span>. So what is the probability that we fail to reject the null when it is false?
-In other words, what is the probability that <span class="math notranslate nohighlight">\(y &gt; 2\)</span> given <span class="math notranslate nohighlight">\(p = 0.2\)</span>?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span>
-    <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
-<span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.602
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="if-alpha-0-05">
-<h3>if alpha = 0.05<a class="headerlink" href="#if-alpha-0-05" title="Permalink to this headline">¶</a></h3>
-<p>Typically, we define our rejection region not based on a value of the test statistic, but
-based on a value of <span class="math notranslate nohighlight">\(\alpha\)</span>, specifically <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>. If we reject the null if
-<span class="math notranslate nohighlight">\(\alpha &lt; 0.05\)</span>, how many votes would we need in the sample of 15 to NOT reject the null?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reject</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">reject</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.0
-</pre></div>
-</div>
-</div>
-</div>
-<p>So we reject the null if there are less than 4 support-votes in the sample. We do NOT reject if there
-are at least 4 votes.</p>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="large-sample-tests">
-<h2>Large Sample Tests<a class="headerlink" href="#large-sample-tests" title="Permalink to this headline">¶</a></h2>
-<p>Case study:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A company claims that average tips per shift is $15.  
-We reach out to 42 randomly selected workers and ask how much they made in tips per shift.  
-The mean and variance of the 42 responses are 13 and 36, respectively.  
-Does the evidence contradict the company&#39;s claims?
-</pre></div>
-</div>
-<p>Couple More Definitions:</p>
-<ul class="simple">
-<li><p>A one-tailed test is a hypothesis test where the rejection region is only one side of the sampling distribution</p></li>
-<li><p>A two-tailed test is a hypothesis test that tests whether the test statistic is greater than or less
-than a certain range of values</p></li>
-</ul>
-<p>Here:</p>
-<ul class="simple">
-<li><p>Null Hypothesis: <span class="math notranslate nohighlight">\(H_0: \mu = 15\)</span></p></li>
-<li><p>Alternative Hypothesis: <span class="math notranslate nohighlight">\(H_1: \mu &gt; 15\)</span></p></li>
-<li><p>Test Statistic: <span class="math notranslate nohighlight">\(Z\)</span></p></li>
-<li><p>Rejection region: <span class="math notranslate nohighlight">\(RR = Z &gt; k\)</span> for some <span class="math notranslate nohighlight">\(k\)</span></p></li>
-</ul>
-<p>With a sufficiently large n, we know that the sample mean <span class="math notranslate nohighlight">\(\bar{Y}\)</span> is approximately normally distributed
-with <span class="math notranslate nohighlight">\(\mu_{\bar{Y}} = \mu\)</span> and <span class="math notranslate nohighlight">\(\sigma_{\bar{Y}}= \frac{\sigma}{\sqrt{n}}\)</span></p>
-<p>So our test statistic is:</p>
-<div class="math notranslate nohighlight">
-\[Z = \frac{\bar{Y}-\mu_{0}}{\sigma/\sqrt{n}}\]</div>
-<p>The population variance, <span class="math notranslate nohighlight">\(\sigma^2\)</span> is unknown, but can be estimated by teh sample variance <span class="math notranslate nohighlight">\(s^2=36\)</span>, since
-the sample size is sufficiently large (n=42).</p>
-<p>The rejection region, with <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> is given by <span class="math notranslate nohighlight">\(z &lt; -z_{.05} = -1.645\)</span>.</p>
-<p>The Z-score is computed below:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="p-values">
+<h1>P-values<a class="headerlink" href="#p-values" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.weightstats</span> <span class="kn">import</span> <span class="n">ztest</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mf">11.7</span><span class="p">,</span><span class="mf">8.27</span><span class="p">)})</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
 
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">st</span>
+<span class="c1"># one-sided hypothesis test</span>
+<span class="c1"># NULL Hypothesis: mean = 0</span>
+<span class="c1"># ALT Hypothesis: mean &gt; 0</span>
+
+<span class="c1"># hypothetical population distribution</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span> 
+
+<span class="c1"># what we observe:</span>
+<span class="n">sample_size</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">)</span>
+<span class="n">sample_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="n">sample_var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="test-statistic-and-pvalue">
+<h2>test statistic and pvalue<a class="headerlink" href="#test-statistic-and-pvalue" title="Permalink to this headline">¶</a></h2>
+<p>let <span class="math notranslate nohighlight">\(\bar{y}\)</span> be sample mean, then test statistic is <span class="math notranslate nohighlight">\(\frac{\bar{y}-0}{\sqrt{\sigma^2/n}}\)</span>
+where population mean is 0 and the denominator is the population variance</p>
+<p>we know the population variance bc this is fake data, but usually, we estimate the population
+variance with the sample variance, which we can do if the sample size is large enough</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># using statsmodels&#39; ztest:</span>
+<span class="n">test_statistic</span><span class="p">,</span> <span class="n">pvalue</span> <span class="o">=</span> <span class="n">ztest</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;larger&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_statistic</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.2352691512630507 0.0006076405640442152
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="n">sample_mean</span> <span class="o">=</span> <span class="mi">13</span>
-<span class="n">sample_var</span> <span class="o">=</span> <span class="mi">36</span>
-<span class="n">z_reject</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="p">(</span><span class="n">sample_mean</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_var</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;reject if less than: </span><span class="si">{</span><span class="n">z_reject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;test statistic is: </span><span class="si">{</span><span class="n">Z</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Z</span> <span class="o">&lt;</span> <span class="n">z_reject</span><span class="p">,</span><span class="s2">&quot;reject&quot;</span><span class="p">,</span><span class="s2">&quot;do not reject&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_statistic</span> <span class="o">=</span> <span class="p">(</span><span class="n">sample_mean</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_var</span><span class="o">/</span><span class="p">(</span><span class="n">sample_size</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">pvalue</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">test_statistic</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_statistic</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>reject if less than: -1.6448536269514729
-test statistic is: -2.160246899469287
-reject
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.2352691512630507 0.0006076405640441651
 </pre></div>
 </div>
 </div>
 </div>
-<p>Since the Z test statistic lies in the rejection region, we reject the null hypothesis.<br />
-At the 0.05 level of significance, the evidence is sufficient to indicate that the company’s
-claim is incorrect and that the average tips per shift is less than $15</p>
-<hr class="docutils" />
-<div class="section" id="large-sample-tests-with-two-tails">
-<h3>Large Sample Tests with two-tails<a class="headerlink" href="#large-sample-tests-with-two-tails" title="Permalink to this headline">¶</a></h3>
-<p>Let the Alternative Hypothesis be: <span class="math notranslate nohighlight">\(H_1: \mu != 15\)</span></p>
+</div>
+<div class="section" id="simulations">
+<h2>simulations<a class="headerlink" href="#simulations" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="n">sample_mean</span> <span class="o">=</span> <span class="mi">13</span>
-<span class="n">sample_var</span> <span class="o">=</span> <span class="mi">36</span>
-<span class="n">z_reject</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="n">sample_mean</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_var</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;reject if greater than: </span><span class="si">{</span><span class="n">z_reject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;abs. value of test statistic is: </span><span class="si">{</span><span class="n">Z</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Z</span> <span class="o">&gt;</span> <span class="n">z_reject</span><span class="p">,</span><span class="s2">&quot;reject&quot;</span><span class="p">,</span><span class="s2">&quot;do not reject&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>reject if greater than: 1.9599639845400545
-abs. value of test statistic is: 2.160246899469287
-reject
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="small-sample-tests">
-<h2>Small Sample Tests<a class="headerlink" href="#small-sample-tests" title="Permalink to this headline">¶</a></h2>
-<p>Assume same setting as the large sample test example. But now, n = 8 instead of 42.</p>
-<p>The test statistic is now a t-statistic, which follows a t-distribution with <span class="math notranslate nohighlight">\(n-1\)</span> degrees of freedom.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># one-tail</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">sample_mean</span> <span class="o">=</span> <span class="mi">13</span>
-<span class="n">sample_var</span> <span class="o">=</span> <span class="mi">36</span>
-<span class="n">t_reject</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">tstat</span> <span class="o">=</span> <span class="p">(</span><span class="n">sample_mean</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_var</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;reject if less than: </span><span class="si">{</span><span class="n">t_reject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;test statistic is: </span><span class="si">{</span><span class="n">tstat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">tstat</span> <span class="o">&lt;</span> <span class="n">t_reject</span><span class="p">,</span><span class="s2">&quot;reject&quot;</span><span class="p">,</span><span class="s2">&quot;do not reject&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>reject if less than: -1.8945786050613054
-test statistic is: -0.9428090415820635
-do not reject
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sim</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">sample_size</span> <span class="o">=</span> <span class="mi">40</span><span class="p">):</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">)</span>
+    <span class="n">sample_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+    <span class="n">sample_var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+    <span class="n">test_statistic</span> <span class="o">=</span> <span class="p">(</span><span class="n">sample_mean</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_var</span><span class="o">/</span><span class="p">(</span><span class="n">sample_size</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">pvalue</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">test_statistic</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pvalue</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># two-tail</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">sample_mean</span> <span class="o">=</span> <span class="mi">13</span>
-<span class="n">sample_var</span> <span class="o">=</span> <span class="mi">36</span>
-<span class="n">t_reject</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">tstat</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="n">sample_mean</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_var</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;reject if less than: </span><span class="si">{</span><span class="n">t_reject</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;test statistic is: </span><span class="si">{</span><span class="n">tstat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">tstat</span> <span class="o">&gt;</span> <span class="n">t_reject</span><span class="p">,</span><span class="s2">&quot;reject&quot;</span><span class="p">,</span><span class="s2">&quot;do not reject&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">pvalues</span> <span class="o">=</span> <span class="p">[</span><span class="n">sim</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">pvalues</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>reject if less than: 2.3646242510103
-test statistic is: 0.9428090415820635
-do not reject
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
+<img alt="../../../_images/pvalues_7_1.png" src="../../../_images/pvalues_7_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">pvalues</span> <span class="o">=</span> <span class="p">[</span><span class="n">sim</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">pvalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/pvalues_8_1.png" src="../../../_images/pvalues_8_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="but-what-if-null-is-true">
+<h2>but what if null is true<a class="headerlink" href="#but-what-if-null-is-true" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">pvalues</span> <span class="o">=</span> <span class="p">[</span><span class="n">sim</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">pvalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/pvalues_11_1.png" src="../../../_images/pvalues_11_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">pvalues</span> <span class="o">=</span> <span class="p">[</span><span class="n">sim</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">pvalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/pvalues_12_1.png" src="../../../_images/pvalues_12_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="but-what-if-null-is-slightly-different">
+<h2>but what if null is slightly different<a class="headerlink" href="#but-what-if-null-is-slightly-different" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">pvalues</span> <span class="o">=</span> <span class="p">[</span><span class="n">sim</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">pvalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/pvalues_15_1.png" src="../../../_images/pvalues_15_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">pvalues</span> <span class="o">=</span> <span class="p">[</span><span class="n">sim</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">pvalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/pvalues_16_1.png" src="../../../_images/pvalues_16_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">50_000</span>
+<span class="n">pvalues</span> <span class="o">=</span> <span class="p">[</span><span class="n">sim</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">pvalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/pvalues_17_1.png" src="../../../_images/pvalues_17_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="but-if-population-variance-is-very-narrow">
+<h2>but if population variance is very narrow<a class="headerlink" href="#but-if-population-variance-is-very-narrow" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.025</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">pvalues</span> <span class="o">=</span> <span class="p">[</span><span class="n">sim</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">pvalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/pvalues_20_1.png" src="../../../_images/pvalues_20_1.png" />
 </div>
 </div>
 </div>
@@ -1038,17 +988,17 @@ do not reject
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="clt.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="hypothesis_testing.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Central Limit Theorem</p>
+            <p class="prev-next-title">Hypothesis Testing</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="pvalues.html" title="next page">
+    <a class='right-next' id="next-link" href="bias_variance.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">P-values</p>
+        <p class="prev-next-title">Bias Variance</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
