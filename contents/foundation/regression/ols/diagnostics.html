@@ -1,37 +1,44 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OLS: Diagnostics &#8212; Statsbook</title>
-    
-  <link href="../../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
     <script src="../../../../_static/jquery.js"></script>
@@ -39,785 +46,445 @@
     <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/clipboard.min.js"></script>
     <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contents/foundation/regression/ols/diagnostics';</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="WLS" href="wls.html" />
     <link rel="prev" title="Assumptions" href="assumptions.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../../../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Statsbook</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../home.html">
-   statsbook
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Foundation
- </span>
-</p>
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../home.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Statsbook</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../home.html">
+                    statsbook
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Foundation</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../home.html">
-   Home
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../probability/README.html">
-   Probability
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../probability/intro.html">
-     Probability Introduction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../probability/discrete_distributions.html">
-     Discrete Distributions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../probability/continuous_distributions.html">
-     Continuous Distributions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../probability/multivariate_distributions.html">
-     Multivariate Distributions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../probability/clt.html">
-     Central Limit Theorem
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../probability/hypothesis_testing.html">
-     Hypothesis Testing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../probability/pvalues.html">
-     P-values
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../probability/bias_variance.html">
-     Bias Variance
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../linear_algebra/review.html">
-   Lin Alg Review
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../README.html">
-   Regression
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="README.html">
-     OLS
-    </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul class="current">
-     <li class="toctree-l3">
-      <a class="reference internal" href="ols.html">
-       Demo
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="assumptions.html">
-       Assumptions
-      </a>
-     </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       OLS: Diagnostics
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="wls.html">
-       WLS
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../glm/README.html">
-     Generalized Linear Models
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../glm/logistic/README.html">
-       Logistic Regression
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-      <label for="toctree-checkbox-5">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../glm/logistic/logistic.html">
-         Demo
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../glm/logistic/interpretation.html">
-         Intepretation
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../glm/poisson/README.html">
-       Poisson
-      </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-      <label for="toctree-checkbox-6">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../glm/poisson/poisson.html">
-         Demo
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../glm/poisson/interpretation.html">
-         Interpretation
-        </a>
-       </li>
-      </ul>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../glm/model_comparisons.html">
-       Model Comparisons
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../interactions.html">
-     Interactions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../estimation.html">
-     Estimation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ridge_lasso.html">
-     Regularization
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../sampling/README.html">
-   Sampling
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../sampling/bootstrap.html">
-     Bootstrap
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../sampling/crossvalidation.html">
-     Cross Validation
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../home.html">Home</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../probability/README.html">Probability</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/intro.html">Probability Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/discrete_distributions.html">Discrete Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/continuous_distributions.html">Continuous Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/multivariate_distributions.html">Multivariate Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/clt.html">Central Limit Theorem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/hypothesis_testing.html">Hypothesis Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../probability/bias_variance.html">Bias Variance</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Simulations
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../../simulations/README.html">
-   Simulations
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../../simulations/confidence_intervals.html">
-     Confidence Intervals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../../simulations/pvalues.html">
-     P-values
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../linear_algebra/review.html">Lin Alg Review</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../README.html">Regression</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="README.html">OLS</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ols.html">Demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="assumptions.html">Assumptions</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">OLS: Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wls.html">WLS</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Causal Inference
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../../causal_inference/framework/README.html">
-   Potential Outcomes Framework
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../../causal_inference/framework/fundamental_problem.html">
-     Fundamental Problem of Causal Inference
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../../causal_inference/framework/ignorability.html">
-     Ignorability
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../../causal_inference/framework/matching.html">
-     Matching
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../causal_inference/propensity_scores.html">
-   Propensity Scores
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../causal_inference/regression_discontinuity.html">
-   Regression Discontinuity
-  </a>
- </li>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/README.html">Generalized Linear Models</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../glm/logistic/README.html">Logistic Regression</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../glm/logistic/logistic.html">Demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../glm/logistic/interpretation.html">Intepretation</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Machine Learning
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../machine_learning/home.html">
-   Home
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../../machine_learning/supervised/README.html">
-   Supervised
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../../machine_learning/supervised/discriminant_analysis.html">
-     Discriminant Analysis
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../../machine_learning/supervised/decision_trees/README.html">
-     Decision Trees
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-    <label for="toctree-checkbox-11">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../machine_learning/supervised/decision_trees/regression_tree.html">
-       Regression Trees
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../machine_learning/supervised/decision_trees/classification_tree.html">
-       Classification Trees
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../machine_learning/supervised/decision_trees/boosting.html">
-       Boosting
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../machine_learning/supervised/decision_trees/random_forest.html">
-       Random Forest
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../../machine_learning/supervised/knn.html">
-     K-Nearest Neighbors
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../../machine_learning/supervised/support_vector_machines/README.html">
-     Support Vector Machines
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-    <label for="toctree-checkbox-12">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../machine_learning/supervised/support_vector_machines/theory.html">
-       Theory
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../machine_learning/supervised/support_vector_machines/applied.html">
-       Applied
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../../machine_learning/clustering/README.html">
-   Clustering
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../../machine_learning/clustering/hierarchical/README.html">
-     Hierarchical
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-    <label for="toctree-checkbox-14">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../machine_learning/clustering/hierarchical/theory.html">
-       Theory
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../machine_learning/clustering/hierarchical/applied.html">
-       Applied
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../../machine_learning/clustering/kmeans/README.html">
-     K-means
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-    <label for="toctree-checkbox-15">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../machine_learning/clustering/kmeans/theory.html">
-       Theory
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../../machine_learning/clustering/kmeans/applied.html">
-       Applied
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../machine_learning/metrics.html">
-   Metrics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../machine_learning/pipeline.html">
-   Pipeline Code
-  </a>
- </li>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../glm/poisson/README.html">Poisson</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../glm/poisson/poisson.html">Demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../glm/poisson/interpretation.html">Interpretation</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Neural Networks
- </span>
-</p>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/model_comparisons.html">Model Comparisons</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../interactions.html">Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../estimation.html">Estimation</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../ridge_lasso.html">Regularization</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../sampling/README.html">Sampling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../sampling/bootstrap.html">Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sampling/crossvalidation.html">Cross Validation</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Simulations</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../../neural_networks/home.html">
-   Home
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../../neural_networks/basics/regression_tf.html">
-     Regression - Tensorflow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../../neural_networks/basics/shallow.html">
-     Shallow Neural Network
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../../neural_networks/basics/activation.html">
-     Activation Functions
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../simulations/README.html">Simulations</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../simulations/confidence_intervals.html">Confidence Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../simulations/pvalues.html">P-values</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Causal Inference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../causal_inference/framework/README.html">Potential Outcomes Framework</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../causal_inference/framework/fundamental_problem.html">Fundamental Problem of Causal Inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../causal_inference/framework/ignorability.html">Ignorability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../causal_inference/framework/matching.html">Matching</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../causal_inference/propensity_scores.html">Propensity Scores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../causal_inference/regression_discontinuity.html">Regression Discontinuity</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../machine_learning/home.html">Home</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../machine_learning/supervised/README.html">Supervised</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../machine_learning/supervised/discriminant_analysis.html">Discriminant Analysis</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../machine_learning/supervised/decision_trees/README.html">Decision Trees</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../machine_learning/supervised/decision_trees/regression_tree.html">Regression Trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../machine_learning/supervised/decision_trees/classification_tree.html">Classification Trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../machine_learning/supervised/decision_trees/boosting.html">Boosting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../machine_learning/supervised/decision_trees/random_forest.html">Random Forest</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../machine_learning/supervised/knn.html">K-Nearest Neighbors</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../machine_learning/supervised/support_vector_machines/README.html">Support Vector Machines</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../machine_learning/supervised/support_vector_machines/theory.html">Theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../machine_learning/supervised/support_vector_machines/applied.html">Applied</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../machine_learning/clustering/README.html">Clustering</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../machine_learning/clustering/hierarchical/README.html">Hierarchical</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../machine_learning/clustering/hierarchical/theory.html">Theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../machine_learning/clustering/hierarchical/applied.html">Applied</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../machine_learning/clustering/kmeans/README.html">K-means</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../machine_learning/clustering/kmeans/theory.html">Theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../machine_learning/clustering/kmeans/applied.html">Applied</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine_learning/metrics.html">Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../machine_learning/pipeline.html">Pipeline Code</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Neural Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../neural_networks/home.html">Home</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../neural_networks/basics/regression_tf.html">Regression - Tensorflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../neural_networks/basics/shallow.html">Shallow Neural Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../neural_networks/basics/activation.html">Activation Functions</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../../_sources/contents/foundation/regression/ols/diagnostics.py"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.py</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="github.com/chansooligans/statsbook"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="github.com/chansooligans/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontents/foundation/regression/ols/diagnostics.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="github.com/chansooligans/statsbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="github.com/chansooligans/statsbook/issues/new?title=Issue%20on%20page%20%2Fcontents/foundation/regression/ols/diagnostics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/contents/foundation/regression/ols/diagnostics.py" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.py</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>OLS: Diagnostics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outliers">
-   Outliers
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cook-s-distance">
-     Cook’s Distance:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#leverage">
-     Leverage:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#normality-of-residuals">
-   Normality of Residuals
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#d-agostino-s-k-2-test-omnibus-and-jarque-bera">
-     D’Agostino’s K^2 Test (Omnibus) and Jarque-Bera
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#qq-plots">
-     QQ Plots
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multicollinearity">
-   Multicollinearity
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#condition-number">
-     Condition Number
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#correlation-matrix">
-     Correlation Matrix
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vif">
-     VIF
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#heteroskedasticity-tests">
-   Heteroskedasticity tests
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#linearity-tests">
-   Linearity tests
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cook-s-distance">Cook’s Distance:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leverage">Leverage:</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normality-of-residuals">Normality of Residuals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-agostino-s-k-2-test-omnibus-and-jarque-bera">D’Agostino’s K^2 Test (Omnibus) and Jarque-Bera</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qq-plots">QQ Plots</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multicollinearity">Multicollinearity</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-number">Condition Number</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-matrix">Correlation Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vif">VIF</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heteroskedasticity-tests">Heteroskedasticity tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linearity-tests">Linearity tests</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>OLS: Diagnostics</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outliers">
-   Outliers
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cook-s-distance">
-     Cook’s Distance:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#leverage">
-     Leverage:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#normality-of-residuals">
-   Normality of Residuals
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#d-agostino-s-k-2-test-omnibus-and-jarque-bera">
-     D’Agostino’s K^2 Test (Omnibus) and Jarque-Bera
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#qq-plots">
-     QQ Plots
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multicollinearity">
-   Multicollinearity
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#condition-number">
-     Condition Number
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#correlation-matrix">
-     Correlation Matrix
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vif">
-     VIF
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#heteroskedasticity-tests">
-   Heteroskedasticity tests
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#linearity-tests">
-   Linearity tests
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="tex2jax_ignore mathjax_ignore section" id="ols-diagnostics">
-<h1>OLS: Diagnostics<a class="headerlink" href="#ols-diagnostics" title="Permalink to this headline">¶</a></h1>
+<h1>OLS: Diagnostics<a class="headerlink" href="#ols-diagnostics" title="Permalink to this headline">#</a></h1>
 <p>Ordinary Least Squares / Linear Regression</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -835,7 +502,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <hr class="docutils" />
 <div class="section" id="outliers">
-<h2>Outliers<a class="headerlink" href="#outliers" title="Permalink to this headline">¶</a></h2>
+<h2>Outliers<a class="headerlink" href="#outliers" title="Permalink to this headline">#</a></h2>
 <p>Below uses a fake dataset with one extreme outlier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -853,14 +520,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/csong/cs_github/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y, hue. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/chansoo/projects/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y, hue. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;x1&#39;, ylabel=&#39;x2&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;x1&#39;, ylabel=&#39;x2&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../../../_images/diagnostics_3_2.png" src="../../../../_images/diagnostics_3_2.png" />
+<img alt="../../../../_images/877cf13217d52c7fb8e8bd4c9e7ebf0f2aa60872cb9063d4182ec0f220695d84.png" src="../../../../_images/877cf13217d52c7fb8e8bd4c9e7ebf0f2aa60872cb9063d4182ec0f220695d84.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -878,8 +545,8 @@ const thebe_selector_output = ".output, .cell_output"
 Dep. Variable:                      y   R-squared:                       0.719
 Model:                            OLS   Adj. R-squared:                  0.718
 Method:                 Least Squares   F-statistic:                     637.0
-Date:                Sun, 15 May 2022   Prob (F-statistic):          5.48e-138
-Time:                        14:01:17   Log-Likelihood:                -1086.7
+Date:                Thu, 01 Jun 2023   Prob (F-statistic):          5.48e-138
+Time:                        12:46:00   Log-Likelihood:                -1086.7
 No. Observations:                 501   AIC:                             2179.
 Df Residuals:                     498   BIC:                             2192.
 Df Model:                           2                                         
@@ -904,7 +571,7 @@ Notes:
 </div>
 </div>
 <div class="section" id="cook-s-distance">
-<h3>Cook’s Distance:<a class="headerlink" href="#cook-s-distance" title="Permalink to this headline">¶</a></h3>
+<h3>Cook’s Distance:<a class="headerlink" href="#cook-s-distance" title="Permalink to this headline">#</a></h3>
 <div class="math notranslate nohighlight">
 \[D_i = \frac{\sum^n_{j=1}(\hat{y_j}-\hat{y_{j(i)}})^2}{ps^2}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y_j{i}\)</span> is the fitted value using the model trained leaving out the i-th observation and p is the # of predictors.</p>
@@ -1091,7 +758,7 @@ Notes:
 </div>
 </div>
 <div class="section" id="leverage">
-<h3>Leverage:<a class="headerlink" href="#leverage" title="Permalink to this headline">¶</a></h3>
+<h3>Leverage:<a class="headerlink" href="#leverage" title="Permalink to this headline">#</a></h3>
 <p>OLS predicted values are represented as:</p>
 <div class="math notranslate nohighlight">
 \[\hat{y} = X(X'X)^{-1}X'y\]</div>
@@ -1237,14 +904,14 @@ value <span class="math notranslate nohighlight">\(\hat{y_i}\)</span></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/csong/cs_github/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/chansoo/projects/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;student_resid&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;student_resid&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../../../_images/diagnostics_9_2.png" src="../../../../_images/diagnostics_9_2.png" />
+<img alt="../../../../_images/8d3e1f41b146c8f015c02d45f1620453b428b5a89b399e57cb4575f77a5a2479.png" src="../../../../_images/8d3e1f41b146c8f015c02d45f1620453b428b5a89b399e57cb4575f77a5a2479.png" />
 </div>
 </div>
 <p>Note the changes in results after outlier removal.</p>
@@ -1264,8 +931,8 @@ value <span class="math notranslate nohighlight">\(\hat{y_i}\)</span></p>
 Dep. Variable:                      y   R-squared:                       0.933
 Model:                            OLS   Adj. R-squared:                  0.933
 Method:                 Least Squares   F-statistic:                     3480.
-Date:                Sun, 15 May 2022   Prob (F-statistic):          5.01e-293
-Time:                        14:01:18   Log-Likelihood:                -691.18
+Date:                Thu, 01 Jun 2023   Prob (F-statistic):          5.01e-293
+Time:                        12:46:00   Log-Likelihood:                -691.18
 No. Observations:                 500   AIC:                             1388.
 Df Residuals:                     497   BIC:                             1401.
 Df Model:                           2                                         
@@ -1293,9 +960,9 @@ Notes:
 </div>
 <hr class="docutils" />
 <div class="section" id="normality-of-residuals">
-<h2>Normality of Residuals<a class="headerlink" href="#normality-of-residuals" title="Permalink to this headline">¶</a></h2>
+<h2>Normality of Residuals<a class="headerlink" href="#normality-of-residuals" title="Permalink to this headline">#</a></h2>
 <div class="section" id="d-agostino-s-k-2-test-omnibus-and-jarque-bera">
-<h3>D’Agostino’s K^2 Test (Omnibus) and Jarque-Bera<a class="headerlink" href="#d-agostino-s-k-2-test-omnibus-and-jarque-bera" title="Permalink to this headline">¶</a></h3>
+<h3>D’Agostino’s K^2 Test (Omnibus) and Jarque-Bera<a class="headerlink" href="#d-agostino-s-k-2-test-omnibus-and-jarque-bera" title="Permalink to this headline">#</a></h3>
 <p>In the bottom section of the OLS summary table below, the Omnibus test and the Jarque-Bera (JB)
 tests both test the null hypothesis that the residuals are nomrally distributed.</p>
 <p>Prob(Omnibus) is 0.205 and Prob(JB) is 0.266 so using both tests, we do not reject the null hypothesis
@@ -1325,8 +992,8 @@ that the residuals are normally distributed.</p>
 Dep. Variable:                      y   R-squared:                       0.930
 Model:                            OLS   Adj. R-squared:                  0.930
 Method:                 Least Squares   F-statistic:                     3296.
-Date:                Sun, 15 May 2022   Prob (F-statistic):          1.45e-287
-Time:                        14:01:18   Log-Likelihood:                -678.36
+Date:                Thu, 01 Jun 2023   Prob (F-statistic):          1.45e-287
+Time:                        12:46:00   Log-Likelihood:                -678.36
 No. Observations:                 500   AIC:                             1363.
 Df Residuals:                     497   BIC:                             1375.
 Df Model:                           2                                         
@@ -1357,10 +1024,10 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Density&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Density&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../../../_images/diagnostics_14_1.png" src="../../../../_images/diagnostics_14_1.png" />
+<img alt="../../../../_images/fc465d65b2789cc6a812213e5458571c9a8b1b828fada5335392c0290b9e9118.png" src="../../../../_images/fc465d65b2789cc6a812213e5458571c9a8b1b828fada5335392c0290b9e9118.png" />
 </div>
 </div>
 <p>Suppose we generate fake data such that residuals are not normally distributed. The results
@@ -1389,8 +1056,8 @@ of the tests and the residual distribution plots change accordingly:</p>
 Dep. Variable:                      y   R-squared:                       0.988
 Model:                            OLS   Adj. R-squared:                  0.988
 Method:                 Least Squares   F-statistic:                 2.012e+04
-Date:                Sun, 15 May 2022   Prob (F-statistic):               0.00
-Time:                        14:01:19   Log-Likelihood:                -267.08
+Date:                Thu, 01 Jun 2023   Prob (F-statistic):               0.00
+Time:                        12:46:00   Log-Likelihood:                -267.08
 No. Observations:                 500   AIC:                             540.2
 Df Residuals:                     497   BIC:                             552.8
 Df Model:                           2                                         
@@ -1412,15 +1079,15 @@ Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Density&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Density&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../../../_images/diagnostics_16_2.png" src="../../../../_images/diagnostics_16_2.png" />
+<img alt="../../../../_images/f6ba59fedcc4c6eb88b2ad6b0ad32eb7be8d158398f978ba14be61ba3c2dd563.png" src="../../../../_images/f6ba59fedcc4c6eb88b2ad6b0ad32eb7be8d158398f978ba14be61ba3c2dd563.png" />
 </div>
 </div>
 </div>
 <div class="section" id="qq-plots">
-<h3>QQ Plots<a class="headerlink" href="#qq-plots" title="Permalink to this headline">¶</a></h3>
+<h3>QQ Plots<a class="headerlink" href="#qq-plots" title="Permalink to this headline">#</a></h3>
 <p>A QQ plot sorts your sample in ascending order (here, the sample are the residuals)
 against the quantiles of a distribution (default is normal distribution).</p>
 <p>The number of quantiles is selected to match the size of the sample data.</p>
@@ -1434,15 +1101,15 @@ is normal, the values should “hug” the line.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/diagnostics_18_0.png" src="../../../../_images/diagnostics_18_0.png" />
-<img alt="../../../../_images/diagnostics_18_1.png" src="../../../../_images/diagnostics_18_1.png" />
+<img alt="../../../../_images/bdf64eb56d867ade0524ff387fac83b3918d71bb0259d96860c9b7a7e5788826.png" src="../../../../_images/bdf64eb56d867ade0524ff387fac83b3918d71bb0259d96860c9b7a7e5788826.png" />
+<img alt="../../../../_images/b1fa4aa75f056e8010ad81a6796ec728a2a9711a415fd77225b1df5816caa174.png" src="../../../../_images/b1fa4aa75f056e8010ad81a6796ec728a2a9711a415fd77225b1df5816caa174.png" />
 </div>
 </div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="multicollinearity">
-<h2>Multicollinearity<a class="headerlink" href="#multicollinearity" title="Permalink to this headline">¶</a></h2>
+<h2>Multicollinearity<a class="headerlink" href="#multicollinearity" title="Permalink to this headline">#</a></h2>
 <p>Condition number can be used (high numbers indicate multicollinearity), but usually just look at
 correlation table and plots and VIF</p>
 <div class="cell docutils container">
@@ -1461,7 +1128,7 @@ correlation table and plots and VIF</p>
 </div>
 </div>
 <div class="section" id="condition-number">
-<h3>Condition Number<a class="headerlink" href="#condition-number" title="Permalink to this headline">¶</a></h3>
+<h3>Condition Number<a class="headerlink" href="#condition-number" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Condition Number</span>
@@ -1477,7 +1144,7 @@ correlation table and plots and VIF</p>
 </div>
 </div>
 <div class="section" id="correlation-matrix">
-<h3>Correlation Matrix<a class="headerlink" href="#correlation-matrix" title="Permalink to this headline">¶</a></h3>
+<h3>Correlation Matrix<a class="headerlink" href="#correlation-matrix" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span><span class="s2">&quot;x2&quot;</span><span class="p">,</span><span class="s2">&quot;x3&quot;</span><span class="p">,</span><span class="s2">&quot;x4&quot;</span><span class="p">,</span><span class="s2">&quot;x5&quot;</span><span class="p">]</span>
@@ -1564,10 +1231,10 @@ correlation table and plots and VIF</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../../../../_images/diagnostics_25_1.png" src="../../../../_images/diagnostics_25_1.png" />
+<img alt="../../../../_images/938a609f768f99c07a576e3fecccf10a1fa1c3bd716de026d5916a9990ea2fe8.png" src="../../../../_images/938a609f768f99c07a576e3fecccf10a1fa1c3bd716de026d5916a9990ea2fe8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1579,15 +1246,15 @@ correlation table and plots and VIF</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f2ed1ad4af0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f6b44766970&gt;
 </pre></div>
 </div>
-<img alt="../../../../_images/diagnostics_26_1.png" src="../../../../_images/diagnostics_26_1.png" />
+<img alt="../../../../_images/9e8ae126daaae58cbfccf835ac566c8e9f21f9f5195d003c9f065210027a636d.png" src="../../../../_images/9e8ae126daaae58cbfccf835ac566c8e9f21f9f5195d003c9f065210027a636d.png" />
 </div>
 </div>
 </div>
 <div class="section" id="vif">
-<h3>VIF<a class="headerlink" href="#vif" title="Permalink to this headline">¶</a></h3>
+<h3>VIF<a class="headerlink" href="#vif" title="Permalink to this headline">#</a></h3>
 <p>The variance inflation factor is a measure for the increase of the variance of the
 parameter estimates if an additional variable, given by exog_idx is added to the linear regression.
 It is a measure for multicollinearity of the design matrix.</p>
@@ -1663,7 +1330,7 @@ the factor is calculated as <span class="math notranslate nohighlight">\(VIF = \
 </div>
 <hr class="docutils" />
 <div class="section" id="heteroskedasticity-tests">
-<h2>Heteroskedasticity tests<a class="headerlink" href="#heteroskedasticity-tests" title="Permalink to this headline">¶</a></h2>
+<h2>Heteroskedasticity tests<a class="headerlink" href="#heteroskedasticity-tests" title="Permalink to this headline">#</a></h2>
 <p>Also see: Breush-Pagan test and Goldfeld-Quandt test</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1689,8 +1356,8 @@ the factor is calculated as <span class="math notranslate nohighlight">\(VIF = \
 Dep. Variable:                      y   R-squared:                       0.921
 Model:                            OLS   Adj. R-squared:                  0.921
 Method:                 Least Squares   F-statistic:                     2904.
-Date:                Sun, 15 May 2022   Prob (F-statistic):          6.61e-275
-Time:                        14:01:24   Log-Likelihood:                -715.58
+Date:                Thu, 01 Jun 2023   Prob (F-statistic):          6.61e-275
+Time:                        12:46:02   Log-Likelihood:                -715.58
 No. Observations:                 500   AIC:                             1437.
 Df Residuals:                     497   BIC:                             1450.
 Df Model:                           2                                         
@@ -1730,16 +1397,16 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/csong/cs_github/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/chansoo/projects/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
-/home/csong/cs_github/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+/home/chansoo/projects/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../../../../_images/diagnostics_32_2.png" src="../../../../_images/diagnostics_32_2.png" />
+<img alt="../../../../_images/54db4890aa9ee9de0b11c66a78320b76b0797e6320de8e227db438f9662eb377.png" src="../../../../_images/54db4890aa9ee9de0b11c66a78320b76b0797e6320de8e227db438f9662eb377.png" />
 </div>
 </div>
 <p>Heteroscedasticity may occur if misspecified model:</p>
@@ -1768,14 +1435,14 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/csong/cs_github/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y, hue. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/chansoo/projects/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y, hue. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;x1&#39;, ylabel=&#39;x2&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;x1&#39;, ylabel=&#39;x2&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../../../_images/diagnostics_35_2.png" src="../../../../_images/diagnostics_35_2.png" />
+<img alt="../../../../_images/f4f43cc73609aefa4ca02d06f8b065bad71e0001320993c9396c8458c1f865b9.png" src="../../../../_images/f4f43cc73609aefa4ca02d06f8b065bad71e0001320993c9396c8458c1f865b9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1792,16 +1459,16 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/csong/cs_github/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/chansoo/projects/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
-/home/csong/cs_github/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+/home/chansoo/projects/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../../../../_images/diagnostics_36_2.png" src="../../../../_images/diagnostics_36_2.png" />
+<img alt="../../../../_images/9e137f7632ac0c187f5939c9ce9f54ad1cef1aa6e8f0713c77bec45116e68064.png" src="../../../../_images/9e137f7632ac0c187f5939c9ce9f54ad1cef1aa6e8f0713c77bec45116e68064.png" />
 </div>
 </div>
 <p>Heteroscedasticity may occur if autocorrelation:</p>
@@ -1835,14 +1502,14 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/csong/cs_github/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/chansoo/projects/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;time&#39;, ylabel=&#39;y&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;time&#39;, ylabel=&#39;y&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../../../_images/diagnostics_39_2.png" src="../../../../_images/diagnostics_39_2.png" />
+<img alt="../../../../_images/0383ca2d471f61de92e386c040dba589985a935cc805f0c01e297c807030395b.png" src="../../../../_images/0383ca2d471f61de92e386c040dba589985a935cc805f0c01e297c807030395b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1859,22 +1526,22 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/csong/cs_github/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/chansoo/projects/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
-/home/csong/cs_github/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+/home/chansoo/projects/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;time&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;time&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../../../_images/diagnostics_40_2.png" src="../../../../_images/diagnostics_40_2.png" />
+<img alt="../../../../_images/55bb041099038e985a9f9ca18cd6baec6ea8a783a6e39b24ef26254d866b142e.png" src="../../../../_images/55bb041099038e985a9f9ca18cd6baec6ea8a783a6e39b24ef26254d866b142e.png" />
 </div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="linearity-tests">
-<h2>Linearity tests<a class="headerlink" href="#linearity-tests" title="Permalink to this headline">¶</a></h2>
+<h2>Linearity tests<a class="headerlink" href="#linearity-tests" title="Permalink to this headline">#</a></h2>
 <p>Also see Harvey-Collier multiplier test for Null hypothesis that the linear specification is correct.</p>
 <p>Plot residuals aggainst fitted values</p>
 <p>(or plot observed vs predicted values)</p>
@@ -1891,14 +1558,10 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/csong/cs_github/statsbook/.venv/lib/python3.8/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
-  warnings.warn(
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="../../../../_images/diagnostics_43_2.png" src="../../../../_images/diagnostics_43_2.png" />
+<img alt="../../../../_images/36897dc017ad692258c5a17ccf3645f65688f78f5faa53e38bb9e76bf5ec700b.png" src="../../../../_images/36897dc017ad692258c5a17ccf3645f65688f78f5faa53e38bb9e76bf5ec700b.png" />
 </div>
 </div>
 </div>
@@ -1916,7 +1579,7 @@ Notes:
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./contents/foundation/regression/ols"
         },
         predefinedOutput: true
@@ -1924,44 +1587,122 @@ Notes:
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="assumptions.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Assumptions</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="assumptions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Assumptions</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="wls.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="wls.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">WLS</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Chansoo Song<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
-
-
       </div>
-    </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
   
-  <script src="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cook-s-distance">Cook’s Distance:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leverage">Leverage:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normality-of-residuals">Normality of Residuals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-agostino-s-k-2-test-omnibus-and-jarque-bera">D’Agostino’s K^2 Test (Omnibus) and Jarque-Bera</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qq-plots">QQ Plots</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multicollinearity">Multicollinearity</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-number">Condition Number</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-matrix">Correlation Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vif">VIF</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heteroskedasticity-tests">Heteroskedasticity tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linearity-tests">Linearity tests</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Chansoo Song
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
