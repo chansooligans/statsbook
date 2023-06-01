@@ -2,11 +2,33 @@
 """
 # Hypothesis Testing
 
-Elements of a Statistical Test:
-1. Null Hypothesis: the hypothesis to be tested  
-2. Alternative Hypothesis: hypothesis to be accepted in case null hypothesis is rejected  
-3. Test Statistic: a function of the sample measurements (e.g. sample mean)
-4. Rejection Region: values of the test statistic for which the null hypothesis is to be rejected
+For simulations demonstrating visualizations of alpha / beta / power, go to 
+[simulations/pvalues](../../simulations/pvalues.py).
+
+Hypothesis testing is a method in statistics that allows you to test claims or
+assumptions about a population parameter. The methodology involves four steps:
+
+1. **Formulate the null hypothesis ($H_0$) and the alternative hypothesis ($H_a$
+   or $H_1$):** The null hypothesis often represents a theory that has been put
+   forward, either because it is believed to be true or because it is used as a
+   basis for argument, but has not been proved. The alternative hypothesis is
+   what you might believe to be true or hope to prove true.
+
+2. **Choose the significance level ($\alpha$):** The significance level is a
+   threshold used to determine when to reject the null hypothesis. Common
+   choices are 0.05 and 0.01.
+
+3. **Calculate the test statistic:** This is a quantity calculated from your
+   sample data that is used to decide whether to reject the null hypothesis. The
+   nature of this statistic depends on the nature of the data and the exact null
+   hypothesis being tested. For example, a common choice is the Z-score for data
+   that we assume to follow a normal distribution.
+
+4. **Make the decision:** Based on the calculated test statistic and the chosen
+   significance level, we reject or fail to reject the null hypothesis. If the
+   test statistic is deemed extremely unlikely under the null hypothesis (it
+   lies in the tail of the distribution further than the $\alpha$ cutoff), then
+   we reject the null hypothesis in favor of the alternative.
 """
 
 # %% [markdown]
@@ -14,26 +36,31 @@ Elements of a Statistical Test:
 ## Type I/II Errors
 
 - A **type I error** is made if $H_0$ is rejected when $H_0$ is true  
-    - the probability of a type I error is the "significance level" of a test, denoted by $\alpha$
+    - the probability of a type I error is the "significance level" of a test,
+      denoted by $\alpha$
 - A **type II error** is made if $H_0$ is not rejected when $H_1$ is true
     - the probability of a type II error is denoted by $\beta$
 
-Consider an example with election data where we want to know the percent of voters in support. 
-Let $H_0 : p = 0.4$ be our null hypothesis and $H_a : p < 0.4$ be our alternative hypothesis. 
-Suppose that we collect a sample of 15 voters and our rejection region is $y \leq 2$. That is, 
-if there are fewer than 2 votes in support, we reject the null hypothesis in favor of the 
-alternative.
+Consider an example with election data where we want to know the percent of
+voters in support. Let $H_0 : p = 0.4$ be our null hypothesis and $H_a : p <
+0.4$ be our alternative hypothesis. Suppose that we collect a sample of 15
+voters and our rejection region is $y \leq 2$. That is, if there are fewer than
+2 votes in support, we reject the null hypothesis in favor of the alternative.
 
-What is alpha and beta?
+"""
+# %% [markdown]
+"""
+## What are alpha and beta?
 """
 
 # %% [markdown]
 """
 #### alpha
 
-Assume the null hypothesis is true. Our rejection region states that we reject the null hypothesis if 
-our test statistic $y$ (the # of voters in support) $\leq 2$. So what is the probability that $y \leq 2$, given 
-$p = 0.5$ (null hypothesis)?
+Assume the null hypothesis is true. Our rejection region states that we reject
+the null hypothesis if our test statistic $y$ (the # of voters in support) $\leq
+2$. So what is the probability that $y \leq 2$, given $p = 0.5$ (null
+hypothesis)?
 """
 
 # %%
@@ -50,10 +77,11 @@ print(round(alpha,3))
 """
 #### beta
 
-Assume the null hypothesis is false and true vote support is p = 0.2. 
-Our rejection region states that we do NOT reject the null hypothesis if our test statistic 
-$y > 2$. So what is the probability that we fail to reject the null when it is false? 
-In other words, what is the probability that $y > 2$ given $p = 0.2$?
+Assume the null hypothesis is false and true vote support is p = 0.2. Our
+rejection region states that we do NOT reject the null hypothesis if our test
+statistic $y > 2$. So what is the probability that we fail to reject the null
+when it is false? In other words, what is the probability that $y > 2$ given $p
+= 0.2$?
 """
 
 # %%
@@ -67,9 +95,10 @@ print(round(beta,3))
 """
 #### if alpha = 0.05
 
-Typically, we define our rejection region not based on a value of the test statistic, but 
-based on a value of $\alpha$, specifically $\alpha = 0.05$. If we reject the null if 
-$\alpha < 0.05$, how many votes would we need in the sample of 15 to NOT reject the null?
+Typically, we define our rejection region not based on a value of the test
+statistic, but based on a value of $\alpha$, specifically $\alpha = 0.05$. If we
+reject the null if $\alpha < 0.05$, how many votes would we need in the sample
+of 15 to NOT reject the null?
 """
 
 # %%
@@ -78,43 +107,48 @@ print(reject)
 
 # %% [markdown]
 """
-So we reject the null if there are less than 4 support-votes in the sample. We do NOT reject if there
- are at least 4 votes.
+So we reject the null if there are less than 4 support-votes in the sample. We
+do NOT reject if there are at least 4 votes.
 """
 
 # %% [markdown]
 """
-***
+*** 
+
+
 ## Large Sample Tests
 
-Case study:
+Case study: 
+
 ```
-A company claims that average tips per shift is $15.  
-We reach out to 42 randomly selected workers and ask how much they made in tips per shift.  
-The mean and variance of the 42 responses are 13 and 36, respectively.  
-Does the evidence contradict the company's claims?
+A company claims that average tips per shift is $15. We reach out to 42
+randomly selected workers and ask how much they made in tips per shift. The mean
+and variance of the 42 responses are 13 and 36, respectively. Does the evidence
+contradict the company's claims? 
 ```
 
-Couple More Definitions:
-- A one-tailed test is a hypothesis test where the rejection region is only one side of the sampling distribution
-- A two-tailed test is a hypothesis test that tests whether the test statistic is greater than or less 
-than a certain range of values
+Couple More Definitions:   
+- A one-tailed test is a hypothesis test where the rejection region is only one
+side of the sampling distribution 
+- A two-tailed test is a hypothesis test that tests whether the test statistic
+is greater than or less than a certain range of values
 
-Here:
-- Null Hypothesis: $H_0: \mu = 15$
-- Alternative Hypothesis: $H_1: \mu > 15$
-- Test Statistic: $Z$
-- Rejection region: $RR = Z > k$ for some $k$
+Here: 
+- Null Hypothesis: $H_0: \mu = 15$   
+- Alternative Hypothesis: $H_1: \mu > 15$   
+- Test Statistic: $Z$   
+- Rejection region: $RR = Z > k$ for some $k$  
 
-With a sufficiently large n, we know that the sample mean $\bar{Y}$ is approximately normally distributed 
-with $\mu_{\bar{Y}} = \mu$ and $\sigma_{\bar{Y}}= \frac{\sigma}{\sqrt{n}}$
+With a sufficiently large n, we know that the sample mean $\bar{Y}$ is
+approximately normally distributed with $\mu_{\bar{Y}} = \mu$ and
+$\sigma_{\bar{Y}}= \frac{\sigma}{\sqrt{n}}$
 
 So our test statistic is:  
 
 $$Z = \frac{\bar{Y}-\mu_{0}}{\sigma/\sqrt{n}}$$
 
-The population variance, $\sigma^2$ is unknown, but can be estimated by teh sample variance $s^2=36$, since 
-the sample size is sufficiently large (n=42).
+The population variance, $\sigma^2$ is unknown, but can be estimated by teh
+sample variance $s^2=36$, since the sample size is sufficiently large (n=42).
 
 The rejection region, with $\alpha=0.05$ is given by $z < -z_{.05} = -1.645$.
 
@@ -143,9 +177,10 @@ print(np.where(Z < z_reject,"reject","do not reject"))
 
 # %% [markdown]
 """
-Since the Z test statistic lies in the rejection region, we reject the null hypothesis.  
-At the 0.05 level of significance, the evidence is sufficient to indicate that the company's 
-claim is incorrect and that the average tips per shift is less than $15
+Since the Z test statistic lies in the rejection region, we reject the null
+hypothesis. At the 0.05 level of significance, the evidence is sufficient to
+indicate that the company's claim is incorrect and that the average tips per
+shift is less than $15
 """
 
 # %% [markdown]
@@ -170,12 +205,13 @@ print(np.where(Z > z_reject,"reject","do not reject"))
 
 # %% [markdown]
 """
-***
-## Small Sample Tests
+*** ## Small Sample Tests
 
-Assume same setting as the large sample test example. But now, n = 8 instead of 42.
+Assume same setting as the large sample test example. But now, n = 8 instead of
+42.
 
-The test statistic is now a t-statistic, which follows a t-distribution with $n-1$ degrees of freedom.
+The test statistic is now a t-statistic, which follows a t-distribution with
+$n-1$ degrees of freedom.
 """
 
 # %%

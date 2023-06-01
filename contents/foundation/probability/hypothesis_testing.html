@@ -454,7 +454,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-i-ii-errors">Type I/II Errors</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-i-ii-errors">Type I/II Errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-alpha-and-beta">What are alpha and beta?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alpha">alpha</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beta">beta</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-alpha-0-05">if alpha = 0.05</a></li>
@@ -464,7 +465,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-sample-tests-with-two-tails">Large Sample Tests with two-tails</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#small-sample-tests">Small Sample Tests</a></li>
 </ul>
             </nav>
         </div>
@@ -478,19 +478,37 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="hypothesis-testing">
 <h1>Hypothesis Testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this headline">#</a></h1>
-<p>Elements of a Statistical Test:</p>
+<p>For simulations demonstrating visualizations of alpha / beta / power, go to
+<a class="reference internal" href="../../simulations/pvalues.html"><span class="doc std std-doc">simulations/pvalues</span></a>.</p>
+<p>Hypothesis testing is a method in statistics that allows you to test claims or
+assumptions about a population parameter. The methodology involves four steps:</p>
 <ol class="arabic simple">
-<li><p>Null Hypothesis: the hypothesis to be tested</p></li>
-<li><p>Alternative Hypothesis: hypothesis to be accepted in case null hypothesis is rejected</p></li>
-<li><p>Test Statistic: a function of the sample measurements (e.g. sample mean)</p></li>
-<li><p>Rejection Region: values of the test statistic for which the null hypothesis is to be rejected</p></li>
+<li><p><strong>Formulate the null hypothesis (<span class="math notranslate nohighlight">\(H_0\)</span>) and the alternative hypothesis (<span class="math notranslate nohighlight">\(H_a\)</span>
+or <span class="math notranslate nohighlight">\(H_1\)</span>):</strong> The null hypothesis often represents a theory that has been put
+forward, either because it is believed to be true or because it is used as a
+basis for argument, but has not been proved. The alternative hypothesis is
+what you might believe to be true or hope to prove true.</p></li>
+<li><p><strong>Choose the significance level (<span class="math notranslate nohighlight">\(\alpha\)</span>):</strong> The significance level is a
+threshold used to determine when to reject the null hypothesis. Common
+choices are 0.05 and 0.01.</p></li>
+<li><p><strong>Calculate the test statistic:</strong> This is a quantity calculated from your
+sample data that is used to decide whether to reject the null hypothesis. The
+nature of this statistic depends on the nature of the data and the exact null
+hypothesis being tested. For example, a common choice is the Z-score for data
+that we assume to follow a normal distribution.</p></li>
+<li><p><strong>Make the decision:</strong> Based on the calculated test statistic and the chosen
+significance level, we reject or fail to reject the null hypothesis. If the
+test statistic is deemed extremely unlikely under the null hypothesis (it
+lies in the tail of the distribution further than the <span class="math notranslate nohighlight">\(\alpha\)</span> cutoff), then
+we reject the null hypothesis in favor of the alternative.</p></li>
 </ol>
 <div class="section" id="type-i-ii-errors">
 <h2>Type I/II Errors<a class="headerlink" href="#type-i-ii-errors" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>A <strong>type I error</strong> is made if <span class="math notranslate nohighlight">\(H_0\)</span> is rejected when <span class="math notranslate nohighlight">\(H_0\)</span> is true</p>
 <ul>
-<li><p>the probability of a type I error is the “significance level” of a test, denoted by <span class="math notranslate nohighlight">\(\alpha\)</span></p></li>
+<li><p>the probability of a type I error is the “significance level” of a test,
+denoted by <span class="math notranslate nohighlight">\(\alpha\)</span></p></li>
 </ul>
 </li>
 <li><p>A <strong>type II error</strong> is made if <span class="math notranslate nohighlight">\(H_0\)</span> is not rejected when <span class="math notranslate nohighlight">\(H_1\)</span> is true</p>
@@ -499,17 +517,20 @@ document.write(`
 </ul>
 </li>
 </ul>
-<p>Consider an example with election data where we want to know the percent of voters in support.
-Let <span class="math notranslate nohighlight">\(H_0 : p = 0.4\)</span> be our null hypothesis and <span class="math notranslate nohighlight">\(H_a : p &lt; 0.4\)</span> be our alternative hypothesis.
-Suppose that we collect a sample of 15 voters and our rejection region is <span class="math notranslate nohighlight">\(y \leq 2\)</span>. That is,
-if there are fewer than 2 votes in support, we reject the null hypothesis in favor of the
-alternative.</p>
-<p>What is alpha and beta?</p>
+<p>Consider an example with election data where we want to know the percent of
+voters in support. Let <span class="math notranslate nohighlight">\(H_0 : p = 0.4\)</span> be our null hypothesis and <span class="math notranslate nohighlight">\(H_a : p &lt;
+0.4\)</span> be our alternative hypothesis. Suppose that we collect a sample of 15
+voters and our rejection region is <span class="math notranslate nohighlight">\(y \leq 2\)</span>. That is, if there are fewer than
+2 votes in support, we reject the null hypothesis in favor of the alternative.</p>
+</div>
+<div class="section" id="what-are-alpha-and-beta">
+<h2>What are alpha and beta?<a class="headerlink" href="#what-are-alpha-and-beta" title="Permalink to this headline">#</a></h2>
 <div class="section" id="alpha">
 <h3>alpha<a class="headerlink" href="#alpha" title="Permalink to this headline">#</a></h3>
-<p>Assume the null hypothesis is true. Our rejection region states that we reject the null hypothesis if
-our test statistic <span class="math notranslate nohighlight">\(y\)</span> (the # of voters in support) <span class="math notranslate nohighlight">\(\leq 2\)</span>. So what is the probability that <span class="math notranslate nohighlight">\(y \leq 2\)</span>, given
-<span class="math notranslate nohighlight">\(p = 0.5\)</span> (null hypothesis)?</p>
+<p>Assume the null hypothesis is true. Our rejection region states that we reject
+the null hypothesis if our test statistic <span class="math notranslate nohighlight">\(y\)</span> (the # of voters in support) <span class="math notranslate nohighlight">\(\leq
+2\)</span>. So what is the probability that <span class="math notranslate nohighlight">\(y \leq 2\)</span>, given <span class="math notranslate nohighlight">\(p = 0.5\)</span> (null
+hypothesis)?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># since the statistic is the sum of repeated binary variable, binomial distribution is appropriate</span>
@@ -532,10 +553,11 @@ our test statistic <span class="math notranslate nohighlight">\(y\)</span> (the 
 </div>
 <div class="section" id="beta">
 <h3>beta<a class="headerlink" href="#beta" title="Permalink to this headline">#</a></h3>
-<p>Assume the null hypothesis is false and true vote support is p = 0.2.
-Our rejection region states that we do NOT reject the null hypothesis if our test statistic
-<span class="math notranslate nohighlight">\(y &gt; 2\)</span>. So what is the probability that we fail to reject the null when it is false?
-In other words, what is the probability that <span class="math notranslate nohighlight">\(y &gt; 2\)</span> given <span class="math notranslate nohighlight">\(p = 0.2\)</span>?</p>
+<p>Assume the null hypothesis is false and true vote support is p = 0.2. Our
+rejection region states that we do NOT reject the null hypothesis if our test
+statistic <span class="math notranslate nohighlight">\(y &gt; 2\)</span>. So what is the probability that we fail to reject the null
+when it is false? In other words, what is the probability that <span class="math notranslate nohighlight">\(y &gt; 2\)</span> given <span class="math notranslate nohighlight">\(p
+= 0.2\)</span>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span>
@@ -555,9 +577,10 @@ In other words, what is the probability that <span class="math notranslate nohig
 </div>
 <div class="section" id="if-alpha-0-05">
 <h3>if alpha = 0.05<a class="headerlink" href="#if-alpha-0-05" title="Permalink to this headline">#</a></h3>
-<p>Typically, we define our rejection region not based on a value of the test statistic, but
-based on a value of <span class="math notranslate nohighlight">\(\alpha\)</span>, specifically <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>. If we reject the null if
-<span class="math notranslate nohighlight">\(\alpha &lt; 0.05\)</span>, how many votes would we need in the sample of 15 to NOT reject the null?</p>
+<p>Typically, we define our rejection region not based on a value of the test
+statistic, but based on a value of <span class="math notranslate nohighlight">\(\alpha\)</span>, specifically <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>. If we
+reject the null if <span class="math notranslate nohighlight">\(\alpha &lt; 0.05\)</span>, how many votes would we need in the sample
+of 15 to NOT reject the null?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reject</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -571,25 +594,26 @@ based on a value of <span class="math notranslate nohighlight">\(\alpha\)</span>
 </div>
 </div>
 </div>
-<p>So we reject the null if there are less than 4 support-votes in the sample. We do NOT reject if there
-are at least 4 votes.</p>
+<p>So we reject the null if there are less than 4 support-votes in the sample. We
+do NOT reject if there are at least 4 votes.</p>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="large-sample-tests">
 <h2>Large Sample Tests<a class="headerlink" href="#large-sample-tests" title="Permalink to this headline">#</a></h2>
 <p>Case study:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A company claims that average tips per shift is $15.  
-We reach out to 42 randomly selected workers and ask how much they made in tips per shift.  
-The mean and variance of the 42 responses are 13 and 36, respectively.  
-Does the evidence contradict the company&#39;s claims?
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A company claims that average tips per shift is $15. We reach out to 42
+randomly selected workers and ask how much they made in tips per shift. The mean
+and variance of the 42 responses are 13 and 36, respectively. Does the evidence
+contradict the company&#39;s claims? 
 </pre></div>
 </div>
 <p>Couple More Definitions:</p>
 <ul class="simple">
-<li><p>A one-tailed test is a hypothesis test where the rejection region is only one side of the sampling distribution</p></li>
-<li><p>A two-tailed test is a hypothesis test that tests whether the test statistic is greater than or less
-than a certain range of values</p></li>
+<li><p>A one-tailed test is a hypothesis test where the rejection region is only one
+side of the sampling distribution</p></li>
+<li><p>A two-tailed test is a hypothesis test that tests whether the test statistic
+is greater than or less than a certain range of values</p></li>
 </ul>
 <p>Here:</p>
 <ul class="simple">
@@ -598,13 +622,14 @@ than a certain range of values</p></li>
 <li><p>Test Statistic: <span class="math notranslate nohighlight">\(Z\)</span></p></li>
 <li><p>Rejection region: <span class="math notranslate nohighlight">\(RR = Z &gt; k\)</span> for some <span class="math notranslate nohighlight">\(k\)</span></p></li>
 </ul>
-<p>With a sufficiently large n, we know that the sample mean <span class="math notranslate nohighlight">\(\bar{Y}\)</span> is approximately normally distributed
-with <span class="math notranslate nohighlight">\(\mu_{\bar{Y}} = \mu\)</span> and <span class="math notranslate nohighlight">\(\sigma_{\bar{Y}}= \frac{\sigma}{\sqrt{n}}\)</span></p>
+<p>With a sufficiently large n, we know that the sample mean <span class="math notranslate nohighlight">\(\bar{Y}\)</span> is
+approximately normally distributed with <span class="math notranslate nohighlight">\(\mu_{\bar{Y}} = \mu\)</span> and
+<span class="math notranslate nohighlight">\(\sigma_{\bar{Y}}= \frac{\sigma}{\sqrt{n}}\)</span></p>
 <p>So our test statistic is:</p>
 <div class="math notranslate nohighlight">
 \[Z = \frac{\bar{Y}-\mu_{0}}{\sigma/\sqrt{n}}\]</div>
-<p>The population variance, <span class="math notranslate nohighlight">\(\sigma^2\)</span> is unknown, but can be estimated by teh sample variance <span class="math notranslate nohighlight">\(s^2=36\)</span>, since
-the sample size is sufficiently large (n=42).</p>
+<p>The population variance, <span class="math notranslate nohighlight">\(\sigma^2\)</span> is unknown, but can be estimated by teh
+sample variance <span class="math notranslate nohighlight">\(s^2=36\)</span>, since the sample size is sufficiently large (n=42).</p>
 <p>The rejection region, with <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> is given by <span class="math notranslate nohighlight">\(z &lt; -z_{.05} = -1.645\)</span>.</p>
 <p>The Z-score is computed below:</p>
 <div class="cell docutils container">
@@ -642,9 +667,10 @@ reject
 </div>
 </div>
 </div>
-<p>Since the Z test statistic lies in the rejection region, we reject the null hypothesis.<br />
-At the 0.05 level of significance, the evidence is sufficient to indicate that the company’s
-claim is incorrect and that the average tips per shift is less than $15</p>
+<p>Since the Z test statistic lies in the rejection region, we reject the null
+hypothesis. At the 0.05 level of significance, the evidence is sufficient to
+indicate that the company’s claim is incorrect and that the average tips per
+shift is less than $15</p>
 <hr class="docutils" />
 <div class="section" id="large-sample-tests-with-two-tails">
 <h3>Large Sample Tests with two-tails<a class="headerlink" href="#large-sample-tests-with-two-tails" title="Permalink to this headline">#</a></h3>
@@ -671,13 +697,11 @@ reject
 </div>
 </div>
 </div>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="small-sample-tests">
-<h2>Small Sample Tests<a class="headerlink" href="#small-sample-tests" title="Permalink to this headline">#</a></h2>
-<p>Assume same setting as the large sample test example. But now, n = 8 instead of 42.</p>
-<p>The test statistic is now a t-statistic, which follows a t-distribution with <span class="math notranslate nohighlight">\(n-1\)</span> degrees of freedom.</p>
+<p>*** ## Small Sample Tests</p>
+<p>Assume same setting as the large sample test example. But now, n = 8 instead of
+42.</p>
+<p>The test statistic is now a t-statistic, which follows a t-distribution with
+<span class="math notranslate nohighlight">\(n-1\)</span> degrees of freedom.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># one-tail</span>
@@ -721,6 +745,7 @@ do not reject
 test statistic is: 0.9428090415820635
 do not reject
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -794,7 +819,8 @@ do not reject
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-i-ii-errors">Type I/II Errors</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-i-ii-errors">Type I/II Errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-alpha-and-beta">What are alpha and beta?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alpha">alpha</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beta">beta</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-alpha-0-05">if alpha = 0.05</a></li>
@@ -804,7 +830,6 @@ do not reject
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-sample-tests-with-two-tails">Large Sample Tests with two-tails</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#small-sample-tests">Small Sample Tests</a></li>
 </ul>
   </nav></div>
 
