@@ -1,5 +1,7 @@
 # statsbook  
 
+[https://chansooligans.github.io/statsbook/contents/home.html](https://chansooligans.github.io/statsbook/contents/home.html)
+
 I started this jupyter-book to assist in workshops that I lead for the Research and Analytics Department
 at the New York State Office of the Attorney General. As part of my role as a data scientist, I 
 frequently teach statistics and machine learning topics to colleagues in our department, analysts 
