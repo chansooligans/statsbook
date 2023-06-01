@@ -13,6 +13,7 @@ parts:
     - file: contents/foundation/probability/multivariate_distributions
     - file: contents/foundation/probability/clt
     - file: contents/foundation/probability/hypothesis_testing
+    - file: contents/foundation/probability/pvalues
     - file: contents/foundation/probability/bias_variance
   - file: contents/foundation/linear_algebra/review
   - file: contents/foundation/regression/README
