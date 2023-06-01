@@ -24,10 +24,7 @@ Suppose that we collect a sample of 15 voters and our rejection region is $y \le
 if there are fewer than 2 votes in support, we reject the null hypothesis in favor of the 
 alternative.
 
-"""
-# %% [markdown]
-"""
-## What are alpha and beta?
+What is alpha and beta?
 """
 
 # %% [markdown]
