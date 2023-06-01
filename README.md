@@ -15,4 +15,5 @@ The book contains a combination of original content and study notes from classes
 
 ## To update book:
 
-`make serve`
+1. `make book`
+2. `make serve`
